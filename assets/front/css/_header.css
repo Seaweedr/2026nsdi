@@ -84,27 +84,32 @@ nav ul {
 
 .menu-close-btn-wrap, .news-close-btn-wrap {
   position: fixed;
-  right: 65px;
-  top: 60px;
-  top: -30px;
+  right: 0;
+  top: 0;
+  padding: 50px 45px 0 0;
   opacity: 0;
+  pointer-events: none;
   transition: 0.5s ease-out, opacity 0.3s ease;
-  z-index: 999;
+  z-index: 10000000001;
 }
 .menu-close-btn-wrap .menu-close-btn, .menu-close-btn-wrap .news-close-btn, .news-close-btn-wrap .menu-close-btn, .news-close-btn-wrap .news-close-btn {
   display: block;
   width: 40px;
   height: 40px;
-  border: 1px solid #fff;
+  border: none;
   border-radius: 50%;
   cursor: pointer;
+  background-color: #dea56a;
+  padding: 0;
+  position: relative;
 }
 .menu-close-btn-wrap .menu-close-btn:before, .menu-close-btn-wrap .menu-close-btn:after, .menu-close-btn-wrap .news-close-btn:before, .menu-close-btn-wrap .news-close-btn:after, .news-close-btn-wrap .menu-close-btn:before, .news-close-btn-wrap .menu-close-btn:after, .news-close-btn-wrap .news-close-btn:before, .news-close-btn-wrap .news-close-btn:after {
   content: "";
   position: absolute;
-  width: 60%;
-  height: 1px;
-  background-color: #fff;
+  width: 50%;
+  height: 3px;
+  border-radius: 20px;
+  background-color: #484848;
   transform-origin: center center;
   transition: 0.3s ease;
   left: 50%;
@@ -130,6 +135,7 @@ nav ul {
   transform: translate(0, 0);
   opacity: 1;
   transition: opacity 0.5s ease;
+  pointer-events: auto;
 }
 
 .main-nav-wrap {
@@ -142,10 +148,10 @@ nav ul {
   opacity: 0;
   transform: translate(0, 100%);
   transition: transform 1s 0.3s, opacity 0.5s ease;
-  background-image: url("../images/bg_menu-blur.jpg");
-  background-size: cover;
-  background-position: center center;
+  background: #0c1222;
   overflow: hidden;
+  pointer-events: none;
+  display: none;
 }
 .main-nav-wrap nav {
   height: 100%;
@@ -175,6 +181,7 @@ nav ul {
   position: relative;
   opacity: 0;
   transform: translateY(140px);
+  text-align: center;
 }
 .main-nav-wrap li.main-menu-item:nth-child(1) {
   transition: 0.5s ease, opacity 0.3s calc((1 - 1) * 0.05s + 0.15s) ease, transform 1.4s calc((1 - 1) * 0.05s + 0.15s) ease-out;
@@ -207,7 +214,6 @@ nav ul {
   transition: 0.5s ease, opacity 0.3s calc((10 - 1) * 0.05s + 0.15s) ease, transform 1.4s calc((10 - 1) * 0.05s + 0.15s) ease-out;
 }
 .main-nav-wrap ul.main-menu-list li.main-menu-item .menu-content {
-  padding-left: 15vw;
   transition: opacity 0.5s ease;
   opacity: 0.7;
   font-size: 0px;
@@ -223,9 +229,8 @@ nav ul {
 .main-nav-wrap ul.main-menu-list li.main-menu-item span.title {
   vertical-align: top;
   transition: 0.5s ease;
-  color: white;
+  color: rgba(255, 255, 255, 0.88);
   position: relative;
-  width: 365px;
   font-size: 0px;
 }
 .main-nav-wrap ul.main-menu-list li.main-menu-item span.title span {
@@ -233,12 +238,19 @@ nav ul {
   vertical-align: top;
 }
 .main-nav-wrap ul.main-menu-list li.main-menu-item span.title span.en {
-  font-size: 34px;
-  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 .main-nav-wrap ul.main-menu-list li.main-menu-item span.title span.cn {
+  font-family: "Noto Sans TC", "PingFang TC", sans-serif;
   font-size: 13px;
-  margin-left: 10px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-left: 14px;
+  opacity: 0.5;
 }
 .main-nav-wrap ul.main-menu-list li.main-menu-item .wave-svg {
   width: 110%;
@@ -341,12 +353,6 @@ nav ul {
   }
 }
 @media all and (min-width: 1200px) {
-  .main-nav-wrap ul.main-menu-list li.main-menu-item:hover {
-    padding: 60px 0px;
-  }
-  .main-nav-wrap ul.main-menu-list li.main-menu-item:hover .wave-svg {
-    bottom: -5%;
-  }
   .main-nav-wrap ul.main-menu-list:hover li.main-menu-item .menu-content {
     opacity: 0.3;
   }
@@ -564,10 +570,7 @@ nav ul {
     background-color: #dea56a;
   }
 }
-body.main-menu-open {
-  overflow-y: hidden !important;
-  overflow: hidden !important;
-}
+/* scroll lock handled by Lenis (.lenis-stopped { overflow: hidden }) */
 
 body.news-wrap-open {
   overflow-y: hidden !important;
@@ -582,8 +585,8 @@ body.news-wrap-open {
   transition: opacity 0.5s ease;
 }
 .main-menu-open .menu-close-btn-wrap {
-  top: 60px;
   opacity: 1;
+  pointer-events: auto;
 }
 .main-menu-open .menu-toggle-btn-wrap {
   opacity: 0;
@@ -639,11 +642,10 @@ body.news-wrap-open {
 
 @media all and (max-width: 576px) {
   .menu-close-btn-wrap {
-    right: 40px;
+    padding: 30px 25px 0 0;
   }
   .main-menu-open .menu-close-btn-wrap {
-    top: 25px;
-    right: 40px;
+    padding: 30px 25px 0 0;
   }
   .main-menu-open .lang-toggle-wrap {
     top: 45px;
