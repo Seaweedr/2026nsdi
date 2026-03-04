@@ -14,14 +14,32 @@
     // 1. Hero entrance
     // ========================================
     function initHeroEntrance() {
-        function run() {
-            if (document.body.classList.contains('hero-revealed')) return;
-            document.body.classList.add('hero-revealed');
-            document.body.classList.add('loaded');
-            document.body.classList.remove('loading-in');
+        var triggered = false;
+        function startEntrance() {
+            if (triggered) return;
+            triggered = true;
+            var loader = document.querySelector('.loader-wrap');
+            if (loader) {
+                // Fade out loading logo
+                loader.classList.add('fade-out');
+                setTimeout(function() {
+                    loader.style.display = 'none';
+                    // Triangle + text enter together
+                    document.body.classList.add('triangle-emerging');
+                    document.body.classList.add('hero-revealed');
+                    document.body.classList.add('loaded');
+                    document.body.classList.remove('loading-in');
+                }, 400);
+            } else {
+                document.body.classList.add('triangle-emerging');
+                document.body.classList.add('hero-revealed');
+                document.body.classList.add('loaded');
+                document.body.classList.remove('loading-in');
+            }
         }
-        window.addEventListener('load', run);
-        setTimeout(run, 4000);
+        window.addEventListener('load', startEntrance);
+        // Safety fallback: 8s
+        setTimeout(startEntrance, 8000);
     }
 
     // ========================================
@@ -32,6 +50,11 @@
         if (!canvas) return;
         var ctx = canvas.getContext('2d');
         var heroEl = document.querySelector('.nomo-hero');
+
+        // Entrance: triangle emerges from darkness
+        var entranceAlpha = 0;
+        var entranceDone = false;
+        var colorProgress = 0; // 0 = grayscale, 1 = full gold
 
         // Move canvas OUT of hero to avoid overflow:hidden clipping
         document.body.appendChild(canvas);
@@ -169,6 +192,21 @@
 
         /* ---- Render ---- */
         function tick() {
+            // Entrance: triangle emerges from darkness
+            if (!entranceDone) {
+                if (document.body.classList.contains('triangle-emerging')) {
+                    entranceAlpha = Math.min(1, entranceAlpha + 0.03); // ~0.55s @ 60fps
+                }
+                if (entranceAlpha >= 1) entranceDone = true;
+            }
+            // Color: grayscale → gold (slower, ~2s)
+            if (colorProgress < 1 && document.body.classList.contains('triangle-emerging')) {
+                colorProgress = Math.min(1, colorProgress + 0.015); // ~1.1s @ 60fps
+            }
+            // ease-out cubic: starts visible quickly, settles gently
+            var t = 1 - entranceAlpha;
+            var easeAlpha = entranceDone ? 1 : 1 - t * t * t;
+
             smooth.x += (mouse.x - smooth.x) * 0.04;
             smooth.y += (mouse.y - smooth.y) * 0.04;
 
@@ -177,7 +215,9 @@
             var sp = Math.pow(scrollP, 1.3);
             var scrollZoom = 1 + sp * 50;
             var scrollRot = sp * Math.PI * 3.5;
-            renderScale = vScale * scrollZoom;
+            // Entrance scale: triangle grows from 0.85 → 1.0
+            var entranceScale = entranceDone ? 1 : 0.85 + 0.15 * easeAlpha;
+            renderScale = vScale * scrollZoom * entranceScale;
 
             var ry = (smooth.x - 0.5) * 0.3 + scrollRot;
             var rx = (smooth.y - 0.5) * 0.2 + 0.3 + scrollP * 0.15;
@@ -201,17 +241,19 @@
 
             var time = performance.now() * 0.001;
 
-            // --- Opaque background covers everything (no seam possible) ---
+            // --- Opaque background covers everything (always solid, no flash) ---
             ctx.globalAlpha = canvasAlpha;
             var darkAmt = Math.min(1, scrollP * 2.5);
-            var bgR = Math.round(12 * (1 - darkAmt));
-            var bgG = Math.round(18 * (1 - darkAmt));
-            var bgB = Math.round(34 * (1 - darkAmt));
+            // During entrance: blend from pure black → normal dark blue
+            var baseR = 12, baseG = 18, baseB = 34;
+            var bgR = Math.round(baseR * easeAlpha * (1 - darkAmt));
+            var bgG = Math.round(baseG * easeAlpha * (1 - darkAmt));
+            var bgB = Math.round(baseB * easeAlpha * (1 - darkAmt));
             ctx.fillStyle = 'rgb(' + bgR + ',' + bgG + ',' + bgB + ')';
             ctx.fillRect(0, 0, W, H);
 
             // --- 琉璃光 on top of darkening background ---
-            var glowFade = Math.max(0, 1 - scrollP * 3) * canvasAlpha;
+            var glowFade = Math.max(0, 1 - scrollP * 3) * canvasAlpha * easeAlpha;
             var glC = [[120,60,180],[40,100,200],[0,160,180],[60,180,100],[200,160,40],[180,60,120]];
             if (glowFade > 0.001) {
                 for (var gl = 0; gl < 5; gl++) {
@@ -237,7 +279,7 @@
 
             // --- Opaque Möbius triangle on OVERLAY canvas (independent fade) ---
             if (triFade > 0) {
-                triCtx.globalAlpha = triFade;
+                triCtx.globalAlpha = triFade * easeAlpha;
                 var lightDir = norm3([0.5, -0.6, 0.8]);
                 var light2 = norm3([-0.3, 0.4, 0.5]);
 
@@ -323,6 +365,14 @@
                     g = Math.min(255, Math.max(0, g)) | 0;
                     b = Math.min(255, Math.max(0, b)) | 0;
 
+                    // No light → lit: triangle emerges as dark silhouette, light gradually fills in
+                    if (colorProgress < 1) {
+                        var lightFactor = 0.06 + 0.94 * colorProgress;
+                        r = (r * lightFactor) | 0;
+                        g = (g * lightFactor) | 0;
+                        b = (b * lightFactor) | 0;
+                    }
+
                     triCtx.beginPath();
                     triCtx.moveTo(p[0].x, p[0].y);
                     triCtx.lineTo(p[1].x, p[1].y);
@@ -346,7 +396,9 @@
                 triCanvas.style.visibility = 'hidden';
                 return;
             }
-            tick();
+            if (!document.body.classList.contains('main-menu-open')) {
+                tick();
+            }
             requestAnimationFrame(loop);
         }
 
@@ -722,7 +774,9 @@
 
         function loop() {
             if (!running) return;
-            tick();
+            if (!document.body.classList.contains('main-menu-open')) {
+                tick();
+            }
             requestAnimationFrame(loop);
         }
 
@@ -1306,7 +1360,9 @@
 
         function loop() {
             if (!running) return;
-            tick();
+            if (!document.body.classList.contains('main-menu-open')) {
+                tick();
+            }
             requestAnimationFrame(loop);
         }
 
@@ -1451,7 +1507,7 @@
         var phases = [0, 0.8, 1.6, 2.4];
 
         function animate(now) {
-            if (window.scrollY > 10) {
+            if (window.scrollY > 10 || document.body.classList.contains('main-menu-open')) {
                 requestAnimationFrame(animate);
                 return;
             }
@@ -1511,6 +1567,25 @@
 
         for (var i = 1; i < sections.length; i++) {
             observer.observe(sections[i]);
+        }
+    }
+
+    // ========================================
+    // 5b. UNLIMITED letter-rise (mask reveal)
+    // ========================================
+    function splitTextToLetters() {
+        var el = document.querySelector('.nomo-hero__title-accent');
+        if (!el) return;
+        var text = el.textContent;
+        el.textContent = '';
+        el.classList.remove('anim-reveal');
+        el.classList.add('letter-rise-wrap');
+        for (var i = 0; i < text.length; i++) {
+            var letter = document.createElement('span');
+            letter.className = 'letter-rise';
+            letter.textContent = text[i];
+            letter.style.transitionDelay = (0.4 + i * 0.06) + 's';
+            el.appendChild(letter);
         }
     }
 
@@ -1627,11 +1702,38 @@
         }
 
         initSectionTransitions();
+        splitTextToLetters();
         initScrollReveal();
         if (!prefersReducedMotion) {
             initLenisScroll();
         }
         initScrollState();
+
+        // Menu toggle (vanilla JS — independent of jQuery/main.js)
+        function openMenu() {
+            document.body.classList.add('main-menu-open');
+            if (lenis) lenis.stop();
+            var list = document.querySelector('.main-menu-list');
+            if (list) list.scrollTop = 0;
+        }
+        function closeMenu() {
+            document.body.classList.remove('main-menu-open');
+            if (lenis) lenis.start();
+        }
+
+        var menuToggleEl = document.querySelector('.menu-toggle-btn .el');
+        if (menuToggleEl) {
+            menuToggleEl.addEventListener('click', openMenu);
+        }
+        var menuCloseBtn = document.querySelector('.menu-close-btn');
+        if (menuCloseBtn) {
+            menuCloseBtn.addEventListener('click', closeMenu);
+        }
+
+        // Close menu on menu-link click
+        document.querySelectorAll('.main-menu-link').forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
     });
 
 })();
