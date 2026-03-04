@@ -1816,7 +1816,7 @@ body.homepage {
   height: 100vh;
   min-height: 600px;
   overflow: hidden;
-  background: #0c1222;
+  background: #000;
 }
 
 .nomo-hero__canvas {
@@ -1950,6 +1950,26 @@ body.homepage {
 }
 .nomo-hero__title-accent::after {
   display: none;
+}
+
+/* UNLIMITED letter-rise (mask reveal) */
+.letter-rise-wrap {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  clip-path: inset(0 0 0 0);
+  font-size: clamp(52px, 11vw, 150px) !important;
+  letter-spacing: 8px;
+}
+.letter-rise {
+  display: inline-block;
+  letter-spacing: 0;
+  font-size: inherit;
+  transform: translateY(110%);
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.hero-revealed .letter-rise {
+  transform: translateY(0);
 }
 
 .nomo-hero__desc {
@@ -2582,6 +2602,21 @@ body.homepage {
   text-align: center;
   padding: 0 8vw;
 }
+.nomo-works__cta .nomo-btn {
+  background: rgba(12, 18, 34, 0.08);
+  color: #1a1a1a;
+  border: 1px solid rgba(12, 18, 34, 0.15);
+}
+.nomo-works__cta .nomo-btn::before {
+  background: #9b6e23;
+}
+.nomo-works__cta .nomo-btn::after {
+  background: rgba(155, 110, 35, 0.12);
+}
+.nomo-works__cta .nomo-btn:hover {
+  color: #0c1222;
+  border-color: rgba(155, 110, 35, 0.35);
+}
 
 /* Work card */
 .nomo-work-card {
@@ -2620,6 +2655,18 @@ body.homepage {
 .nomo-work-card:hover .nomo-work-card__img img {
   transform: scale(1.04);
   filter: brightness(0.95);
+}
+.nomo-work-card__overlay {
+  transition: background 0.45s cubic-bezier(0.23,1,0.32,1);
+}
+.nomo-work-card:hover .nomo-work-card__overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 18, 34, 0.55) 0%,
+    rgba(12, 18, 34, 0.15) 40%,
+    rgba(12, 18, 34, 0.15) 60%,
+    rgba(155, 110, 35, 0.50) 100%
+  );
 }
 
 /* Overlay: covers full card, flex column space-between */
@@ -2724,7 +2771,7 @@ body.homepage {
 .nomo-feature-card {
   background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
+  border-radius: 16px;
   padding: 60px 44px 52px;
   position: relative;
   overflow: hidden;
@@ -9579,12 +9626,10 @@ button:focus-visible,
   position: relative;
   overflow: hidden;
   background: #E7E7E7;
-  padding: 100px 0;
+  padding: 100px 12px;
 }
 .nomo-contact-cta__shapes {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+  display: none;
 }
 .nomo-contact-cta__tri {
   position: absolute;
@@ -9611,7 +9656,7 @@ button:focus-visible,
 .nomo-contact-cta__inner {
   position: relative;
   z-index: 2;
-  max-width: 1100px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 60px 72px;
   background: rgba(155,110,35,0.08);
@@ -9621,6 +9666,12 @@ button:focus-visible,
   align-items: center;
   justify-content: space-between;
   gap: 40px;
+  transition: background 0.45s cubic-bezier(0.23,1,0.32,1), border-color 0.45s cubic-bezier(0.23,1,0.32,1);
+  cursor: pointer;
+}
+.nomo-contact-cta__inner:hover {
+  background: #0c1222;
+  border-color: #0c1222;
 }
 .nomo-contact-cta__title {
   font-family: 'Montserrat', sans-serif;
@@ -9630,6 +9681,10 @@ button:focus-visible,
   color: #1a1a1a;
   margin: 0 0 12px;
   line-height: 1.1;
+  transition: color 0.45s cubic-bezier(0.23,1,0.32,1);
+}
+.nomo-contact-cta__inner:hover .nomo-contact-cta__title {
+  color: #fff;
 }
 .nomo-contact-cta__sub {
   font-family: 'Noto Sans TC', sans-serif;
@@ -9639,6 +9694,10 @@ button:focus-visible,
   color: rgba(26,26,26,0.50);
   margin: 0;
   line-height: 1.6;
+  transition: color 0.45s cubic-bezier(0.23,1,0.32,1);
+}
+.nomo-contact-cta__inner:hover .nomo-contact-cta__sub {
+  color: rgba(255,255,255,0.55);
 }
 .nomo-contact-cta__btn {
   flex-shrink: 0;
@@ -9654,7 +9713,8 @@ button:focus-visible,
   transition: transform 0.35s cubic-bezier(0.23,1,0.32,1), background 0.3s, box-shadow 0.3s;
   box-shadow: 0 4px 24px rgba(0,0,0,0.10);
 }
-.nomo-contact-cta__btn:hover {
+.nomo-contact-cta__btn:hover,
+.nomo-contact-cta__inner:hover .nomo-contact-cta__btn {
   transform: translateX(6px);
   background: rgba(155,110,35,1);
   color: #fff;
