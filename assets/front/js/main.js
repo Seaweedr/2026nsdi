@@ -43,19 +43,14 @@ $("body").addClass(usrBrowser);
 
 $(document).ready(function(){
 
-    // $loading
-    $(window).on('load', function(){
-        $('body').addClass('loaded');
-        $("body").removeClass("loading-in");
-        $('.loader-wrap').fadeOut(300);
-    })
+    // $loading — 進場由 index.js 三角形浮現控制
 
     // $loading-轉頁面
     $('a:not([href^="#"]):not([class*="no-page-transit"]):not([download]):not([target]):not([href^="mailto"])').on("click", function(e) {
         if($(this).attr('href').indexOf('#') != 0){
             e.preventDefault();
             var t = this.href;
-            $('.loader-wrap').fadeIn(100);
+            $('.loader-wrap').removeClass('fade-out').css('display','').css('opacity','1');
             $('body').removeClass('main-menu-open');
             $("body").addClass("lock-scroll");
             setTimeout(function() {
@@ -68,7 +63,7 @@ $(document).ready(function(){
     $(window).bind("pageshow", function(event) {
         setTimeout(function() {
             $('body').addClass('loaded');
-            $('.loader-wrap').fadeOut(300);
+            $('.loader-wrap').addClass('fade-out');
         }, 300)
     });
 
