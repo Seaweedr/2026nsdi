@@ -1,0 +1,128 @@
+@charset "UTF-8"
+@import var_mixin
+
+footer
+    z-index: 1
+    width: 100%
+    // background: $color_gradient
+    background-color: #1a1a1a
+    padding: 56px 0px 71px 0px
+    color: $color_home-white
+    position: relative
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.2)
+    -webkit-transition: 1.5s -webkit-filter ease
+    -o-transition: 1.5s -o-filter ease
+    transition: 1.5s filter ease
+
+
+.section-footer
+    .intro-wrap
+        margin-bottom: 35px
+        p, p span
+            font-size: 14px
+            +fw300
+            letter-spacing: 1.8px
+            text-align: left
+        p
+            padding-left: 56px
+            text-indent: -56px
+            // padding-left: calc(14px * 4)
+            // text-indent: calc(-14px * 4)
+            span
+                margin-left: 20px
+    .link-wrap
+        .icon-link-wrap, .text-link-wrap
+            display: inline-block
+            font-size: 0px
+        .icon-link, .text-link
+            font-size: 0px
+            display: inline-block
+            vertical-align: middle
+            margin-right: 25px
+            
+
+            a
+                display: block
+                transition: all .3s ease-out
+        .icon-link
+            +size(25px, 25px)
+            
+
+            img
+                width: 100%
+                height: auto
+                max-height: 100%
+                vertical-align: bottom
+
+
+        .text-link
+            padding-left: 20px
+            position: relative
+            &:before
+                content: ''
+                position: absolute
+                +size(1px, 14px)
+                background-color: rgba(#fff, 0.6)
+                top: 50%
+                left: 0
+                transform: translateY(-50%)
+            &.no1
+                &:before
+                    display: none
+
+            a
+                font-size: 14px
+                +fw300
+                letter-spacing: 2.2px
+                text-align: right
+                color: #ffffff
+                transition: all .3s ease-out
+            &:hover
+                a
+                    color: $color_home-main
+
+    .sub-btn-pos, p.copyright
+        text-align: right
+    p.copyright
+        font-size: 12px
+        +fwB
+        letter-spacing: 1.7px
+        color: #797979
+        margin-top: 26px
+    .sub-btn-wrap
+        +sub-btn
+@media all and (min-width: 1200px)
+    .section-footer
+        .sub-btn-wrap
+            +sub-btn-hover
+        .link-wrap
+            .icon-link, .text-link
+                a
+                    &:hover
+                        opacity: 0.5
+                        transform: translateY(-3px)
+                        color: #fff
+@media all and (max-width: 991px)
+    .section-footer
+        .intro-wrap p , .intro-wrap p span
+            text-align: center
+        .link-wrap
+            text-align: center
+            .icon-link-wrap
+                margin-bottom: 15px
+            .icon-link-wrap, .text-link-wrap
+                display: block
+                text-align: center
+            .icon-link
+                margin: 0px 12.5px
+            .text-link
+                margin-right: 20px
+        .sub-btn-pos
+            margin-top: 35px
+        .sub-btn-pos, p.copyright
+            text-align: center
+
+@media all and (max-width: 480px)
+    .section-footer
+        .sub-btn-wrap
+            margin: 0 auto 

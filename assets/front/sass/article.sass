@@ -1,0 +1,34 @@
+.nsdi-article-system
+    position: relative
+    // overflow: hidden
+
+.nas-wrapper, .nas-image-wrapper, .nas-article-wrapper
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+
+.nsdi-article-system
+    &:not(:last-child)
+        margin-bottom: 30px
+    .row
+        display: flex
+        flex-wrap: wrap
+        &:before, &:after
+            display: none
+
+.nas-image-wrapper img, .nas-article img
+    max-width: 100%
+    height: auto !important
+
+.nas-article-wrapper, .nas-image-wrapper
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+
+.nas-article
+    padding: 20px
+
+@media screen and (max-width: 767px)
+    .nas-mobile-reverse
+        flex-direction: column-reverse

@@ -1,0 +1,1392 @@
+
+// ----------------------------
+// $Catalog 目錄
+
+// $共用樣式
+// $loading
+// $logo 
+// $main-nav
+// $menu-toggle-btn
+// 選單開啟時
+// $online-chat-toggle-btn, $news-toggle-btn 共用
+// $online-chat-toggle-btn
+// $news-toggle-btn
+// $news-wrap
+// $topic-menu
+// $各頁header樣式
+// ----------------------------
+
+@charset "UTF-8"
+@import var_mixin
+
+
+// ----------------------------
+// $logo 
+// ----------------------------
+
+header
+    z-index: 100002
+    position: fixed
+    left: 0
+    top: 0
+    +d_transition
+    transform: translate(0, 0)
+.logo-wrap
+    padding: 50px 0px 0px 45px
+    .big-logo
+        +d_transition
+        +size(50px, 50px)
+    .small-logo
+        display: none
+        +size(40px, 40px)
+        +d_transition
+    a
+        display: block
+        +poaLink
+        text-indent: -999px
+    .logo-group
+        fill: #DEA56A
+
+.loader-wrap
+    +size(100vw, 100vh)
+    position: fixed
+    left: 0
+    top: 0
+    // z-index: 10000000001
+    z-index: 9998
+    opacity: 1
+    // background-color: rgba(#fff, 1)
+    // background-color: $color_main-bg
+
+// loading完成
+.loaded
+    .header-el
+        transition: opacity .3s ease-in-out
+        ~.fb_dialog
+            transition: opacity .3s ease-in-out
+    .header-el.menu-hide
+        opacity: 0
+        pointer-events: none
+        ~.fb_dialog
+            opacity: 0
+            pointer-events: none
+
+
+        
+// 轉頁前
+.loading-out
+
+// 暫時拿掉loading start
+// header
+//     left: 0
+//     top: 0
+//     +d_transition
+//     transform: translate(0, 0)
+// .logo-wrap
+//     padding: 50px 0px 0px 45px
+//     .big-logo
+//         +d_transition
+//         +size(50px, 50px)
+//     a
+//         display: block
+
+// .loader-wrap
+//     transform: translateY(-100%)
+//     opacity: 0
+// 暫時拿掉loading end
+
+
+// .loading-in
+//     .header-el
+//         opacity: 1!important
+//     .menu-toggle-btn-wrap, .online-chat-toggle-btn-wrap, .news-toggle-btn-wrap
+//         opacity: 0!important
+
+
+
+// 轉頁前
+// .loading-out
+//     .header-el
+//         opacity: 1!important
+//     .menu-toggle-btn-wrap, .online-chat-toggle-btn-wrap, .news-toggle-btn-wrap
+//         opacity: 0!important
+//     header
+//         left: 50vw
+//         top: 50vh
+//         +d_transition
+//         transform: translate(-50%, -100%)
+//     .logo-wrap
+//         padding: 0
+//         .big-logo
+//             +d_transition
+//             +size(130px, 130px)
+//         a
+//             display: none
+
+//     .loader-wrap
+//         transform: translateY(0)
+//         opacity: 1
+//         transition: opacity 1s ease-in-out, transform 0s ease-in-out
+
+@media all and (min-width: 768px)
+    .logo-wrap
+        &:hover
+            opacity: 0.8
+@media all and (max-width: 576px)
+    .logo-wrap
+        padding: 25px 0px 0px 20px
+        .big-logo
+            display: none
+        .small-logo
+            display: block
+
+
+    // // 轉頁前
+    // .loading-out
+    //     .logo-wrap
+    //         padding: 0
+    //         .small-logo
+    //             +size(60px, 60px)
+    //             +d_transition
+    //         a
+    //             display: none
+
+// ----------------------------
+// $main-nav
+// ----------------------------
+nav ul
+    list-style-type: none
+    margin: 0
+    padding: 0
+.menu-close-btn-wrap, .news-close-btn-wrap
+    position: fixed
+    right: 65px
+    top: 60px
+    top: -30px
+    opacity: 0
+    transition: .5s ease-out, opacity .3s ease
+    z-index: 999
+    .menu-close-btn, .news-close-btn
+        display: block
+        +size(40px, 40px)
+        border: 1px solid #fff
+        border-radius: 50%
+        cursor: pointer
+        &:before, &:after
+            content: ''
+            position: absolute
+            width: 60%
+            height: 1px
+            background-color: #fff
+            transform-origin: center center
+            transition: .3s ease
+            left: 50%
+            top: 50%
+        &:before
+            transform: translate(-50%, -50%) rotate(45deg)
+        &:after
+            transform: translate(-50%, -50%) rotate(-45deg)
+
+@media all and (min-width: 768px)
+    .menu-close-btn-wrap, .news-close-btn-wrap
+        .menu-close-btn:hover, .news-close-btn:hover
+            &:before
+                transform: translate(-50%, -50%) rotate(25deg)
+            &:after
+                transform: translate(-50%, -50%) rotate(-25deg)
+
+
+.main-menu-open
+    .main-nav-wrap
+        display: block
+        // animation: fadeIn 0.8s ease both
+        transform: translate(0, 0)
+        opacity: 1
+        transition: opacity .5s ease
+        
+.main-nav-wrap
+    width: 100vw
+    height: 100vh
+    position: fixed
+    left: 0
+    top: 0
+    z-index: 10000000000
+    // display: none
+    opacity: 0
+    transform: translate(0, 100%)
+    transition: transform 1s .3s ,opacity .5s ease
+    // transition: ease-out .5s, background-color .5s  ease 
+    background-image: url('../images/bg_menu-blur.jpg')
+    background-size: cover
+    background-position: center center
+    overflow: hidden
+    nav
+        height: 100%
+    ul
+        margin: 0
+        padding: 0
+    li
+        list-style-type: none
+        margin: 0
+        padding: 0
+    ul.main-menu-list
+        padding: 90px 0 80px
+        width: 100vw
+        height: 100%
+        overflow-y: auto
+        overflow-x: hidden
+        -webkit-overflow-scrolling: touch
+        scroll-behavior: smooth
+    li.main-menu-item
+        cursor: pointer
+        transition: .5s ease, opacity .5s ease, transform 1.5s ease-out
+        padding: 35px 0px
+        position: relative
+        opacity: 0
+        transform: translateY(140px)
+    @for $i from 1 through 10
+        $delay: 0.05s
+        $delay-base: 0.15s
+        li.main-menu-item:nth-child(#{$i})
+            transition: .5s ease, opacity .3s calc((#{$i} - 1) * #{$delay} + #{$delay-base}) ease, transform 1.4s calc((#{$i} - 1) * #{$delay} + #{$delay-base}) ease-out
+    ul.main-menu-list
+        li.main-menu-item
+            .menu-content
+                padding-left: 15vw
+                transition: opacity .5s ease
+                opacity: 0.7
+                font-size: 0px
+            a.main-menu-link
+                +poaLink
+                z-index: 0
+            span.title
+                vertical-align: top
+                transition: .5s ease
+                color: rgba(#fff, 1)
+                position: relative
+                width: 365px
+                font-size: 0px
+                span
+                    display: inline-block
+                    vertical-align: top
+                span.en
+                    font-size: 34px
+                    +fwB
+                span.cn
+                    font-size: 13px
+                    margin-left: 10px
+            .wave-svg
+                width: 110%
+                height: 100%
+                position: absolute
+                bottom: 0
+                transition: .5s ease
+                transform: translate(-2px, 65%) scaleX(1.2)
+                pointer-events: none
+                path
+                    transition: .5s ease
+                    // width: 100%
+                    width: 80%
+
+                    fill: none
+                    stroke: rgba(#fff, 0.4)
+                    stroke-width: 1px
+            
+    .sub-menu-wrap
+        position: relative
+        z-index: 1
+    ul.sub-menu-list
+        margin-bottom: 15px
+        
+    li.sub-menu-item
+        z-index: 1
+        transition: .3s 0s ease
+        a
+            display: block
+            color: rgba(#fff, 1)
+            padding: 10px 0px
+            font-size: 16px
+            transition: .3s ease
+            
+
+.lang-toggle-wrap
+    position: absolute
+    right: 110px
+    top: 80px
+    opacity: 0
+    transition: top .5s ease
+    // transform: translate(0%, -400%)
+    top: -30px
+    transform: translate(0%, -50%)
+
+    transform-origin: center center
+    z-index: 1
+    ul.lang-list
+        margin: 0
+        padding: 0
+    li.lang-item
+        display: inline-block
+        position: relative
+        transition: .5s ease
+        &:after
+            content: ''
+            position: absolute
+            right: 0
+            top: 50%
+            transform: translate(0, -50%)
+            +size(1px, 60%)
+            background-color: #fff
+        a
+            display: block
+            font-size: 16px
+            +fwB
+            line-height: 1.68
+            letter-spacing: 2.2px
+            color: rgba(#fff, 0.5)
+            transition: .5s ease
+            padding: 0px 10px
+            
+        &:last-child
+            &:after
+                display: none
+        &.active
+            a
+                color: rgba(#fff, 1)
+
+
+
+
+@media all and (min-width: 991px)
+    .main-nav-wrap
+        .sub-menu-wrap
+            display: inline-block
+            vertical-align: top
+            // width: calc(100% - 15vw - 365px)
+        ul.main-menu-list
+            li.main-menu-item
+                span.title
+                    display: inline-block
+
+        ul.sub-menu-list
+            text-align: left
+            height: 65px
+            width: 100%
+            li.sub-menu-item
+                display: inline-block
+                width: 160px
+
+@media all and (min-width: 1200px)
+    .main-nav-wrap
+        
+
+        ul.main-menu-list
+            li.main-menu-item
+                &:hover
+                    padding: 60px 0px
+                    .wave-svg
+                        bottom: -5%
+            &:hover
+                li.main-menu-item
+                    .menu-content
+                        opacity: 0.3
+                    &:hover
+                        .menu-content
+                            opacity: 1
+
+        ul.sub-menu-list
+            &:hover
+                li.sub-menu-item
+                    opacity: 0.6
+                    &:hover
+                        opacity: 1
+        li.sub-menu-item
+            a
+                padding: 15px 0px
+    .lang-toggle-wrap
+        li.lang-item:hover
+            opacity: 0.5
+
+
+@media all and (max-width: 1300px)
+    .main-nav-wrap
+        ul.main-menu-list
+            li.main-menu-item
+                .menu-content
+                    padding-left: 10vw
+
+
+@media all and (max-width: 1199px)
+    .main-nav-wrap
+        ul.main-menu-list
+            // margin: 120px 0 80px
+            padding: 120px 0 80px
+
+            li.main-menu-item
+                span.title
+                    display: block
+                    width: 100%
+                    span.en
+                        font-size: 28px
+                    span.cn
+                        font-size: 13px
+                        margin-left: 10px
+                .menu-content
+                    padding-right: 10vw
+
+
+            .sub-menu-wrap
+                display: block
+                width: 100%
+                margin-top: 30px
+
+@media all and (max-width: 576px)
+    .main-nav-wrap
+        ul.main-menu-list
+            // margin: 90px 0 80px
+            padding: 90px 0 80px
+
+    .lang-toggle-wrap
+        right: 85px
+        top: 45px
+
+// ----------------------------
+// $btn共用
+// ----------------------------
+// .menu-toggle-btn-wrap, .online-chat-toggle-btn-wrap, .news-toggle-btn-wrap
+.header-el
+    // opacity: 0
+    transition: opacity .7s ease-in-out, transform .8s .8s ease-in-out, width .3s ease
+    // transform: translate(0 , 15px)
+    transform: translate(0 , 0px)
+
+.menu-toggle-btn-wrap
+    // transform: translate(0, -15px)
+    transform: translate(0 , 0px)
+    
+    transition: opacity .3s ease-in-out
+.loaded
+    // .menu-toggle-btn-wrap, .online-chat-toggle-btn-wrap, .news-toggle-btn-wrap
+    .header-el
+        opacity: 1
+        // transform: translate(0 , 0px)
+
+// .loading-out
+//     // .menu-toggle-btn-wrap, .online-chat-toggle-btn-wrap, .news-toggle-btn-wrap
+//     .header-el:not(.topic-menu-wrap)
+//         opacity: 0
+//         transition: opacity .7s .2s ease-in-out, transform .8s .8s ease-in-out
+//         transform: translate(0 , 15px)
+
+//     .menu-toggle-btn-wrap
+//         transform: translate(0, -15px)
+
+@media all and (max-width: 576px)
+    .header-el
+        &.topic-menu-wrap
+            // transform: translate(53% , 15px)
+            transform: translate(53% , 0px)
+
+    .loaded
+        .header-el
+            &.topic-menu-wrap
+                transform: translate(53% , 0px)
+    // .loading-out
+    //     .header-el
+    //         &.topic-menu-wrap
+    //             transform: translate(53% , 15px)
+
+// ----------------------------
+// $menu-toggle-btn
+// ----------------------------
+.hidden-window-el
+  position: absolute
+  // right: -100%
+  right: 0
+  transform: translate(100%, 0)
+
+.menu-toggle-btn-wrap
+    position: fixed
+    z-index: 99999
+    // z-index: 100001
+    right: 0
+    top: 0
+    padding: 50px 45px 0px 0px
+
+// .menu-toggle-btn
+//  +size(40px, 40px)
+//  position: relative
+
+//  a
+//      +poaLink
+//  .icon-bg
+//      border-radius: 50%
+//      background-color: $color_home-main
+//      position: relative
+//      +size(100%, 100%)
+//      display: block
+//      transition: all .2s ease
+//      overflow: hidden
+//  .icon-wrap
+//      width: 45%
+//      height: 45%
+//      +poaCenter
+//  .icon
+//      position: relative
+//      top: 0
+//      left: 0
+//      width: 100%
+//      height: 100%
+//      transition: all .5s ease
+//      span
+//          display: block
+//          position: absolute
+//          width: 100%
+//          height: 3px
+//          background-color: #494949
+//          left: 0
+//          top: 50%
+//          transition: all .5s ease
+//          &:nth-child(1)
+//              transform: translateY(-7px)
+//              transform-origin: left
+//          &:nth-child(2)
+//              transform: translateY(-50%)
+//              transform-origin: right
+//          &:nth-child(3)
+//              transform: translateY(4px)
+//              transform-origin: left
+
+// @media all and (min-width: 991px)
+//  .menu-toggle-btn
+//      &:hover
+//          .icon
+//              transform: rotate(90deg)
+//              span
+//                  &:nth-child(1)
+//                      transform: translateY(-7px) scaleX(0.7)
+//                  &:nth-child(2)
+//                      transform: translateY(-50%) scaleX(0.7)
+//                  &:nth-child(3)
+//                      transform: translateY(4px)  scaleX(0.7) 
+// @media all and (max-width: 991px)
+//  .menu-toggle-btn
+//      a, .icon-bg
+//          cursor: pointer
+
+// @media all and (max-width: 576px)
+//  .menu-toggle-btn-wrap
+//      padding: 25px 20px 0px 0px
+//  .menu-toggle-btn
+//      width: 35px
+//      height: 35px
+//      .icon-bg
+//          background-color: transparent
+//      .icon
+//          width: 25px
+//          height: 25px
+//          +poaCenter
+//          transform: translate(-50%, -50%)!important
+//          span
+//              height: 3px
+//              background-color: $color_home-main
+//              &:nth-child(1)
+//                  transform: translateY(-9px)
+//              &:nth-child(2)
+//                  transform: translateY(-50%)
+//              &:nth-child(3)
+//                  transform: translateY(6px)
+.menu-toggle-btn
+
+    .el-wrap
+        width: 100px
+        height: 100px
+        -webkit-filter: url('#gooey')
+        filter: url('#gooey')
+        position: absolute
+        // left: 50%
+        // top: 50%
+        border-radius: 50%
+        // transform: translate(-50%, -50%)
+        margin: 20px 15px 0px 0px
+        right: 0
+        top: 0
+    .menu-icon-cursor
+        position: absolute
+        width: 30%
+        height: 30%
+        background-color: $color_home-main
+        border-radius: 50%
+        transform: translate(-50%, -50%)  scale(0)
+        transition: opacity 0.3s ease, transform .8s cubic-bezier(1, 1.06, 0.28, 1.04)
+        z-index: 0
+    .el
+        position: relative
+        width: 40%
+        height: 40%
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        background-color: $color_home-main
+        border-radius: 100%
+        opacity: 1
+        position: relative
+        transition: all .8s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+        cursor: pointer
+        transform-origin: center center
+        z-index: 1
+        a
+            +poaLink
+        &:hover
+            .el-bg
+                // width: 115%
+                // height: 115%
+                transform: scale(1.2)
+            & + .menu-icon-cursor
+                transform: translate(-50%, -50%) scale(1)
+                opacity: 1
+                transition: opacity .5s ease,  transform .5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    .el-bg
+        position: absolute
+        width: 100%
+        height: 100%
+        background-color: $color_home-main
+        border-radius: 50%
+        // left: 50%
+        // top: 50%
+        // transform: translate(-50%, -50%)
+        transform: scale(1)
+        transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    span
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        transform-origin: center center
+        width: 50%
+        height: 3px
+        border-radius: 20px
+        transition: all .2s ease-out
+        z-index: 10
+        background-color: #484848
+        &:nth-child(2)
+          top: 35%
+        &:nth-child(3)
+          top: 65%
+
+.menu-toggle-btn.no-goo-filter
+    .el-wrap
+        filter: none
+    .menu-icon-cursor
+        display: none
+@media all and (max-width: 768px)
+    .menu-toggle-btn
+        .menu-icon-cursor
+            display: none
+
+@media all and (max-width: 576px)
+    .menu-toggle-btn
+        .el-wrap
+            filter: none
+            margin: 0
+            right: -20px
+            top: -5px
+        .el
+            width: 45%
+            height: 45%
+            background-color: transparent
+        .el-bg
+            background-color: transparent
+        span
+            background-color: $color_home-main
+
+
+
+// ----------------------------
+// 選單開啟時
+// ----------------------------
+// .full-layout
+//     position: relative
+//     -webkit-transition: .5s ease, 1.5s -webkit-filter ease
+//     -o-transition: .5s ease, 1.5s -o-filter ease
+//     transition: .5s ease, 1.5s filter ease
+    
+
+body.main-menu-open
+    overflow-y: hidden!important
+    overflow: hidden!important
+
+
+body.news-wrap-open
+    overflow-y: hidden!important
+    overflow: hidden!important
+
+
+
+.main-menu-open
+    .main-nav-wrap
+        display: block
+        
+    .main-nav-wrap-backdrop
+        opacity: 1
+        transition: opacity .5s ease
+    .menu-close-btn-wrap
+        top: 60px
+        opacity: 1
+    .menu-toggle-btn-wrap
+        opacity: 0
+    .lang-toggle-wrap
+        opacity: 1
+        // transform: translate(0%, -50%)
+        top: 80px
+    .main-nav-wrap
+        // *
+        //     filter: inherit
+        ul.main-menu-list
+            li.main-menu-item
+                opacity: 0.7
+                transform: translateY(0px) translateZ(0px)
+            @for $i from 1 through 10
+                $delay: 0.05s
+                $delay-base: 0.05s
+                li.main-menu-item:nth-child(#{$i})
+                    transition: .4s ease, opacity .2s calc((#{$i} - 1) * #{$delay} + #{$delay-base}) ease, transform 0.5s calc((#{$i} - 1) * #{$delay} + #{$delay-base}) ease-out
+    .recent-page-iframe
+        display: block
+        animation: fadeIn .5s ease both
+        opacity: 1
+// .ie, .edge
+//     .main-nav-wrap
+//         *
+//             filter: inherit
+.homepage.main-menu-open
+    .fixed-content.section-block
+        transition: .5s ease
+        z-index: -1
+
+@media all and (max-width: 576px)
+    .menu-close-btn-wrap
+        right: 40px
+    .main-menu-open
+        .menu-close-btn-wrap
+            top: 25px
+            right: 40px
+        .lang-toggle-wrap
+            top: 45px
+// ----------------------------
+// $online-chat-toggle-btn, $news-toggle-btn 共用
+// ----------------------------
+.online-chat-toggle-btn, .news-toggle-btn
+    // -webkit-transition: 1.5s -webkit-filter ease
+    // -o-transition: 1.5s -o-filter ease
+    // transition: 1.5s filter ease
+    a
+        writing-mode: vertical-lr
+        // padding-left: 14px
+        padding-right: 14px
+        margin-left: -5px
+        transition: all .3s ease-in-out
+        position: relative
+        box-sizing: border-box
+        overflow: hidden
+        &:hover, &:active, &:visited
+            color: #fff
+        &:after , &:before
+            content: ''
+            position: absolute
+            top: 0px
+            // left: 0px
+            right: 0
+            width: 5px 
+            height: 100%
+            opacity: 1
+            transition: .5s ease-out
+            background-color: $color_home-main
+        &:after
+            top: -8px
+            transform: translate(0, -100%)
+
+@media all and (min-width: 1200px)
+    .online-chat-toggle-btn, .news-toggle-btn
+        a
+            &:hover
+                opacity: 0.8
+                &:after
+                    top: 50%
+                    transform: translate(0, 0)
+                &:before
+                    opacity: 0
+
+// ----------------------------
+// $online-chat-toggle-btn
+// ----------------------------
+
+.online-chat-toggle-btn-wrap
+    position: fixed
+    z-index: 99999
+    // left: 0
+    right: 0
+    bottom: 0
+    // padding: 0px 0px 45px 45px
+    padding: 0px 45px 45px 0px
+
+.online-chat-toggle-btn
+    a
+        span
+            font-size: 16px
+            +fwB-fwN
+            text-align: left
+            padding-bottom: 2.5px
+            &:last-child
+                padding-bottom: 0px
+
+
+@media all and (max-width: 576px)
+    .online-chat-toggle-btn-wrap
+        padding: 0px 0px 20px 15px
+    .online-chat-toggle-btn
+        a
+            span
+                font-size: 12px
+                padding-bottom: 1px
+
+// ----------------------------
+// $news-toggle-btn
+// ----------------------------
+
+.news-toggle-btn-wrap
+    position: fixed
+    z-index: 99999
+    bottom: 0
+    // right: 0
+    left: 0
+    // padding: 0px 45px 45px 0px
+    padding: 0px 0px 45px 45px
+
+.news-toggle-btn
+    a
+        transform: rotate(180deg)
+        font-size: 16px
+        +fwB-fwN
+        letter-spacing: 2px
+        &:after
+            transform: translate(0, 100%)
+            bottom: -8px
+            top: initial
+
+
+
+@media all and (min-width: 768px)
+    .news-toggle-btn
+        a
+            &:hover
+                // margin-right: -5px
+                color: rgba(#fff, 0.8)
+                &:after
+                    // top: 50%
+                    top: initial
+                    bottom: 50%
+                    transform: translate(0, 0)
+
+@media all and (max-width: 576px)
+    .news-toggle-btn-wrap
+        bottom: 0px
+        // padding: 0px 15px 20px 0px
+        padding: 0px 0px 20px 25px
+    .news-toggle-btn
+        a
+            font-size: 12px
+// ----------------------------
+// $news-wrap
+// ----------------------------
+.news-wrap-open
+    .news-wrap
+        display: block
+        // animation: fadeIn 0.8s ease both
+        transform: translate(0, 0)
+        opacity: 1
+        transition: opacity .5s ease
+
+.news-wrap
+    width: 100vw
+    height: 100vh
+    position: fixed
+    left: 0
+    top: 0
+    background-image: url('../images/bg_menu-blur.jpg')
+    background-size: cover
+    background-position: center center
+    z-index: 10000000000
+    color: #fff
+    // display: block
+    // opacity: 0
+    // transition: ease-out .5s
+    // display: none
+    opacity: 0
+    transform: translate(0, 100%)
+    transition: transform 1s .3s ,opacity .5s ease  
+
+
+    .news-wrapper
+        height: 100%
+    h3.main-title
+        position: relative
+        max-width: 350px
+        margin-bottom: 50px
+        span.en
+            +en_fontF
+            text-transform: uppercase
+            font-size: 60px
+            +fwB
+            letter-spacing: 2.4px
+            line-height: normal
+        span.cn
+            font-size: 18px
+            +fwN
+            line-height: normal
+            letter-spacing: 1.5px
+            position: absolute
+            bottom: 10px
+            right: 0
+
+
+            
+    .news-item
+        border-top: 1px solid rgba(#fff, 0.4)
+        padding: 30px 30px 30px 0px
+        position: relative
+        cursor: pointer
+        transition: .5s ease
+    p.news-date
+        font-size: 18px
+        +fwB
+        letter-spacing: 2px
+        line-height: normal
+        text-align: left
+    
+    p.news-title
+        font-size: 18px
+        +fwN
+        line-height: 1.83
+        letter-spacing: 2px
+
+        text-align: left
+        transition: .5s ease
+    .news-content
+        margin-top: 30px
+
+        p
+            font-size: 16px
+            +fw300
+            line-height: 2.06
+            letter-spacing: 1.8px
+
+
+    .news-content-wrap
+        display: none
+    .news-content-wrap.for-pc
+        display: block
+        opacity: 0
+        transform: translateX(-50px)
+        transition: opacity .5s ease, transform .8s ease-out
+        &.active
+            opacity: 1
+            transform: translateX(0px)
+        p.news-date
+            font-size: 24px
+            +fwN
+        p.news-title
+            font-size: 24px
+            +fwB
+            line-height: 1.88
+            letter-spacing: 2.7px
+            margin-top: 20px
+   
+    .news-content-wrap.for-pc
+         p.news-title
+            white-space: normal
+            overflow: visible
+
+
+.news-container
+    padding: 17.5vh 0 8vh
+    width: 100vw
+    height: 100%
+    overflow-y: auto
+    overflow-x: hidden
+    -webkit-overflow-scrolling: touch
+    scroll-behavior: smooth
+    .main-title
+        transition: .5s ease-out, opacity .3s ease
+        opacity: 0
+        transform: translate(0, 45px)
+    .news-swiper-wrap
+        transition: .5s .1s ease-out, opacity .5s .1s ease
+        opacity: 0
+        transform: translate(0, 13%)
+    
+.news-close-btn-wrap
+    transition: .5s ease-out, opacity .5s ease
+   
+
+
+
+.news-wrap-open
+    .news-wrap
+        // opacity: 1
+    .news-close-btn-wrap
+        top: 60px
+        opacity: 1
+        transition: .5s .5s ease-out, opacity .3s .5s ease
+    .news-container
+        .main-title
+            transition: .5s .3s ease-out, opacity .5s .3s ease
+            opacity: 1
+            transform: translate(0, 0)
+        .news-swiper-wrap
+            transition: .5s .4s ease-out, opacity .5s .4s ease
+            opacity: 1
+            transform: translate(0, 0)
+.news-swiper-wrap
+    padding: 0px 75px
+    .swiper-container
+        padding-bottom: 55px
+    .swiper-pagination-bullet
+        +size(9px, 9px)
+        border: 1px solid #fff
+        transition: background-color .5s ease
+        opacity: 1
+    .swiper-pagination-bullet-active
+        background-color: #fff 
+        +size(10px, 10px)
+
+    .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet
+        margin: 0 12px
+
+    .swiper-slide:nth-child(5n), .swiper-slide:last-child
+        .news-item
+            border-bottom: 1px solid rgba(#fff, 0.4)
+
+// @media all and (min-width: 1200px)
+.news-wrap
+    p.news-title
+        // width: 100%
+        // overflow: hidden
+        // text-overflow: ellipsis
+        // display: -webkit-box
+        // -webkit-line-clamp: 1
+        // -webkit-box-orient: vertical
+        width: 100%
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+        transition: .3s ease
+.ie, .edge
+    .news-item
+        p.news-title
+            width: 100%
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+
+@media all and (max-width: 1199px)
+    .news-swiper-wrap
+        padding: 0px
+    .news-wrap
+        p.news-date
+            margin-bottom: 10px
+    .news-item.active
+         p.news-title
+            // display: block
+            overflow: visible
+            white-space: normal
+@media all and (max-width: 768px)
+    .news-container
+        padding: 80px 0 80px
+    .news-wrap
+        h3.main-title
+            span.en
+                font-size: 40px
+                +fwN
+            span.cn
+                font-size: 16px
+                letter-spacing: 1.3px
+        p.news-date
+            font-size: 14px
+            letter-spacing: 1.2px
+        p.news-title
+            line-height: 1.67
+        .news-item
+            padding: 40px 10px
+    .news-swiper-wrap
+        .swiper-container
+            padding-bottom: 70px
+
+
+
+@media all and (max-width: 576px)
+    .news-close-btn-wrap
+        right: 40px
+    .news-wrap-open
+        .news-close-btn-wrap
+            top: 25px
+            right: 40px
+
+
+@media all and (min-width: 1200px)
+    .news-wrap
+        .news-item
+            position: relative
+            &:hover
+                opacity: 0.6
+                // padding: 40px 30px 40px 0px
+    
+            &:after
+                content: ''
+                position: absolute
+                top: 50%
+                right: 25px
+                opacity: 0
+                +size(15px, 15px)
+                border-top: 1px solid #fff
+                border-right: 1px solid #fff
+                transform: translate(0, -50%) rotate(45deg)
+                transition: opacity .3s ease, right .3s ease-out
+            &.active
+                &:after
+                    right: 15px
+                    opacity: 0.5
+            .news-content-wrap
+                display: none!important
+            
+@media all and (min-width: 1200px) and (max-width: 1599px)
+    .news-container
+        .container
+            width: 1170px
+    .news-wrap
+        h3.main-title
+            span.en
+                font-size: 48px
+                letter-spacing: 2px
+
+@media all and (min-width: 1600px)
+    .news-container
+        .container
+            width: 1480px
+    .news-wrap
+        .news-item
+            p.news-date, p.news-title
+            p.news-date
+                font-size: 24px
+            p.news-title
+                padding-right: 30px
+                text-align: left
+
+
+// ----------------------------
+// $topic-menu
+// ----------------------------
+
+.topic-menu-wrap
+    position: fixed
+    z-index: 99999
+    right: 130px
+    top: 50px
+    background-color: #fff
+    border-radius: 20px
+    font-size: 0px
+    transition: opacity .3s ease-in-out
+    ul
+        margin: 0
+        padding: 0
+    li
+        list-style-type: none
+        margin: 0
+        padding: 0
+    h4.title
+        display: inline-block
+        vertical-align: middle
+        padding: 10px 90px 10px 70px
+        font-size: 14px
+        letter-spacing: 2px
+        color: #000
+        line-height: normal
+        +fwN
+        &:before
+            display: none
+    .menu-list
+        font-size: 0px
+        display: inline-block
+        vertical-align: middle
+        white-space: nowrap
+    .menu-item
+        display: inline-block
+        vertical-align: middle
+        a
+            font-size: 14px
+            display: block
+            padding: 10px 30px 10px 0px
+            letter-spacing: 2.5px
+            color: #4a4a4a
+            transition: .5s ease
+            cursor: pointer
+            span
+                font-size: inherit
+                letter-spacing: inherit
+                color: inherit
+        &.active
+            a
+                cursor: default
+                opacity: 0.5
+
+    .back-btn
+        +size(30px, 30px)
+        border-radius: 50%
+        border: 1px solid $color_home-main
+        cursor: pointer
+        transition: all .3s ease-in
+        position: absolute
+        left: 5px
+        top: 50%
+        transform: translate(0, -50%) rotate(-90deg)
+        display: inline-block
+        vertical-align: middle
+
+        .back-icon
+            +size(1px, 15px)
+            +poaCenter
+            background-color: $color_home-main
+            transition: all .3s ease-in
+            &:before, &:after
+                content: ''
+                position: absolute
+                height: 8px
+                width: 1px
+                background-color: $color_home-main
+                top: 0
+                transform-origin: top center
+                transition: all .3s ease-in
+            &:before
+                transform: rotate(45deg)
+            &:after
+                transform: rotate(-45deg)
+
+@media all and (min-width: 1200px)
+    .topic-menu-wrap
+        .menu-item:hover
+            a
+                opacity: 0.7
+        .menu-item.active:hover
+            a
+                opacity: 0.5
+        .back-btn
+            &:hover
+                background-color: $color_home-main
+                .back-icon
+                    background-color: #fff
+                    &:before, &:after
+                        background-color: #fff
+                    &:before
+                        transform: rotate(35deg)
+                    &:after
+                        transform: rotate(-35deg)
+
+@media all and (max-width: 991px)
+    .topic-menu-wrap
+        right: 105px
+        white-space: nowrap
+        .back-btn
+            position: relative
+            transform: translate(0,0) rotate(-90deg)
+        h4.title
+            display: none
+        .menu-item
+            a
+                padding: 10px 15px
+        .menu-list
+            padding: 0px 15px
+
+@media all and (max-width: 768px)
+    .topic-menu-wrap
+        right: 95px
+        .menu-item
+            a
+                padding: 10px 7px
+        .menu-list
+            padding: 0px 15px
+
+@media all and (max-width: 576px)
+    .topic-menu-wrap
+        top: 25px
+        right: 50%
+        transform: translate(53%, 0)
+        .menu-item
+            a
+                padding: 10px 5px
+                // font-size: 12px
+                letter-spacing: 1.5px
+                span.hidden-in-mobile
+                    display: none
+        .menu-list
+            padding: 0px 10px
+
+
+// ----------------------------
+// $各頁header樣式
+// ----------------------------
+// enterpriseapp
+.enterpriseapp:not(.main-menu-open)
+    .logo-wrap
+        .logo-group
+            fill: #163797
+    .menu-toggle-btn
+        .menu-icon-cursor
+            background-color: #163797
+        .el
+            background-color: #163797
+        .el-bg
+            background-color: #163797
+        span
+            background-color: #f2f2f2
+
+    .online-chat-toggle-btn, .news-toggle-btn
+        a
+            color: #163797
+            &:after , &:before
+                background-color: #163797
+    .loading-progress
+        background-color: rgba(#163797, 1)
+    .topic-menu-wrap
+        .title
+            color: #163797
+        .back-btn
+            border: 1px solid #163797
+            .back-icon
+                background-color: #163797
+                &:before, &:after
+                    background-color: #163797
+
+    @media all and (min-width: 1200px)
+        .topic-menu-wrap
+            .back-btn
+                &:hover
+                    background-color: #163797
+                    .back-icon
+                        background-color: #fff
+                        &:before, &:after
+                            background-color: #fff
+
+    @media all and (max-width: 576px)
+        .menu-toggle-btn
+            .el
+                background-color: transparent
+            .el-bg
+                background-color: transparent
+            span
+                background-color: #163797
+
+// eventweb
+.eventweb-page
+    .topic-menu-wrap
+        .title
+            color: $color_home-main
+    

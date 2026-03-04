@@ -1,0 +1,1418 @@
+
+@charset "UTF-8"
+@import "var_mixin"
+@import url("https://fonts.googleapis.com/css?family=Rufina:400,700")
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i")
+
+
+
+
+// -------------------
+// animated
+// -------------------
+
+.animated
+	opacity: 0  
+	animation-duration: 1s
+	animation-timing-function: ease
+
+.introduce .animated.img_box
+	animation-delay: .2s
+
+#ani-introducetext
+	animation-delay: .2s
+
+#ani-solve01
+	animation-delay: .1s
+
+#ani-solve02
+	animation-delay: .3s
+
+#ani-solve03
+	animation-delay: .5s
+
+#ani-solve04
+	animation-delay: .7s
+
+
+
+// -------------------
+// bootstrap 修改
+// -------------------
+
+
+@media (min-width: 768px)
+	.container 
+	    width: 750px
+
+	.container 
+	    padding-right: 5px
+	    padding-left: 5px
+	    margin-right: auto
+	    margin-left: auto
+
+@media (min-width: 992px)
+	.container 
+	    width: 970px
+
+@media (min-width: 1200px)
+	.container 
+	    width: 1170px
+
+@media (min-width: 1500px)
+	.container 
+	    width: 1480px
+
+.row 
+	margin-right: -5px
+	margin-left: -5px
+
+	[class*="col-"]
+		position: relative
+		min-height: 1px
+		padding-right: 5px
+		padding-left: 5px
+
+
+.container-fluid 
+	padding-right: 0px
+	padding-left: 0px
+	margin-right: auto
+	margin-left: auto
+
+
+
+// -------------------
+// 模組變數
+// -------------------
+
+
+@mixin font_style($family, $size, $weight, $color, $letter, $line)
+	font-family: $family
+	font-size: $size
+	font-weight: $weight
+	color: $color
+	letter-spacing: $letter
+	line-height: $line
+
+
+@mixin effect_time_2
+	transition: .2s
+
+
+// -------------------
+// color
+// -------------------
+
+$color_purple_dark: #444774
+$color_purple_middle: #B9B7CE
+$color_purple_light: #EFEFF4
+$color_brown: #DEA56A
+
+
+// -------------------
+// 痊癒設定
+// -------------------
+
+html,body
+	background-color: white
+	font-family: 'Open Sans',  'Noto Sans TC', "PingFang TC" , "微軟正黑體", "蘋果儷中黑", Arial
+	+fwN
+	color: #4A4A4A
+	-webkit-overflow-scrolling: touch
+	height: auto
+
+
+
+div,span
+	word-break: normal
+	text-align: left
+
+article
+	width: 100%
+	height: 100%
+	overflow: hidden
+
+article > section:not(:last-child)
+	margin-bottom: 160px
+
+@media (min-width: 1200px)
+	article > section:not(:last-child)
+		margin-bottom: 220px
+
+
+
+.conect
+	div
+		+font_style('Montserrat' , 40px , normal , #D3D3D3 , 5px , inhertit)
+
+		&::before
+			display: inline-block
+			content: ""
+			+size(5px, 50px)
+			background-color: $color_brown
+
+	@media (min-width: 1200px)
+		div
+			+font_style('Montserrat' , 50px , normal , #D3D3D3 , 5px , inhertit)
+
+			&::before
+				+size(5px, 50px)
+
+
+
+// -------------------
+// 每 cut 間距調整
+// -------------------
+
+article > section
+	&.kv_wrap
+		margin-bottom: 180px
+
+	&.introduce
+		margin-bottom: 100px
+
+	&.solve
+		margin-bottom: 60px
+
+	&.examples
+		margin-bottom: 0px
+
+
+	@media (min-width: 768px)
+		&.kv_wrap
+			margin-bottom: 180px
+
+		&.introduce
+			margin-bottom: 100px
+
+		&.examples
+			margin-bottom: 60px
+
+		&.solve
+			margin-bottom: 120px
+
+		&.layout06
+			margin-bottom: 0px
+
+		&:last-child
+			margin-bottom: 0px
+
+
+	@media (min-width: 992px)
+		&.kv_wrap
+			margin-bottom: 180px
+
+		&.introduce
+			margin-bottom: 100px
+
+		&.examples
+			margin-bottom: 60px
+
+		&.solve
+			margin-bottom: 120px
+
+		&.layout06
+			margin-bottom: 0px
+
+		&.layout07
+			margin-bottom: 90px
+
+		&:last-child
+			margin-bottom: 0px
+
+
+
+	@media (min-width: 1200px)
+		&.kv_wrap
+			margin-bottom: 80px
+
+		&.introduce
+			margin-bottom: 400px
+
+		&.examples
+			margin-bottom: 200px
+
+		&.solve
+			margin-bottom: 160px
+
+		&.layout03
+			margin-bottom: 160px
+
+		&.layout05
+			margin-bottom: 160px
+
+		&.layout06
+			margin-bottom: 370px
+
+		&.layout07
+			margin-bottom: 300px
+
+
+
+// -------------------
+// 按鈕效果
+// -------------------
+
+.examples
+	.content
+		.button
+			a:hover
+				+effect_time_2
+				opacity: 0.5
+
+// -------------------
+// 實例介紹文字style
+// -------------------
+
+.examples
+	.content
+		.title_wrap
+			.number
+				+font_style('Montserrat' , 65px , 200 , #ffffff , 5px , inherit)
+				background-color: $color_purple_dark
+				+size(112px, 112px)
+				padding: 10px 0
+				text-align: center
+
+			.main_title
+				+font_style(inherit , 40px , 300 , #4A4A4A , 6px , inherit)
+
+				span
+					+font_style('Montserrat' , 45px , 200 , #4A4A4A , 6.5px , inherit)
+			
+			.sub_title
+				+font_style('Montserrat' , 16px , 400 , #4A4A4A , 10px , 40px)
+
+		.text
+			+font_style(inherit , 12px , inherit , #4A4A4A , 1.54px , 30px)
+		
+		.highlight
+			dt
+				span
+					+font_style(inherit , 14px , normal , #4A4A4A , 4px , 23px)
+					background-color: #EDEDED
+					padding: 4px 10px
+
+			dd
+				+font_style(inherit , 14px , normal , #4A4A4A , 1.54px , inherit)
+
+		.button
+			a
+				+effect_time_2
+				+font_style('Montserrat' , 24px , 500 , #4A4A4A , 3px , 26px)
+				border-left: 3px solid $color_brown
+				padding-left: 15px
+				padding-right: 30px
+				background: url(../images/internetofthingapp/icon_iot_work_arrow@1x.png) no-repeat center right
+
+		@media all and (-webkit-min-device-pixel-ratio: 1.5) 
+			.button
+				a 
+					background: url(../images/internetofthingapp/icon_iot_work_arrow@2x.png) no-repeat center right
+					background-size: 22px 22px
+			
+
+
+		@media (min-width: 768px)
+			.title_wrap
+				.main_title
+					+font_style(inherit , 50px , 300 , #4A4A4A , 6px , inherit)
+
+					span
+						+font_style('Montserrat' , 55px , 200 , #4A4A4A , 6.5px , inherit)
+				
+				.sub_title
+					+font_style('Montserrat' , 18px , 400 , #4A4A4A , 10px , 40px)
+
+			.text
+				+font_style(inherit , 16px , inherit , #4A4A4A , 1.54px , 30px)
+		
+			.highlight
+				dt
+					span
+						+font_style(inherit , 14px , normal , #4A4A4A , 4px , 23px)
+						padding: 4px 10px
+
+				dd
+					+font_style(inherit , 14px , normal , #4A4A4A , 1.54px , inherit)
+
+
+		@media (min-width: 992px)
+			.title_wrap
+				.main_title
+					+font_style(inherit , 60px , 300 , #4A4A4A , 6px , inherit)
+
+					span
+						+font_style('Montserrat' , 65px , 200 , #4A4A4A , 6.5px , inherit)
+				
+				.sub_title
+					+font_style('Montserrat' , 24px , 400 , #4A4A4A , 11.6px , 40px)
+
+			.text
+				+font_style(inherit , 18px , inherit , #4A4A4A , 1.54px , 50px)
+		
+			.highlight
+				dt
+					span
+						+font_style(inherit , 14px , normal , #4A4A4A , 4px , 23px)
+						padding: 4px 10px
+
+				dd
+					+font_style(inherit , 18px , normal , #4A4A4A , 1.54px , 50px)
+
+			.button
+				a
+					+font_style('Montserrat' , 24px , 500 , #4A4A4A , 3px , 26px)
+
+
+
+// .layout01.examples
+// 	.content
+// 		.button
+// 			a
+// 				background: none
+// 				padding-right: 28px
+// 				position: relative
+
+// 				img
+// 					margin-left: 10px
+// 					position: absolute
+// 					top: 50%
+// 					right: 0
+// 					transform: translate(0 , -50%)
+
+// 				&:hover
+// 					img
+// 						animation: mymove 1s infinite
+// 						animation-timing-function: linear;
+
+
+// @keyframes mymove 
+//     0% , 100%
+//     	right: 0px
+//     50%
+//     	right: -4px
+
+
+
+
+
+
+// -------------------
+// 實例介紹文字layout
+// -------------------
+
+.examples
+	padding: 50px 0 80px
+
+	.content 
+		.title_wrap
+			display: block
+
+			.number
+				display: inline-block
+				margin-right: 40px
+				margin-bottom: 40px
+
+			.main_title
+				margin-bottom: 0px
+
+				span
+			
+			.sub_title
+		
+		.title_wrap.style2
+			display: flex
+
+		.text
+			margin-top: 20px
+		
+		.highlight
+
+			dt
+				margin-top: 50px
+
+				span
+					display: inline-block
+
+			dd
+				margin-top: 20px
+
+		.button
+			text-align: right
+			margin-top: 50px
+
+			a
+				display: inline-block
+
+
+		@media (min-width: 768px)
+			.title_wrap
+				.text
+					margin-top: 50px
+
+		@media (min-width: 992px)
+			.title_wrap
+				.main_title
+					margin-bottom: 10px
+
+			.button
+				text-align: right
+				margin-top: 30px
+
+	
+
+.examples.left , .examples.right
+	position: relative
+
+	.img_wrap
+		width: 100%
+		position: relative
+		bottom: 0
+
+	.content_wrap
+		position: relative
+		z-index: 1 
+
+
+	@media (min-width: 768px)
+		.img_wrap
+			width: 100%
+			position: absolute
+
+
+.examples.left .img_box
+	direction: rtl
+
+.examples.right .img_box
+	direction: ltr
+
+
+
+
+// layout 01---------------------------------
+
+.examples.layout01
+	.img_wrap
+		bottom: 0px
+		margin-top: 40px
+
+	@media (min-width: 768px)
+		.img_wrap
+			width: 100%
+			position: absolute
+			bottom: 60px
+			margin-top: 0
+
+
+// layout 02---------------------------------
+
+.examples.layout02
+	.img_wrap
+		margin-top: 40px
+		bottom: 0
+
+	@media (min-width: 768px)
+		.img_wrap
+			bottom: 100px
+			margin-top: 0px
+
+	@media (min-width: 1200px)
+		.img_wrap
+			bottom: 0
+			
+
+// layout 03---------------------------------
+
+.examples.layout03
+	.content_wrap
+		margin-bottom: 100px
+
+		.content 
+			.title_wrap
+				display: block
+				margin-top: 0px
+
+				.number
+					margin-right: 40px
+					margin-top: 0px
+
+				.main_title
+					margin-top: 30px
+
+			.text
+
+		@media (min-width: 768px)
+
+			.content 
+				.title_wrap
+					display: flex
+
+					.number
+						margin-top: 40px
+
+					.main_title
+						margin-top: 30px
+
+				.text
+					margin-top: 0
+					margin-left: 26px
+
+
+		@media (min-width: 992px)
+			.content 
+				.title_wrap
+					display: flex
+
+					.number
+						margin-right: 132px
+						margin-top: 20px
+
+					.main_title
+						margin-top: 0px
+
+				.text
+					margin-top: 0
+
+
+// layout 04---------------------------------
+
+.examples.layout04
+	.img_box.color-bg
+		position: relative
+		bottom: -0px
+		margin-top: 80px
+
+		&::after
+			content: ""
+			+size(100%, 100%)
+			background-color: $color_purple_light
+
+			position: absolute
+			z-index: 0
+			bottom: 0px
+			left: 0px
+			display: block
+
+		img
+			position: relative
+			z-index: 1
+			left: 20px
+			bottom: 20px
+
+	@media (min-width: 768px)
+		.img_box.color-bg
+			bottom: 160px
+			margin-top: 0px
+
+			img
+				position: relative
+				z-index: 1
+				left: 40px
+				bottom: 40px
+
+	@media (min-width: 1200px)
+		.img_box.color-bg
+			bottom: 0px
+
+
+
+
+// layout 05---------------------------------
+
+.examples.left.text-white-bg.layout05
+	.content_wrap
+		position: relative
+		z-index: 1
+
+		.content
+			background-color: rgba(#fff, 0)
+			display: block
+			padding: 0
+
+			.title_wrap
+
+				.number
+					margin-right: 40px
+
+	.img_wrap
+		position: relative
+		z-index: 0
+		margin-top: 10px
+
+		.row
+			margin-left: -20px
+			margin-right: -20px
+
+
+
+	@media (min-width: 768px)
+		.content_wrap
+			.content
+				background-color: #fff
+				display: flex
+				padding: 0 80px 50px 0
+
+				.title_wrap
+
+					.number
+						margin-right: 40px
+		.img_wrap
+			margin-top: -300px
+
+	@media (min-width: 992px)
+		.img_wrap
+			margin-top: -500px
+
+	@media (min-width: 1200px)
+		.content_wrap
+			.content
+				.title_wrap
+					.number
+					margin-right: 80px
+		.img_wrap
+			.row
+				margin-left: -60px
+				margin-right: -60px
+
+
+// layout 06---------------------------------
+
+.examples.layout06
+	position: relative
+	.img_wrap
+		top: 0
+		margin-top: 40px
+
+		.img_box
+			img
+				position: relative
+				transform: translate(0, 0)
+
+
+	@media (min-width: 768px)
+		.img_wrap
+			top: 50%
+			margin-top: 0px
+
+			.img_box
+				img
+					position: absolute
+					transform: translate(0, -50%)
+
+
+// layout 07---------------------------------
+
+.examples.layout07
+
+
+	@media (min-width: 768px)
+		.img_wrap
+			bottom: 40px
+
+
+
+// layout 08---------------------------------
+
+.examples.layout08
+
+	.img_wrap
+		top: 0
+		margin-top: 40px
+
+		.img_box
+			img
+				position: relative
+				transform: translate(0, 0)
+
+
+	@media (min-width: 768px)
+		.img_wrap
+			top: 50%
+			margin-top: 0px
+
+			.img_box
+				img
+					position: absolute
+					transform: translate(0, -50%)
+
+
+
+// -------------------
+// KV style
+//
+// > kv_title
+// > kv_img
+// > applyto
+// -------------------
+
+
+
+
+.kv_title
+	&::before
+		content: ""
+		+size(40px, 5px)
+		background-color: $color_brown
+
+	.sub_title
+		+font_style('Rufina' , 40px , 700 , #000000 , 0.87px , 55px)
+
+	.main_title
+		+font_style(inherit , 16px , 300 , #000000 , 2px , inherit)
+
+		b
+			+font_style('Rufina' , 16px , 700 , #000000 , 1px , inherit)
+
+		span
+			+font_style('Rufina' , 16px , 700 , $color_brown , 1px , inherit)
+
+
+	@media (min-width: 768px)
+		.sub_title
+			+font_style('Rufina' , 60px , 700 , #000000 , 1.3px , 84px)
+
+
+
+
+.kv_img
+	.img_box
+		&::after
+			content: ""
+			+size(100%,68%)
+			background-color: $color_purple_middle
+		&::before
+			content: ""
+			+size(100%,68%)
+			background-color: $color_purple_light
+
+		img
+			width: 100%
+
+		@media (min-width: 992px)
+			&::after , &::before
+				+size(100%,68%)
+			img
+				width: 530px
+
+		@media (min-width: 1200px)
+			&::after , &::before
+				+size(100%,85%)
+			img
+				width: auto
+
+
+
+
+
+.applyto_wrap
+	background-color: $color_purple_light
+
+	.applyto
+		padding: 40px 0
+		text-align: center
+
+		dl
+			font-size: 12px
+			dd
+				color: #A4AAB3
+
+
+	.applyto
+
+		.title
+			+font_style(inherit , 14px , normal , #000000 , 4px , 23px)
+			border: 2px solid #000
+			padding: 4px 22px
+			text-aling: center
+
+		dl
+			dt
+				color: #000
+				letter-spacing: 0.5px
+				+fw500
+
+			dd
+				letter-spacing: 0.58px
+				line-height: 23px
+
+
+
+@media (min-width: 1200px)
+	.applyto_wrap
+		background-color: transparent
+
+		.applyto
+			text-align: left
+
+			dl
+				font-size: 14px
+
+				dd
+					color: #fff
+
+
+// -------------------
+// KV layout
+//
+// > kv_title
+// > kv_img
+// > applyto
+// -------------------
+
+
+.kv_wrap
+	// height: 100vh
+
+@media (min-width: 768px)
+	.kv_wrap
+		// height: 100vh
+
+@media (min-width: 992px)
+	.kv_wrap
+		// height: 100vh
+
+@media (min-width: 1200px)
+	.kv_wrap
+		margin-top: 40px
+
+		@media (max-height: 768px)
+			.kv_title
+				margin-top: 250px
+
+			.kv_img
+				margin-top: 10px
+
+
+
+.kv_title
+	position: relative
+	z-index: 1
+	margin-top: 100px
+
+	&::before
+		display: inline-block
+
+	.sub_title
+		margin-top: 20px
+
+	.main_title
+		margin-top: 20px
+
+		span
+			margin-left: 10px
+			display: inline-block
+
+
+@media (min-width: 992px)
+	.kv_title
+		margin-top: 260px
+
+		.sub_title
+			margin-top: 30px
+
+		.main_title
+			margin-top: 60px
+
+			span
+				margin-left: 30px
+
+@media (min-width: 1200px)
+	.kv_title
+		margin-top: 340px
+
+
+
+
+.kv_img
+	position: relative
+	z-index: 0
+	margin-top: 0px
+
+	.img_box
+		position: relative
+		text-align: right
+		margin-left: 100px
+
+		&::after
+			position: absolute
+			z-index: 2
+			left: 0
+			bottom: 0
+
+
+		&::before
+			position: absolute
+			z-index: 1
+			left: -21px
+			bottom: -27px
+			
+		@media (min-width: 992px)
+			&::before
+				position: absolute
+				z-index: 1
+				left: -21px
+				bottom: -27px
+			
+		@media (min-width: 1200px)
+			&::before
+				position: absolute
+				z-index: 1
+				left: -41px
+				bottom: -47px
+
+		img
+			position: relative
+			z-index: 3
+
+
+@media (min-width: 768px)
+	.kv_img
+		margin-top: -80px
+
+@media (min-width: 992px)
+	.kv_img
+		margin-top: 160px
+
+@media (min-width: 1200px)
+	.kv_img
+		margin-top: 20px
+
+
+
+
+.applyto_wrap
+	margin-top: 150px
+
+	.applyto
+		position: relative
+		z-index: 4
+
+		.title
+			display: inline-block
+			margin-bottom: 0px
+			margin-left: 0px
+
+		dl
+			margin-top: 30px
+
+			dd
+				margin-top: 10px
+
+
+	@media (min-width: 1200px)
+		.applyto
+			position: absolute
+			z-index: 4
+			bottom: 165px
+			margin-left: 100px
+
+			.title
+				display: inline-block
+				margin-bottom: 0px
+				margin-left: -48px
+
+			dl
+				margin-left: 60px
+				margin-top: 50px
+
+				dd
+					margin-top: 6px
+
+
+
+
+
+
+// -------------------
+// introduce style
+// -------------------
+
+.introduce
+	.background_wrap
+		.background_data
+			width: 100%
+			height: 470px
+			padding: 30px 0
+
+			& > div
+				height: 100%
+
+			.light_bg
+
+				div
+					height: 100%
+					background-color: $color_purple_light
+
+			.dark_bg 
+
+				div
+					height: 100%
+					background-color: $color_purple_dark
+					box-shadow: inset 0 -10px 10px 0 rgba(32,29,55,0.50);
+
+			.conect 
+
+				div
+					-webkit-writing-mode: vertical-lr
+					writing-mode: vertical-lr 
+
+
+			.img_box
+				text-align: center
+
+				img
+					padding: 30px 0
+					height: 100%
+
+		@media (min-width: 1200px)
+			.background_data
+				height: 757px
+
+				.img_box
+					text-align: center
+
+					img
+						padding: 0 0
+
+
+	.content_wrap
+		.content_data
+			.text
+				text-align: left
+
+				h2
+					+font_style(inherit , 35px , 300 , #000 , 2px , inherit)
+					white-space: nowrap
+
+				span
+					content: ""
+					background-color: #4A4A4A
+					+size(50px, 5px)
+
+				p
+					+font_style(inherit , 12px , normal , #4A4A4A , 1.6px , 30px)
+
+			@media (min-width: 1200px)
+				.text
+					text-align: left
+
+					h2
+						+font_style(inherit , 60px , 300 , #000 , 2px , inherit)
+
+					span
+						content: ""
+						background-color: #fff
+						+size(50px, 5px)
+
+					p
+						+font_style(inherit , 15px , normal , #fff , 2px , 30px)
+
+
+// -------------------
+// introduce layout
+// -------------------
+
+.introduce
+	.background_wrap
+		position: relative
+
+		.background_data
+			position: relative
+			z-index: 0
+
+			& > div
+				position: absolute
+
+			.light_bg
+				div
+					margin-right: -50px
+					margin-left: 0px
+
+			.dark_bg 
+				padding-top: 80px
+				padding-bottom: 80px
+
+				div
+					margin-left: -50px
+
+			.conect
+				position: relative
+
+				div
+					position: absolute
+					bottom: 14px
+
+					&::before
+						margin-bottom: 40px
+						margin-left: 0px
+
+			.mark_img
+				text-align: center
+
+				img
+					margin-top: -16px
+					width: 60px
+
+
+		@media (min-width: 768px)
+			.background_data
+				.conect
+					div
+						&::before
+							margin-left: 0
+
+		@media (min-width: 1200px)
+			.background_data
+				position: absolute
+
+				.light_bg
+					div
+						margin-right: -50px
+						margin-left: 50px
+
+				.dark_bg 
+					padding-top: 180px
+					padding-bottom: 70px
+
+				.conect
+					div
+						bottom: 70px
+
+						&::before
+							margin-bottom: 40px
+
+				.mark_img
+					text-align: center
+
+					img
+						margin-top: -34px
+						width: auto
+
+
+	.content_wrap
+		.content_data
+			.text
+				margin-top: 80px
+
+				h2
+					position: absolute
+					top: -600px
+					left: 50%
+					transform: translate(-50%, 0)
+					white-space: nowrap
+
+				span
+					display: block
+					margin-top: 70px
+					margin-bottom: 25px
+
+				p:last-child
+					margin-top: 10px
+
+
+				@media (min-width: 1200px)
+					h2
+						position: relative
+						top: 0
+						left: 0
+						transform: translate(0,0)
+
+					span
+						display: block
+						margin-top: 150px
+						margin-bottom: 90px
+
+					p:last-child
+						margin-top: 40px
+
+
+
+
+// -------------------
+// solve style
+// -------------------
+
+.solve
+
+	.title
+
+		h3
+			+font_style(inherit , 35px , 300 , #000 , inherit , inherit)
+
+			span
+				+font_style('Montserrat' , 70px , normal , $color_brown , 10px , inherit)
+
+		.conect 
+			div
+				&::before
+					+size(50px, 5px)
+
+
+	@media (min-width: 1200px)
+		.title
+
+			h3
+				+font_style(inherit , 50px , 300 , #000 , inherit , inherit)
+
+				span
+					+font_style('Montserrat' , 120px , normal , $color_brown , 10px , inherit)
+
+			.conect 
+				div
+					&::before
+						+size(50px, 5px)
+
+	
+	.content
+		.item
+			background-color: $color_purple_light
+			padding: 20px 20px
+			height: 380px
+			+effect_time_2
+
+			.number
+				+font_style('Montserrat' , 50px , normal , #4A4A4A , inherit , inherit)
+				+effect_time_2
+
+			.img
+				opacity: 1
+				+effect_time_2
+
+			ul
+				opacity: 0
+				+effect_time_2
+
+				li
+					+font_style('Montserrat' , 14px , normal , #fff , 2px , inherit)
+
+			h4
+				+font_style('Rufina' , 20px , bold , #4A4A4A , 5.88px , 24px)
+				text-align: right
+				+effect_time_2
+
+		
+		@media (max-width: 768px)
+			.item
+				background-color: $color_purple_dark
+
+				.number
+					color: #fff
+
+				.img
+					opacity: 0
+
+
+				ul
+					opacity: 1
+
+					li
+
+				h4
+					color: #fff
+
+
+// -------------------
+// solve layout
+// -------------------
+
+
+.solve
+	.title
+		margin-bottom: 40px
+
+		h3
+			span
+				position: relative
+				top: 10px
+				margin: 0 0 0 8px
+
+		.conect
+			div
+				text-align: right
+				margin-top: 30px
+
+				&::before
+					margin-bottom: 15px
+					margin-right: 40px
+
+
+	@media (min-width: 1200px)
+		.title
+			margin-bottom: 60px
+
+			h3
+				span
+					top: 20px
+
+			.conect
+				div
+					text-align: right
+					margin-top: 75px
+
+					&::before
+						margin-bottom: 15px
+						margin-right: 40px
+
+	
+	.content
+		.item
+			position: relative
+			margin-bottom: 10px
+
+			.img
+				+poaCenter
+
+			ul
+				margin: 20px auto 60px
+
+				li
+					margin-bottom: 15px
+
+			h4
+				position: absolute
+				bottom: 20px
+				right: 20px
+
+
+
+// -------------------
+// solve effect
+// -------------------
+
+.solve
+	.content
+		.item:active , .item:hover
+			background-color: $color_purple_dark
+			+effect_time_2
+
+			.number
+				color: #fff
+				+effect_time_2
+
+			.img
+				opacity: 0
+				+effect_time_2
+
+
+			ul
+				opacity: 1
+				+effect_time_2
+
+				li
+
+			h4
+				color: #fff
+				+effect_time_2
+
+
+
+
+
+
+
+
+
+
+

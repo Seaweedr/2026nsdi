@@ -1,0 +1,217 @@
+@charset "UTF-8";
+footer,
+footer.section,
+footer.section-footer,
+footer.section.section-footer {
+  z-index: 1;
+  width: 100%;
+  background-color: #0c1222 !important;
+  padding: 56px 0px 71px 0px;
+  color: #ffffff;
+  position: relative;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  -webkit-transition: 1.5s -webkit-filter ease;
+  -o-transition: 1.5s -o-filter ease;
+  transition: 1.5s filter ease;
+}
+
+.section-footer .intro-wrap {
+  margin-bottom: 35px;
+}
+.section-footer .intro-wrap p, .section-footer .intro-wrap p span {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 1.8px;
+  text-align: left;
+}
+.section-footer .intro-wrap p {
+  padding-left: 56px;
+  text-indent: -56px;
+}
+.section-footer .intro-wrap p span {
+  margin-left: 20px;
+}
+.section-footer .link-wrap .icon-link-wrap, .section-footer .link-wrap .text-link-wrap {
+  display: inline-block;
+  font-size: 0px;
+}
+.section-footer .link-wrap .icon-link, .section-footer .link-wrap .text-link {
+  font-size: 0px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 25px;
+}
+.section-footer .link-wrap .icon-link a, .section-footer .link-wrap .text-link a {
+  display: block;
+  transition: all 0.3s ease-out;
+}
+.section-footer .link-wrap .icon-link {
+  width: 25px;
+  height: 25px;
+}
+.section-footer .link-wrap .icon-link img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  vertical-align: bottom;
+}
+.section-footer .link-wrap .text-link {
+  padding-left: 20px;
+  position: relative;
+}
+.section-footer .link-wrap .text-link:before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 14px;
+  background-color: rgba(255, 255, 255, 0.6);
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.section-footer .link-wrap .text-link.no1:before {
+  display: none;
+}
+.section-footer .link-wrap .text-link a {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 2.2px;
+  text-align: right;
+  color: #ffffff;
+  transition: all 0.3s ease-out;
+}
+.section-footer .link-wrap .text-link:hover a {
+  color: #dea56a;
+}
+.section-footer .sub-btn-pos, .section-footer p.copyright {
+  text-align: right;
+}
+.section-footer p.copyright {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.7px;
+  color: #797979;
+  margin-top: 26px;
+}
+.section-footer .sub-btn-wrap {
+  width: 250px;
+  border: 1px solid #dea56a;
+  transition: all 0.5s ease-out;
+  display: inline-block;
+}
+.section-footer .sub-btn-wrap .sub-btn {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  padding: 0px;
+  vertical-align: middle;
+}
+.section-footer .sub-btn-wrap .sub-btn:focus {
+  background-color: rgba(222, 165, 106, 0.1);
+}
+.section-footer .sub-btn-wrap .sub-btn a {
+  padding: 18px 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  text-align: center;
+}
+.section-footer .sub-btn-wrap .sub-btn a:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transform: scaleX(0);
+  transform-origin: right center;
+  background-color: #dea56a;
+  transition: transform 0.8s 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.section-footer .sub-btn-wrap .sub-btn a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transform: scaleX(0);
+  transform-origin: right center;
+  background-color: rgba(222, 165, 106, 0.1);
+  transition: transform 0.8s 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.4s;
+}
+.section-footer .sub-btn-wrap .sub-btn a span {
+  position: relative;
+  font-family: "Montserrat", "Noto Sans TC", "PingFang TC", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2.1px;
+  color: #dea56a;
+  left: 0px;
+  padding: 0 38px;
+  transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 1;
+  transition-delay: 0.2s;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2.4px;
+}
+
+@media all and (min-width: 1200px) {
+  .section-footer .sub-btn-wrap .sub-btn:hover a:after {
+    transform: scaleX(1);
+    transform-origin: left center;
+    transition-delay: 0.4s;
+  }
+  .section-footer .sub-btn-wrap .sub-btn:hover a:before {
+    transition-delay: 0.2s;
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+  .section-footer .sub-btn-wrap .sub-btn:hover a span {
+    color: #1a1a1a;
+    left: 5px;
+  }
+  .section-footer .link-wrap .icon-link a:hover, .section-footer .link-wrap .text-link a:hover {
+    opacity: 0.5;
+    transform: translateY(-3px);
+    color: #fff;
+  }
+}
+@media all and (max-width: 991px) {
+  .section-footer .intro-wrap p, .section-footer .intro-wrap p span {
+    text-align: center;
+  }
+  .section-footer .link-wrap {
+    text-align: center;
+  }
+  .section-footer .link-wrap .icon-link-wrap {
+    margin-bottom: 15px;
+  }
+  .section-footer .link-wrap .icon-link-wrap, .section-footer .link-wrap .text-link-wrap {
+    display: block;
+    text-align: center;
+  }
+  .section-footer .link-wrap .icon-link {
+    margin: 0px 12.5px;
+  }
+  .section-footer .link-wrap .text-link {
+    margin-right: 20px;
+  }
+  .section-footer .sub-btn-pos {
+    margin-top: 35px;
+  }
+  .section-footer .sub-btn-pos, .section-footer p.copyright {
+    text-align: center;
+  }
+}
+@media all and (max-width: 480px) {
+  .section-footer .sub-btn-wrap {
+    margin: 0 auto;
+  }
+}

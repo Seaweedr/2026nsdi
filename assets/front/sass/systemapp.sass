@@ -1,0 +1,585 @@
+
+@charset "UTF-8"
+@import "var_mixin"
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300, 600");
+@import url("https://fonts.googleapis.com/css?family=Mrs+Saint+Delafield");
+
+body
+  background: #F2F2F2
+  color: #4A4A4A
+  -webkit-overflow-scrolling: touch
+
+h1, h2, h3, h4, h5, h6, p, a, span, li
+	font-family: 'Montserrat', 'Open Sans',  'Noto Sans TC', "PingFang TC" , "微軟正黑體", "蘋果儷中黑", Arial
+
+$cb: cubic-bezier(0.4, 0.1, 0.01, 0.99)
+
+$brown: #DEA56A
+$blue: #445B7B
+$red: #DA717D
+$purple: #AC6C82
+$dark-purple: #675C78
+
+$light-gray: #F2F2F2
+$gray: #D3D3D3
+$dark-gray: #B4B4B4
+
+h1
+  font-size: 18px
+  color: #FFFFFF
+  letter-spacing: 3px
+  text-align: center
+  span
+    opacity: 0.5
+    font-size: 14px
+    color: #FFFFFF
+    letter-spacing: 1px
+    text-align: center
+    line-height: 20px
+    display: block
+    max-width: 500px
+    width: 90%
+    padding-top: 15px
+    margin: 0 auto
+  
+h2
+  font-family: 'Mrs Saint Delafield', cursive;
+  transform: rotate(-4deg)
+  font-size: 9vw
+  color: #FFFFFF
+  letter-spacing: 0
+  text-align: center
+  line-height: 90%
+  margin-bottom: 50px
+
+
+h3
+  font-size: 32px
+  letter-spacing: 1px
+  line-height: 40px
+  +fw500
+  padding-left: 55px
+  position: relative
+
+h3::after
+  width: 40px
+  height: 2px
+  content: "\A"
+  background-color: $brown
+  position: absolute
+  left: 0
+  top: 19px
+
+h4
+  font-size: 20px
+  letter-spacing: 1px
+  line-height: 28px
+  +fw500
+
+@mixin fs-s
+  font-size: 12px
+  letter-spacing: 0.5px
+
+@mixin fs-m
+  font-size: 14px
+  line-height: 26px
+  letter-spacing: 1px
+
+@mixin fs-l
+  font-size: 20px
+  line-height: 28px
+  letter-spacing: 1px
+  
+@mixin bg-cover-center
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+
+@mixin flex-center
+  display: flex
+  flex-wrap:wrap
+  justify-content: center
+  align-items: center
+
+@mixin section-gap
+  padding-top: 160px
+
+@mixin transition
+  transition: all 0.3s
+
+@mixin tr-ani
+  transition: all 1.5s .5s $cb
+
+.animated
+  animation-timing-function: $cb
+
+// .container
+//   width: 1170px
+
+.block
+  background: #FFFFFF;
+  border-radius: 5px;
+
+.blue
+  h3::after
+    background-color: $blue
+  .highlight li
+    color: $blue
+  .work-link
+    background-color: $blue
+
+.red
+  h3::after
+    background-color: $red
+  .highlight li
+    color: $red
+  .work-link
+    background-color: $red
+
+.purple
+  h3::after
+    background-color: $purple
+  .highlight li
+    color: $purple
+  .work-link
+    background-color: $purple
+
+.dark-purple
+  h3::after
+    background-color: $dark-purple
+  .highlight li
+    color: $dark-purple
+  .work-link
+    background-color: $dark-purple
+
+.brown
+  h3::after
+    background-color: $brown
+  .highlight li
+    color: $brown
+  .work-link
+    background-color: $brown
+
+.highlight
+  li
+    @include fs-m
+
+.work-link
+  padding: 13px 20px
+  padding-right: 53px
+  color: #fff
+  @include fs-m
+  border-radius: 23px
+  position: relative
+  cursor: pointer
+  &::after
+    content: "\A"
+    width: 14px
+    height: 16px
+    background-image: url(../images/systemapp/ic_next@2x.png)
+    @include bg-cover-center
+    @include transition
+    position: absolute
+    right: 20px
+    top: 14px
+  &:hover::after
+    right: 15px
+
+.big-title
+  opacity: 0.3
+  font-weight: 900
+  font-size: 120px
+  letter-spacing: 2px
+  text-align: left
+  font-family: 'Montserrat', 'Open Sans',  'Noto Sans TC', "PingFang TC" , "微軟正黑體", "蘋果儷中黑", Arial
+
+@keyframes scroll
+  0%
+    transform: translateY(0%)
+  100%
+    transform: translateY(50%)
+
+.kv
+  width: 100%
+  height: 100vh
+  @include flex-center
+  background-image: url(../images/systemapp/bg_intro.jpg)
+  @include bg-cover-center
+  flex-direction: column
+  position: relative
+  .line
+    width: 40px
+    height: 2px
+    background: $brown
+    margin: 0 0 30px 0 
+  .scroll
+    position: absolute
+    bottom: 0
+    z-index: 1
+    height: 50px
+    width: 100%
+    overflow: hidden
+    .container
+      height: 100%
+      background: $light-gray
+      text-align: center
+      position: relative
+      border-radius: 5px 5px 0 0
+      .wrapper
+        animation: scroll 2s infinite $cb
+        margin-top: -50px
+      span
+        @include fs-m
+        line-height: 50px
+        height: 50px
+        display: block
+        text-align: center
+      img
+        position: absolute
+        right: 20px
+        top: 20px
+        z-index: 2
+
+.section-01
+  @include section-gap
+  p
+    margin-bottom: 60px
+  .block
+    padding: 30px
+  h4
+    min-height: 76px
+    border-bottom: 1px solid $gray
+    margin-bottom: 20px
+  h5
+    margin-bottom: 10px
+  span
+    background: $dark-gray
+    @include fs-m
+    color: #fff
+    padding: 5px 10px
+    border-radius: 14px
+
+.section-02
+  @include section-gap
+  h4 span
+    position: absolute
+    top: 0
+    left: -36px
+    font-size: 32px
+    color: $brown
+    letter-spacing: 1px
+    text-align: right
+    line-height: 32px
+  ul
+    margin: 20px 0 50px
+    li
+      @include fs-m
+      img
+        margin-top: 10px
+  .img-container
+    text-align: center
+    padding-top: 40px
+    overflow: hidden
+    img
+      margin-bottom: -240px
+
+.belt
+  font-size: 16px
+  color: #FFFFFF
+  letter-spacing: 4px
+  text-align: center
+  background: $blue
+  padding: 30px 0
+  width: 100%
+
+.section-03
+  @include section-gap
+  .section-img-container
+    position: relative
+    height: 400px
+    margin-top: 60px
+  .section-img
+    height: 100%
+    background-image: url(../images/systemapp/img_section-03.jpg)
+    @include bg-cover-center
+    position: absolute
+    left: 0
+    top: 0
+    width: calc(50% + 50vw)
+    border-radius: 5px 0 0 5px
+  .work-link
+    margin-top: -20px
+    position: relative
+    top: -12px
+  .big-title
+    color: #fff
+    position: absolute
+    left: 30px
+    bottom: 30px
+    z-index: 2
+
+.section-04
+  @include section-gap
+  .no-p-r
+    padding-right: 0
+  .no-p-l
+    padding-left: 0
+    padding-top: 60px
+  .section-img
+    height: 500px
+    background-image: url(../images/systemapp/img_section-04.jpg)
+    @include bg-cover-center
+    border-radius: 5px 5px 0 5px 
+  .block
+    padding: 160px 60px 60px 60px
+    border-radius: 0 5px 5px 5px 
+    position: relative
+    z-index: 2 
+  h3
+    margin-bottom: 20px
+  p
+    margin-bottom: 40px
+  .work-link-container
+    position: absolute
+    bottom: -14px 
+    right: 60px 
+  .big-title
+    color: #DA717D
+    position: absolute
+    z-index: 0
+    writing-mode: vertical-lr
+    top: 0px
+    right: -93px
+
+.section-05
+  @include section-gap
+  margin-bottom: 160px
+  .container
+    position: relative
+  h3
+    margin-bottom: 20px
+  p
+    margin-bottom: 40px
+  .section-img
+    height: 600px
+    background-image: url(../images/systemapp/img_section-05.jpg)
+    @include bg-cover-center
+    border-radius: 5px 
+    position: relative
+    z-index: 2
+  .pull-up
+    margin-top: -380px
+    position: relative
+    z-index: 3
+  .work-link-container
+    position: absolute
+    bottom: -80px 
+    left: 114px
+  .big-title
+    color: #AC6C82
+    position: absolute
+    z-index: 1
+    top: 230px
+    left: -200px
+
+.section-06
+  height: 600px
+  background-image: url(../images/systemapp/bg_section-06.jpg)
+  @include bg-cover-center
+  @include section-gap
+  .container
+    position: relative
+  h3,p
+    color: #fff
+  p
+    margin-bottom: 45px
+  .section-img img
+    margin-top: -30px
+    position: relative
+    z-index: 2
+  .big-title
+    position: absolute
+    color: #DEA56A
+    left: 290px
+    bottom: 170px
+
+.section-07
+  padding-top: 200px
+  .section-img-container
+    height: 600px
+  .section-img
+    height: 100%
+    background-image: url(../images/systemapp/img_section-07.jpg)
+    @include bg-cover-center
+    position: absolute
+    right: 0
+    top: 0
+    width: calc(50% + 50vw)
+    border-radius: 0 5px 5px 0
+  .block
+    background: none;
+    padding: 150px 0 0 30px
+    .row
+      margin-bottom: 60px
+  .work-link
+    position: relative
+    z-index: 2
+  h3
+    margin-bottom: 20px
+  .big-title
+    color: #675C78
+    margin: -90px 0 0 -30px
+
+@media (max-width: 991px)
+  h2
+    font-size: 14vw
+  h3
+    margin-bottom: 20px
+  .highlight
+    li
+      display: inline-block
+      padding-right: 10px
+  .big-title
+    display: none
+  .section-01, .section-02, .section-03, .section-04, .section-05, .section-06, .section-07
+    padding-top: 80px
+  .section-01
+    p, .block
+      margin-bottom: 30px
+    h4
+      min-height: auto
+      padding-bottom: 20px
+  .section-02
+    .modify
+      padding: 50px 0 0 60px
+      background: #fff
+    .container
+      width: 100%
+    h3
+      margin-left: 15px
+  .section-03
+    display: flex
+    flex-direction: column-reverse
+    p
+      margin-bottom: 20px
+    .section-img-container
+      margin-top: 0px
+      margin-bottom: 30px
+      height: 300px
+    .flex-final
+      order: -1
+    .highlight
+      margin-bottom: 50px
+  .section-04
+    .section-img
+      height: 300px
+    .no-p-r
+      padding-right: 15px
+    .no-p-l
+      padding-left: 15px
+      padding-top: 0
+    .block
+      padding: 30px
+    p
+      margin-bottom: 20px
+    .work-link-container
+      position: relative
+      bottom: auto
+      right: auto
+      margin-top: 30px
+      margin-bottom: 20px
+  .section-05
+    margin-bottom: 80px
+    .row
+      position: relative
+    .section-img
+      height: 300px
+    .pull-up
+      margin-top: 30px
+    p
+      margin-bottom: 20px
+    .highlight
+      margin-bottom: 40px
+    .work-link-container
+      position: relative
+      left: 0
+      bottom: auto
+  .section-06
+    height: 450px
+    .container
+      width: 100%
+      padding: 0
+    .row
+      padding: 0 30px
+    .highlight
+      margin-top: -90px
+    p
+      margin-bottom: 80px
+    .section-img
+      text-align: right
+      width: 100%
+      overflow: hidden
+      margin-top: -30px
+      img
+        margin-top: 0
+        margin-right: -180px
+        width: 60vw
+        height: auto
+  .section-07
+    margin-bottom: 60px
+    .section-img-container
+      height: 300px
+      .section-img
+        position: relative
+        width: 100%
+        border-radius: 5px
+    .block
+      padding: 30px 0
+      .row
+        margin-bottom: 0
+    p
+      margin-bottom: 20px
+    .highlight
+      margin-bottom: 40px
+
+@media (max-width: 767px)
+  .kv .scroll .container
+    border-radius: 0
+    span
+      display: inline-block
+    img
+      position: initial
+      display: inline-block
+  .section-01
+    span
+      float: left
+      line-height: 100%
+      margin: 0 5px 5px 0
+    .block::after
+      content: "\A"
+      display: block
+      clear: both
+  .section-02
+    .modify
+      padding-left: 30vw
+    h3 br
+      display: none
+    .img-container img
+      width: 100%
+      height: auto
+  .section-03
+    .section-img-container
+      width: 100vw
+    .section-img
+      position: relative
+      width: 100%
+    .flex-final
+      width: 100%
+
+
+
+
+
+
+
+

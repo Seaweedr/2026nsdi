@@ -1,0 +1,1437 @@
+@charset "UTF-8"
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700")
+
+@import var_mixin
+// @import family
+
+$main_color: #4A4A4A
+$bg_color: #F2F2F2
+$white: #FFFFFF
+$pink: #DA717D
+$blue: #445B7B
+
+=N_bgiCover($position: center center, $size: cover)
+  background-repeat: no-repeat
+  background-position: $position
+  background-size: $size
+
+// ----------------------------
+// @media管理 
+// ----------------------------
+$breakpoints: (xxl: 1440px, desktop: 1200px, tablets: 992px, mobile: 768px, small-mobile: 480px)
+
+=un-xxl
+  @media screen and (min-width: map-get($breakpoints, "xxl"))
+    @content
+
+=un-desktop
+  @media screen and (min-width: map-get($breakpoints, "desktop"))
+    @content
+
+=un-tablets
+  @media screen and (min-width: map-get($breakpoints, "tablets"))
+    @content
+
+=un-mobile
+  @media screen and (min-width: map-get($breakpoints, "mobile"))
+    @content
+
+=for-xxs
+  @media screen and (max-width: map-get($breakpoints, "small-mobile"))
+    @content
+
+=at2x($w, $h)
+  @media all and (-webkit-min-device-pixel-ratio: 1.5)
+    width: $w
+    height: $h
+
+    @content
+
+=at2x-un-desktop
+  @media (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1.5)
+    @content
+
+=for2x
+  @media (-webkit-min-device-pixel-ratio: 1.5)
+    @content
+
+body,
+html
+  color: $main_color
+  background-color: $bg_color
+  height: auto
+
+body *::selection
+  background-color: lighten($blue, 40%)
+
+article
+  overflow: hidden
+
+.container-fluid
+  +un-tablets
+    padding-right: 50px
+    padding-left: 50px
+
+
+  position: relative
+
+// 網格TEST
+.o-line
+  position: fixed
+  z-index: 50
+  width: 100%
+
+  .container-fluid
+    +un-tablets
+      padding-right: 50px
+      padding-left: 50px
+
+  [class*="col-"] h5
+    display: block
+    background-color: pink
+    height: 5vh
+    opacity: 0.5
+
+#scroll
+  font-size: 14px
+  font-family: "Montserrat",'Open Sans', "PingFang TC" , "微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial
+  +fw300
+  color: #4A4A4A
+  letter-spacing: 2px
+  line-height: inherit
+  cursor: pointer
+  position: absolute
+  z-index: 999
+  bottom: 15%
+  left: 10px
+
+  +un-tablets
+    left: 25px
+
+
+  +un-desktop
+    top: 50%
+    bottom: inherit
+
+
+  transform: translate(0, -50%) rotate(90deg)
+  opacity: 1
+  transition: all 0.2s
+  display: inline-flex
+  align-items: center
+
+  img
+    transform: translateX(30px) rotate(-90deg)
+
+    +un-desktop
+      transform: translateX(200px) rotate(-90deg)
+
+
+    transition: all 0.2s
+
+  &:hover
+    color: #4A4A4A
+
+    img
+      +un-desktop
+        transform: translateX(210px) rotate(-90deg)
+
+.flex_row
+  display: flex
+  flex-wrap: wrap
+
++un-tablets
+  .container_inn
+    position: relative
+    padding: 0
+
+    & > .row
+      & > [class*="blank"]
+        position: static
+
+  .pos_inn
+    position: absolute
+    left: 0
+    width: 100%
+
+
+.bg_white
+  background-color: $white
+
+.bg_grey
+  background-color: $bg_color
+
+.bg_pink
+  background-color: $pink
+
+.bg_blue
+  background-color: $blue
+
+.margin-L50
+  margin-left: -15px
+
+  +un-tablets
+    margin-left: -50px
+
+.margin-R50
+  margin-right: -15px
+
+  +un-tablets
+    margin-right: -50px
+
+.margin-R30
+  margin-right: -15px
+
+  +un-tablets
+    margin-right: -30px
+
+//主視覺
+.kv_wrap
+  position: relative
+
+  .bg_white
+    height: 320px
+
+    +un-mobile
+      height: 600px
+
+
+    +un-tablets
+      height: 150px
+
+  .blank
+    height: 320px
+    margin-left: -15px
+
+    +un-mobile
+      height: 600px
+
+
+    +un-tablets
+      height: calc(100vh - 150px)
+      margin-left: 0
+
+  .kv_img
+    background-image: url("../images/innovationapp/img_kv_mobile@2x.jpg")
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover
+
+    +un-tablets
+      background-image: url("../images/innovationapp/img_kv@2x.jpg")
+
+  .content_inn
+    position: relative
+    padding-bottom: 110px
+    top: 20px
+
+    +un-mobile
+      top: -110px
+
+
+    +un-tablets
+      // top: inherit
+      // bottom: 285px
+      top: 25vh
+      position: absolute
+      padding-bottom: 0
+      left: 0
+      width: 100%
+
+  .title
+    font-size: 18px
+    letter-spacing: 3px
+    +fw500
+    margin-bottom: 15px
+
+  .sub_title
+    font-family: Montserrat ,'Open Sans', "PingFang TC" , "微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial
+    font-size: 40px
+    color: $blue
+    letter-spacing: 0
+    line-height: 48px
+    margin-bottom: 48px
+    +fwB
+    text-align: left
+
+    +un-tablets
+      font-size: 90px
+      line-height: 90px
+
+
+    +un-mobile
+      font-size: 72px
+      line-height: 72px
+
+
+    span
+      font-family: Montserrat ,'Open Sans', "PingFang TC" , "微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial
+      +fwB
+      // font-size: 48px
+      font-size: inherit
+      letter-spacing: 0
+      display: inline-flex
+      align-items: center
+
+      +un-tablets
+        font-size: 90px
+
+
+      +un-mobile
+        font-size: 72px
+
+
+      &::before
+        content: ""
+        display: inline-block
+        width: 36px
+        height: 4px
+        background-color: $blue
+        margin-right: 10px
+
+        +un-mobile
+          width: 60px
+          height: 6px
+
+  .text
+    +un-desktop
+      max-width: 50%
+
+
+    padding-right: 15px
+    text-align: left
+    +fw500
+    opacity: 0.8
+    font-size: 14px
+    letter-spacing: 1.08px
+    line-height: 20px
+
+  .sort_box
+    display: flex
+    flex-wrap: wrap
+    position: relative
+    margin: 0 -15px -37px
+
+    &::before
+      content: ""
+      position: absolute
+      width: 40px
+      height: 2px
+      background-color: #fff
+      left: -55px
+      top: 10px
+
+    li
+      padding: 0 15px
+      width: 50%
+      +fwB
+      font-size: 14px
+      color: #FFFFFF
+      letter-spacing: 0.16px
+      padding-bottom: 37px
+
+.project_wrap
+  .blank
+    height: 650px
+
+    &.bg_white
+      +un-desktop
+        margin-top: -100px
+        height: 750px
+
+  .project_header
+    background-color: $white
+    padding-top: 70px
+    padding-bottom: 120px
+
+    +un-tablets
+      top: 120px
+      padding: 0
+      background-color: transparent
+
+
+    .title
+      +fwB
+      font-size: 22px
+      color: #4A4A4A
+      letter-spacing: 1px
+      line-height: normal
+      margin-bottom: 40px
+
+      &::before
+        content: ""
+        width: 26px
+        height: 2px
+        margin-right: 4px
+        margin-top: -4px
+        display: inline-block
+        vertical-align: middle
+        background-color: #4A4A4A
+
+        +un-mobile
+          width: 40px
+          height: 4px
+
+      +un-mobile
+        font-size: 32px
+        line-height: 56px
+
+
+      +un-tablets
+        margin-bottom: 0
+
+    .apply_box
+      margin-top: 10px
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      align-items: flex-start
+
+      h5
+        +fw500
+        font-size: 15px
+        color: #4A4A4A
+        letter-spacing: 1px
+        line-height: 28px
+
+        +un-mobile
+          font-size: 20px
+
+      p
+        +fw500
+        font-size: 11px
+        color: #4A4A4A
+        letter-spacing: 1px
+        line-height: 26px
+        margin-top: 12px
+
+        +un-mobile
+          font-size: 14px
+
+
+        &::before
+          content: ""
+          width: 20px
+          height: 1px
+          margin-right: 10px
+          display: inline-block
+          vertical-align: middle
+          background-color: #4A4A4A
+
+.solve_wrap
+  background-color: $pink
+  padding: 70px 0
+
+  +un-desktop
+    background-color: transparent
+    padding: 0
+
+
+  .blank
+    height: 600px
+
+  .solve_header
+    > .container-fluid
+      +un-tablets
+        padding: 0
+
+
+      +un-mobile
+        padding-right: 50px
+        padding-left: 50px
+
+    +un-desktop
+      position: absolute
+      left: 0
+      width: 100%
+      top: 50px
+
+      > .container-fluid
+        padding-right: 50px
+        padding-left: 50px
+
+
+    .title
+      display: inline-block
+      +fwB
+      font-size: 22px
+      color: #FFFFFF
+      letter-spacing: 1px
+      line-height: normal
+      margin-bottom: 20px
+
+      &::before
+        content: ""
+        width: 26px
+        height: 2px
+        margin-right: 12px
+        margin-top: -4px
+        display: inline-block
+        vertical-align: middle
+        background-color: #FFFFFF
+
+        +un-mobile
+          width: 40px
+          height: 4px
+
+      +un-mobile
+        font-size: 32px
+        line-height: 56px
+
+    .content
+      margin-top: 30px
+
+      .sub_title
+        +fwB
+        font-size: 20px
+        color: #FFFFFF
+        letter-spacing: 1px
+        line-height: 28px
+        margin-bottom: 12px
+        text-align: left
+        display: flex
+        position: relative
+
+        +un-tablets
+          justify-content: space-between
+
+
+        &::after
+          content: attr(data-num)
+          display: inline-block
+          transform: translateY(-50%) rotate(-90deg)
+          font-family: 'Montserrat', 'Open Sans', "PingFang TC" , "微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial
+          +fw400
+          font-size: 14px
+          letter-spacing: 0.44px
+          line-height: 14px
+          position: absolute
+          right: 50%
+          top: 50%
+
+          +un-mobile
+            right: 40%
+
+
+          +un-tablets
+            position: relative
+            right: 0
+            top: 0
+            transform: translateY(0) rotate(-90deg)
+
+
+          @media (min-width: 1680px)
+            margin-right: 78px
+
+      ul
+        li
+          +fwB
+          font-size: 14px
+          color: #FFFFFF
+          letter-spacing: 1px
+          line-height: 26px
+          text-align: left
+
+          &:not(:last-child)
+            margin-bottom: 4px
+
+.example_header
+  .blank
+    display: flex
+    justify-content: center
+    align-items: center
+
+    &.bg_white
+      display: none
+
+      +un-desktop
+        display: flex
+
+    &.bg_blue
+      .title
+        +fwB
+        font-size: 16px
+        color: #FFFFFF
+        letter-spacing: 4px
+        display: block
+        padding-top: 30px
+        padding-bottom: 30px
+
+  .example_title
+    padding-top: 125px
+    padding-bottom: 50px
+
+.example_title
+  writing-mode: vertical-rl
+  direction: rtl
+  font-family: 'Montserrat', 'Open Sans', "PingFang TC" , "微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial
+  +fwB
+  font-size: 12px
+  color: #4A4A4A
+  letter-spacing: 1px
+  text-transform: uppercase
+  display: inline-block
+//CUT開始
+.example
+  .container-fluid
+    +un-mobile
+      padding-right: 50px
+      padding-left: 50px
+
+  .title
+    +fwB
+    font-size: 48px
+    color: $main_color
+    letter-spacing: 2px
+    line-height: 48px
+    text-align: left
+
+    span
+      font-family: 'Montserrat', 'Open Sans', "PingFang TC" , "微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial
+      font-size: 48px
+      +fwB
+      letter-spacing: 2px
+      line-height: 48px
+
+    +un-mobile
+      font-size: 72px
+      line-height: 72px
+
+      span
+        font-size: 72px
+        line-height: 72px
+
+
+    +un-xxl
+      font-size: 90px
+      line-height: 90px
+
+      span
+        font-size: 90px
+        line-height: 90px
+
+
+    &.has_after::after
+      right: 0
+      top: 0
+      position: absolute
+      text-transform: uppercase
+      writing-mode: vertical-rl
+      direction: rtl
+      font-family: 'Montserrat', 'Open Sans', "PingFang TC" , "微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial
+      +fwB
+      font-size: 12px
+      line-height: normal
+      color: #4A4A4A
+      letter-spacing: 1px
+
+  .text
+    +fw500
+    font-size: 14px
+    color: $main_color
+    letter-spacing: 1.8px
+    line-height: 26px
+
+  .button
+    font-family: 'Montserrat', 'Open Sans', "PingFang TC" , "微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial
+    +fwB
+    font-size: 12px
+    color: #4A4A4A
+    letter-spacing: 1px
+    border-bottom: 1px solid $main_color
+    padding-bottom: 4px
+
+  .highlight
+    li
+      font-size: 12px
+      color: $main_color
+      letter-spacing: 1px
+      line-height: 18px
+      display: inline-flex
+
+      // align-items: baseline;
+      &::before
+        content: ""
+        display: block
+        width: 20px
+        height: 1px
+        background-color: $main_color
+        margin-right: 10px
+        margin-top: 8px
+        vertical-align: middle
+
+#layout01
+  .bg_inn
+    +N_bgiCover
+    +for2x
+      background-image: url("../images/innovationapp/img_section-01@2x.jpg")
+
+
+    background-image: url("../images/innovationapp/img_section-01.jpg")
+    height: 360px
+    margin-right: -15px
+    margin-left: -15px
+
+    +un-mobile
+      margin-right: -50px
+      margin-left: -50px
+      height: 560px
+
+
+    +un-desktop
+      margin-right: 0
+
+  .content_inn
+    padding: 50px 0 70px
+
+    +un-desktop
+      padding: 0
+
+
+    .title
+      position: relative
+      max-width: calc(100% - 45px)
+
+      &::after
+        content: "real estate"
+        text-align: left
+        right: -45px
+
+      +un-desktop
+        margin-top: 50px
+
+
+      +un-xxl
+        margin-top: 80px
+        font-size: 90px
+        line-height: 90px
+
+        span
+          font-size: 90px
+          line-height: 90px
+
+    .text
+      width: 80%
+      padding-right: 15px
+      margin-top: 40px
+
+      +un-mobile
+        width: 33%
+
+
+      +un-desktop
+        margin-top: 45px
+        width: 80%
+
+
+      +un-xxl
+        width: 50%
+
+    .highlight li
+      margin-top: 40px
+
+      +un-desktop
+        margin-top: 45px
+
+    .button
+      display: inline-block
+      margin-top: 40px
+
+      +un-desktop
+        margin-top: 135px
+
+#layout02
+  .bg_white
+    height: 180px
+    margin-right: -50px
+    margin-left: -30px
+
+  .bg_inn
+    +N_bgiCover
+    +for2x
+      background-image: url("../images/innovationapp/img_section-02@2x.jpg")
+
+
+    background-image: url("../images/innovationapp/img_section-02.jpg")
+    height: 360px
+    margin-right: -15px
+    margin-left: -15px
+
+    +un-mobile
+      margin-right: -50px
+      margin-left: -50px
+      height: 600px
+
+
+    +un-desktop
+      margin-left: 0px
+
+  .content_inn
+    position: relative
+    padding: 50px 0 70px
+
+    +un-desktop
+      bottom: 60px
+      position: absolute
+      padding: 0
+
+
+    .text
+      margin-bottom: 45px
+
+      +un-mobile
+        margin-bottom: 0
+
+    .highlight li
+      display: flex
+      margin-bottom: 30px
+      text-align: left
+
+      +un-mobile
+        &:last-of-type
+          margin-bottom: 100px
+
+
+      &::before
+        +un-desktop
+          position: absolute
+          left: -15px
+
+
+        +un-xxl
+          position: relative
+
+    .col-lg-offset-1
+      @media (min-width: 1200px) and (max-width: 1440px)
+        margin-left: 0%
+
+    .col-lg-offset-2.col-lg-1
+      @media (min-width: 1200px) and (max-width: 1440px)
+        margin-left: 0%
+        width: 16.66666667%
+
+    > div > .row
+      &:last-of-type
+        display: flex
+        align-items: flex-end
+
+        +un-desktop
+          display: inherit
+
+#section_wrap01
+  +un-desktop
+    background-image: url("../images/innovationapp/img_section-04-2.jpg")
+
+
+  +at2x-un-desktop
+    background-image: url("../images/innovationapp/img_section-04-2@2x.jpg")
+
+
+  background-repeat: no-repeat
+  background-position: right center
+  background-size: contain
+
+#layout03
+  background-color: #665c77
+
+  +un-desktop
+    background-color: transparent
+
+
+  .blank
+    height: 600px
+    margin-right: -30px
+    margin-left: -30px
+
+  .bg_inn
+    +N_bgiCover
+
+    background-image: url("../images/innovationapp/img_section-03_mobile.jpg")
+
+    +for2x
+      background-image: url("../images/innovationapp/img_section-03_mobile@2x.jpg")
+
+
+    +un-tablets
+      background-image: url("../images/innovationapp/img_section-03.jpg")
+
+
+    +for2x
+      +un-tablets
+        background-image: url("../images/innovationapp/img_section-03@2x.jpg")
+
+
+    height: 660px
+    margin-right: -15px
+    margin-left: -15px
+
+    +for-xxs
+      height: 480px
+
+
+    +un-mobile
+      margin-right: -50px
+      margin-left: -50px
+      height: 888px
+
+
+    +un-tablets
+      height: 600px
+
+
+    +un-desktop
+      margin-right: 0px
+
+  .content_inn
+    padding: 50px 0 70px
+    position: relative
+    margin-top: -215px
+
+    +un-mobile
+      top: 300px
+      position: absolute
+      margin-top: 0
+
+
+    +un-tablets
+      position: relative
+      margin-top: -300px
+      top: 0
+
+
+    +un-desktop
+      position: absolute
+      bottom: 60px
+      padding: 0
+      margin-top: 0
+      top: inherit
+
+
+    .title,
+    .text,
+    .button
+      color: $white
+      border-color: $white
+
+    .title
+      margin-bottom: 70px
+
+      +un-mobile
+        margin-bottom: 158px
+
+
+      +un-desktop
+        margin-bottom: 0
+
+    .text
+      margin-bottom: 70px
+
+      +un-desktop
+        padding-right: 25px
+        margin-bottom: 100px
+
+    .highlight li
+      display: flex
+      margin-bottom: 30px
+      color: $white
+
+      &::before
+        background-color: $white
+
+      +un-desktop
+        color: $main_color
+
+        &::before
+          background-color: $main_color
+
+    .example_title
+      color: $white
+
+      +un-desktop
+        color: main_color
+
+    .col-xxl-4
+      @media (min-width: 1200px) and (max-width: 1750px)
+        margin-left: 8.33333333%
+        width: 33.33333333%
+
+#layout04
+  .bg_inn
+    +N_bgiCover
+
+    background-image: url("../images/innovationapp/img_section-04_mobile.jpg")
+
+    +for2x
+      background-image: url("../images/innovationapp/img_section-04_mobile@2x.jpg")
+
+
+    +un-desktop
+      background-image: url("../images/innovationapp/img_section-04-1.jpg")
+
+
+    +for2x
+      +un-desktop
+        background-image: url("../images/innovationapp/img_section-04-1@2x.jpg")
+
+
+    height: 360px
+    margin-right: -15px
+    margin-left: -15px
+
+    +un-mobile
+      margin-right: -50px
+      margin-left: -50px
+      height: 600px
+
+
+    +un-desktop
+      margin-right: 0px
+      margin-left: 0px
+
+  .blank
+    height: 600px
+    margin-left: -30px
+    margin-right: -30px
+
+  .content_inn
+    position: relative
+    padding: 50px 0 70px
+
+    +un-desktop
+      bottom: 30px
+      position: absolute
+      padding: 0
+
+
+    .title
+      margin-bottom: 45px
+
+    .text
+      margin-bottom: 45px
+
+    .highlight li
+      display: flex
+      margin-bottom: 30px
+
+#layout05
+  > .container-fluid
+    display: flex
+    flex-direction: column-reverse
+
+    +un-desktop
+      direction: block
+
+  background-color: #000
+  min-height: 600px
+
+  .bg_inn
+    +N_bgiCover
+
+    background-image: url("../images/innovationapp/img_section-05.jpg")
+
+    +for2x
+      background-image: url("../images/innovationapp/img_section-05@2x.jpg")
+
+
+    +un-desktop
+      background-image: url("../images/innovationapp/img_section-05.jpg")
+
+
+    height: 240px
+    margin-right: -30px
+    margin-left: -30px
+
+    +un-mobile
+      margin-right: -65px
+      margin-left: -65px
+      height: 400px
+
+
+    +un-tablets
+      height: 600px
+
+
+    +un-desktop
+      margin-left: 0px
+      margin-right: -50px
+
+  .pos_inn
+    position: relative
+
+    +un-desktop
+      position: absolute
+      top: 100px
+      z-index: 4
+
+  .content_inn
+    position: relative
+    padding-top: 50px
+    padding-bottom: 70px
+
+    +un-desktop
+      padding-top: 205px
+      padding-bottom: 45px
+      z-index: 5
+
+
+    .example_title,
+    .title,
+    .text,
+    .button,
+    .highlight li
+      color: $white
+      border-color: $white
+
+    .example_title
+      margin-bottom: 95px
+
+    .text
+      margin-top: 50px
+      margin-bottom: 60px
+
+      +un-desktop
+        margin-bottom: 135px
+
+    .highlight li
+      text-align: left
+
+      &::before
+        background-color: $white
+
+      display: flex
+      margin-bottom: 30px
+
+    .col-lg-1.col-lg-offset-1
+      @media (min-width: 1200px) and (max-width: 1440px)
+        margin-left: 0
+        width: 16.66666667%
+
+#layout06
+  background-color: #db717d
+
+  +un-desktop
+    background-color: transparent
+
+
+  > .container-fluid > .row
+    display: flex
+    flex-direction: column-reverse
+
+    +un-desktop
+      direction: block
+
+  .bg_inn
+    +N_bgiCover
+
+    background-image: url("../images/innovationapp/img_section-06.jpg")
+
+    +for2x
+      background-image: url("../images/innovationapp/img_section-06@2x.jpg")
+
+
+    +un-desktop
+      background-image: url("../images/innovationapp/img_section-06.jpg")
+
+
+    height: 360px
+    margin-right: -15px
+    margin-left: -15px
+
+    +un-mobile
+      margin-right: -50px
+      margin-left: -50px
+      height: 600px
+
+
+    +un-desktop
+      margin-right: 0px
+      margin-left: -50px
+      height: 700px
+
+  .content_inn
+    position: relative
+    padding: 50px 0 0
+
+    +un-desktop
+      bottom: 30px
+      position: absolute
+
+      .title,
+      .text .highlight li,
+      .example_title,
+      .button
+        color: $main_color
+
+
+    .title
+      margin-bottom: 50px
+      color: $white
+
+    .text
+      margin-bottom: 40px
+
+      +un-mobile
+        margin-bottom: 100px
+
+
+      color: $white
+
+    .example_title
+      color: $white
+
+    .button
+      color: $white
+      border-color: $white
+
+    .highlight li
+      text-align: left
+      display: flex
+      color: $white
+
+      &::before
+        background-color: $white
+
+      @media (max-width: 1550px)
+        br
+          display: none
+
+      &.col-lg-1
+        @media (min-width: 1200px) and (max-width: 1440px)
+          width: 10%
+
+    +un-desktop
+      .title,
+      .text,
+      .highlight li,
+      .example_title,
+      .button
+        color: $main_color
+
+      .highlight li::before
+        background-color: $main_color
+
+      .button
+        border-color: $main_color
+
+#layout07
+  background-color: #fff
+
+  .bg_inn
+    +N_bgiCover
+
+    background-image: url("../images/innovationapp/img_section-07_mobile.jpg")
+
+    +for2x
+      background-image: url("../images/innovationapp/img_section-07_mobile@2x.jpg")
+
+
+    +un-desktop
+      background-image: url("../images/innovationapp/img_section-07.jpg")
+
+
+    +for2x
+      +un-desktop
+        background-image: url("../images/innovationapp/img_section-07@2x.jpg")
+
+
+    height: 360px
+    margin-right: -15px
+    margin-left: -15px
+
+    +un-mobile
+      margin-right: -50px
+      margin-left: -50px
+      height: 460px
+
+
+    +un-tablets
+      height: 600px
+
+
+    +un-desktop
+      margin-right: 0
+
+  .content_inn
+    position: relative
+    padding: 50px 0 70px
+
+    +un-desktop
+      position: absolute
+      top: 93px
+      padding: 0
+
+
+    .content_wrap
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+
+      +un-desktop
+        display: block
+
+
+      .first_row
+        order: 2
+
+      .second_row
+        order: 1
+
+    .example_title
+      position: absolute
+      right: 15px
+      top: 0
+
+      +un-mobile
+        right: 0
+
+
+      +un-desktop
+        position: relative
+        direction: inherit
+        writing-mode: unset
+        margin-bottom: 84px
+
+    .title
+      margin-bottom: 40px
+
+      +un-desktop
+        left: -30px
+        transform: rotate(-90deg)
+        display: inline-block
+        position: relative
+        margin-bottom: 117px
+
+
+      +un-xxl
+        left: 0
+
+
+      @media (max-width: 1600px) and (min-width: 1440px)
+        left: -30px
+
+    .text
+      margin-bottom: 40px
+      max-width: 80%
+
+      +un-mobile
+        max-width: 50%
+
+
+      +un-desktop
+        max-width: 100%
+
+    .highlight
+      margin-bottom: 40px
+
+      +un-desktop
+        margin-bottom: 0
+
+
+      li
+        text-align: left
+
+    .button
+      order: 3
+      display: inline-block
+
+#layout08
+  margin-bottom: 100px
+
+  +un-desktop
+    position: relative
+    height: 800px
+    background-image: url("../images/innovationapp/img_section-08-1.jpg")
+
+    +N_bgiCover
+
+    background-position: left top
+
+    +for2x
+      background-image: url("../images/innovationapp/img_section-08-1@2x.jpg")
+
+
+  .pos_inn
+    position: relative
+
+    +un-desktop
+      position: absolute
+      bottom: 0
+
+  .bg_inn
+    +N_bgiCover
+
+    background-image: url("../images/innovationapp/img_section-08-2.jpg")
+
+    +for2x
+      background-image: url("../images/innovationapp/img_section-08-2@2x.jpg")
+
+
+    height: 400px
+    margin-right: -15px
+    margin-left: -15px
+
+    +un-mobile
+      margin-left: -50px
+      margin-right: -50px
+      height: 600px
+
+
+    +un-desktop
+      margin-left: 0px
+
+  .content_inn
+    position: relative
+    padding: 70px 0 50px
+
+    +un-desktop
+      position: absolute
+      width: 100%
+      left: 0
+      bottom: 70px
+      padding: 0
+
+
+    .title
+      +un-desktop
+        margin-bottom: 45px
+
+    .highlight li
+      display: flex
+      text-align: left
+      margin-bottom: 30px
+
+      br
+        @media (max-width: 768px)
+          display: none
+
+      &:last-of-type
+        margin-bottom: 65px
+
+    .second_row
+      display: flex
+      align-items: flex-end
+      flex-direction: row-reverse
+
+      +un-mobile
+        flex-direction: row
+
+
+      +un-desktop
+        display: block
+
+    @media (max-width: 1440px) and (min-width: 1200px)
+      .col-xxl-2
+        width: 16.6666667%
+
+      .col-xxl-offset-0
+        margin-left: 6%
+
+.o-line
+  display: none
+
+
+
+.ie, .edge
+  .project_wrap .project_header .apply_box
+    display: block

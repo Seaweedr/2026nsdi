@@ -1,0 +1,403 @@
+@charset "UTF-8"
+
+
+// ----------------------------
+// $Catalog 目錄
+// --模組與共用樣式--
+// $顏色變數定義
+// $模組變數定義
+// ----------------------------
+
+
+
+// ----------------------------
+// $顏色變數定義
+// ----------------------------
+
+
+$color_home-black: #202020
+$color_home-white: #ffffff
+$color_home-main: #dea56a
+$color_home-sec: #cccccc
+$color_home-bg: #484848
+$color_main-bg: #353535
+$color_home-light: #555555
+
+// 新版首頁色彩系統
+$color_gold-light: #f0c896
+$color_gold-dark: #b8834a
+
+$color_dark-hero: #141414
+$color_dark-works: #1a1a1a
+$color_dark-footer: #111111
+$color_dark-text: rgba(255,255,255,0.85)
+$color_dark-text-sec: rgba(255,255,255,0.55)
+
+$color_light-bg: #f5f3ef
+$color_light-text: #1a1a1a
+$color_light-text-sec: #666666
+
+
+
+// ----------------------------
+// $模組變數定義
+// ----------------------------
+=d_fontF
+    font-family: 'Open Sans', 'Noto Sans TC', "PingFang TC" ,"微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial
+=en_fontF
+    font-family: 'Lato', 'Noto Sans TC', "PingFang TC" ,"微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial
+
+=cn_fontF
+    font-family: 'Noto Sans TC', "PingFang TC" , "微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial
+    font-weight: normal
+    // Firefox設定
+    // @-moz-document url-prefix()
+    //     font-weight: normal
+
+=cn2_fontF
+    font-family: 'Noto Sans TC','Open Sans', "PingFang TC" , "微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial
+
+
+=fw300
+    font-weight: 300
+    // Firefox設定
+    // @-moz-document url-prefix()
+    //     font-weight: normal
+// @-moz-document url-prefix()
+//     .lang-toggle-wrap
+//         li.lang-item
+//             a
+//                 font-weight: normal
+
+// @-moz-document url-prefix()
+//     .main-nav-wrap
+//         ul.main-menu-list
+//             li.main-menu-item
+
+//                 span.title
+//                     span.cn
+//                         font-weight: lighter
+//                     span.en
+//                         font-weight: 600
+//         li.sub-menu-item
+//             a
+//                 font-weight: lighter
+=fw400
+    font-weight: 400
+=fw500
+    font-weight: 500
+=fw600
+    font-weight: 600
+=fwN
+    font-weight: normal
+
+=fwB
+    font-weight: bold
+
+=fwB-fwN
+    font-weight: bold
+    @-moz-document url-prefix()
+        font-weight: normal
+=size($w, $h)
+    width: $w
+    height: $h
+
+
+=d_transition($dur: 1s)
+    transition: $dur cubic-bezier(.23,1,.32,1)
+
+=poaCenter
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+
+=poaLink
+    position: absolute
+    left: 0
+    top: 0
+    +size(100%, 100%)
+
+// backgound-image設定
+=bgiCover($pos:center center, $size:cover)
+    +size(100%, 100%)
+    background-position: $pos
+    background-repeat: no-repeat
+    background-size: $size
+
+
+// =main-btn($color: $color_home-main, $w: 108px, $h: 38px , $float: left)
+//     +size($w, $h)
+//     display: inline-block
+//     cursor: pointer
+//     float: $float
+//     position: relative
+//     transition: all .8s ease-in
+//     z-index: 10
+//     a
+//         // display: block
+//         +poaLink
+//         text-align: center
+//         color: $color
+//         font-size: 18px
+//         letter-spacing: 1.9px
+//         line-height: $h
+//         transition: all .5s ease-in
+//     &:after
+//         content: ''
+//         position: absolute
+//         +size(1px, 13px)
+//         right: 8px
+//         bottom: 0
+//         transform: translate(-50% ,50%) scaleY(0)
+//         transform-origin: center
+//         background-color: $color_home-main
+//         transition: .3s ease-in 
+//         transition-delay: 0s
+//     &:before
+//         content: ''
+//         position: absolute
+//         +size(0, 100%)
+//         left: 0
+//         top: 0
+//         transition: .3s ease-in 
+//         transition-delay: 0s
+//         background-color: rgba($color_home-main, 0.1)
+
+//     .btn-border
+//         position: absolute
+//         left: 0
+//         top: 0
+//         +size(100%, 100%)
+//     svg
+//         +size(100%, 100%)
+//         position: absolute
+//         fill: none
+//         stroke-width: 3px 
+//         stroke: $color_home-main
+//         stroke-dasharray: 300, 0
+//         stroke-dashoffset: 30
+//         transition: all .5s cubic-bezier(0.7,0,0.3,1)
+
+//     @media (max-width: 991px)
+//         +size(90px, 29px)
+//         float: none
+//         a
+//             font-size: 16px
+//             line-height: 29px
+
+
+
+
+// =main-btn-hover
+//     // background-color: rgba($color_home-main, 0.1)
+//     &:after
+//         transform: translate(-50% ,50%) scaleY(1)
+//         transition: .3s ease-in 
+//         transition-delay: .3s
+//     &:before
+//         width: 100%
+//         transition: .3s ease-in 
+//         transition-delay: .3s
+//     svg
+//         stroke-width: 2px 
+//         stroke-dasharray: 15 , 160
+//         stroke-dashoffset: 28
+//         transition: all .8s cubic-bezier(0.7,0,0.3,1)
+
+//     a
+//         letter-spacing: 5px
+
+
+=main-btn($color: $color_home-main, $pTB: 12px , $pRL: 38px, $fz: 14px, $borderW: 1px)
+    display: inline-block
+    position: relative
+    background-color: transparent
+    border: 0
+    outline: 0
+    padding: 0px
+ 
+    &:focus
+        // border: 2px solid $color_home-main
+        background-color: rgba($color_home-main, 0.1)
+
+    a 
+        position: relative
+        display: block
+        width: 100%
+        height: 100%
+        padding: $pTB 0
+        text-align: center
+
+        &:before
+            content: ''
+            position: absolute
+            width: 100%
+            height: 100%
+            left: 0
+            top: 0
+            transform: scaleX(0)
+            transform-origin: right center
+            background-color: rgba($color, 0.1)
+            transition: transform 0.8s 0.2s cubic-bezier(.23,1,.32,1)
+        span
+            position: relative
+            +d_fontF
+            font-size: $fz
+            letter-spacing: 2.1px
+            color: $color
+            left: 0px
+            padding: 0 $pRL
+            +d_transition
+            z-index: 1
+
+    .btn-border
+        position: absolute
+        background-color: $color
+        
+        &:nth-child(odd)
+            width: $borderW
+            height: 100%
+            bottom: 0
+            transition: all 0.3s cubic-bezier(.23,1,.32,1)
+        &:nth-child(even)
+            height: $borderW
+            width: 100%
+            transition: all 0.6s cubic-bezier(.23,1,.32,1)
+        &:nth-child(1)
+            right: 0
+            transform-origin: center center
+            transition: all 0.8s 0.4s cubic-bezier(.23,1,.32,1) ,transform 0.4s 0s cubic-bezier(.23,1,.32,1) 
+            transition-delay: 0s
+            transform: translateY(0)
+            max-height: 100%
+        &:nth-child(2)
+            left: 0
+            top: 0
+            transition-delay: .3s
+            transform-origin: left
+            transform: scaleX(1)
+        &:nth-child(3)
+            left: 0
+            transition-delay: .2s
+            transform-origin: bottom
+            transform: scaleY(1)
+        &:nth-child(4)
+            bottom: 0
+            right: 0
+            left: initial
+            transition-delay: 0s
+            transform-origin: left
+            max-width: 100%
+
+=main-btn-hover
+    &:before
+        transform: rotate(45deg)
+    &:after
+        transform: rotate(-45deg)
+    a
+
+        &:before
+            transform: scaleX(1)
+            transform-origin: left center
+        span
+            left: 5px
+            // letter-spacing: 2.5px
+
+    .btn-border
+        &:nth-child(1)
+            transform: translateY(50%)
+            max-height: 20px
+            transition: all 0.8s .2s cubic-bezier(.23,1,.32,1) ,transform 0.2s 0.4s cubic-bezier(.23,1,.32,1) 
+        &:nth-child(2)
+            transition-delay: 0s
+            transform: scaleX(0)
+        &:nth-child(3)
+            transition-delay: .2s
+            transform: scaleY(0)
+        &:nth-child(4)
+            transition: all 1.2s .2s cubic-bezier(.23,1,.32,1) ,transform 1s 0.4s cubic-bezier(.23,1,.32,1) 
+            transition-delay: .4s
+            max-width: 25px
+            transform-origin: right
+            right: -12.5px
+            // transform: translateX(50%)
+
+
+=sub-btn($w: 250px, $pTB: 18px, $color: $color_home-main, $fz: 14px, $pRL: 38px)
+    width: $w
+    border: 1px solid $color_home-main
+    transition: all .5s ease-out
+    display: inline-block
+    .sub-btn
+        width: 100%
+        position: relative
+        overflow: hidden
+        display: inline-block
+        background-color: transparent
+        border: 0
+        outline: 0
+        padding: 0px
+        vertical-align: middle
+        &:focus
+            background-color: rgba($color_home-main, 0.1)
+        a
+            padding: $pTB 0
+            width: 100%
+            height: 100%
+            display: block
+            position: relative
+            text-align: center
+
+            &:after
+                content: ''
+                position: absolute
+                width: 100%
+                height: 100%
+                left: 0
+                top: 0
+                transform: scaleX(0)
+                transform-origin: right center
+                background-color: $color_home-main
+                transition: transform 0.8s 0.2s cubic-bezier(0.23, 1, 0.32, 1)
+            &:before
+                content: ''
+                position: absolute
+                width: 100%
+                height: 100%
+                left: 0
+                top: 0
+                transform: scaleX(0)
+                transform-origin: right center
+                background-color: rgba($color, 0.1)
+                transition: transform 0.8s 0.2s cubic-bezier(.23,1,.32,1)
+                transition-delay: .4s
+            span
+                position: relative
+                +d_fontF
+                font-size: $fz
+                letter-spacing: 2.1px
+                color: $color
+                left: 0px
+                padding: 0 $pRL
+                +d_transition
+                z-index: 1
+                transition-delay: .2s
+                font-size: 16px
+                font-weight: bold
+                letter-spacing: 2.4px           
+
+=sub-btn-hover
+    .sub-btn:hover
+        a
+            &:after
+                transform: scaleX(1)
+                transform-origin: left center
+                transition-delay: .4s
+            &:before
+                transition-delay: .2s
+                transform: scaleX(1)
+                transform-origin: left center                
+            span
+                color: #1a1a1a
+                left: 5px

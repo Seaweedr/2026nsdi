@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, user-scalable=yes">
+    <title>山川久也網站設計公司｜網頁設計 UNLIMITED 無設限｜首頁（預覽）</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="assets/front/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/front/js/bootstrap5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/front/css/reset.min.css">
+    <link rel="stylesheet" href="assets/front/css/fast.min.css">
+    <link rel="stylesheet" href="assets/front/css/article.css">
+    <link rel="stylesheet" href="assets/front/css/_css_keyframes.css">
+    <link rel="stylesheet" href="assets/front/css/_header.css">
+    <link rel="stylesheet" href="assets/front/css/main.css?v=20260303">
+    <link rel="stylesheet" href="assets/front/css/slogan.css">
+    <link rel="stylesheet" href="assets/front/css/footer.css?v=20260303">
+
+    <!-- SLOGAN INLINE STYLES -->
+    <style>
+    /* Outer wrapper: tall to create scroll distance */
+    .nomo-slogan-wrap{position:relative;z-index:10;height:380vh;margin-top:-100vh}
+    /* Inner: JS toggles between fixed (pinned) and absolute (released) */
+    .nomo-slogan-sticky{position:absolute;top:0;left:0;width:100%;height:100vh;display:flex;align-items:center;justify-content:center;background:#0c1222;overflow:hidden;will-change:background-color,transform}
+    .nomo-slogan-sticky.is-fixed{position:fixed;top:0;left:0}
+    .nomo-slogan-sticky.is-bottom{position:absolute;top:auto;bottom:0}
+    /* Typography grid */
+    .nomo-slogan__typography{display:grid;width:-webkit-fit-content;width:fit-content;margin:0 auto;padding:0 2.78vw;gap:0;position:relative;z-index:2}
+    .nomo-slogan__line{display:flex;flex-wrap:wrap;align-items:baseline;font-family:'Montserrat',sans-serif;font-size:85px;font-weight:400;line-height:1.15;letter-spacing:-.015em;color:#1a1a1a;position:relative}
+    .nomo-slogan__line--last{width:-webkit-fit-content;width:fit-content;margin:0 auto}
+    .nomo-slogan__word{display:inline-block;letter-spacing:-.025em;font-size:85px !important;clip-path:inset(0 100% 0 0);transition:none !important}
+    .nomo-slogan__min-txt{display:inline-flex;flex-direction:column;justify-content:center;position:relative;margin-left:1.2em;align-self:center}
+    .nomo-slogan__min-txt .min-txt-line{display:block;font-family:'Montserrat',sans-serif;font-size:clamp(11px,1.1vw,17px);font-weight:400;line-height:1.3;letter-spacing:.02em;color:rgba(26,26,26,.45);clip-path:inset(0 100% 0 0);transition:none !important}
+    @media(max-width:1024px){.nomo-slogan__line{font-size:7.6vw}.nomo-slogan__word{font-size:7.6vw !important}}
+    @media(max-width:768px){.nomo-slogan__typography{padding:0 6vw}.nomo-slogan__min-txt{display:block;margin-left:0;margin-top:1.2em;top:0}}
+    /* Top nav */
+    .nomo-topnav{position:fixed;top:0;right:0;padding:50px 120px 0 0;display:flex;gap:36px;z-index:100001;align-items:center}
+    .nomo-topnav__link{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:#fff;text-decoration:none;transition:color .4s,opacity .3s}
+    .nomo-topnav__link:hover{opacity:.6}
+    .nomo-topnav--dark .nomo-topnav__link{color:#1a1a1a}
+    .nomo-topnav__link--btn{padding:10px 20px;border:1px solid rgba(255,255,255,.5);border-radius:2px;display:inline-flex;align-items:center;gap:10px;transition:background .3s,border-color .3s,color .4s,opacity .3s}
+    .nomo-topnav__link--btn:hover{background:rgba(255,255,255,.1);border-color:#fff;opacity:1}
+    .nomo-topnav__dot{width:6px;height:6px;background:#fff;display:inline-block;border-radius:0}
+    .nomo-topnav--dark .nomo-topnav__link--btn{border-color:rgba(26,26,26,.35)}
+    .nomo-topnav--dark .nomo-topnav__link--btn:hover{background:rgba(26,26,26,.06);border-color:#1a1a1a}
+    .nomo-topnav--dark .nomo-topnav__dot{background:#1a1a1a}
+    @media(max-width:576px){.nomo-topnav{gap:20px;padding:30px 80px 0 0}.nomo-topnav__link{font-size:11px;letter-spacing:2px}.nomo-topnav__link--btn{padding:7px 14px;gap:8px}.nomo-topnav__dot{width:5px;height:5px}}
+    /* Header hide/show on scroll */
+    .loaded header.header-el,
+    .loaded .header-el.menu-toggle-btn-wrap,
+    .nomo-topnav{transition:transform .8s cubic-bezier(.25,.46,.45,.94),opacity .8s cubic-bezier(.25,.46,.45,.94) !important}
+    body.header-hidden header.header-el,
+    body.header-hidden .header-el.menu-toggle-btn-wrap,
+    body.header-hidden .nomo-topnav{transform:translateY(-160px) !important;opacity:0 !important;pointer-events:none}
+    </style>
+
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script defer src="assets/front/js/index.js?v=33"></script>
+</head>
+
+<body class="homepage index-css nsdi-theme loading-in">
+    <noscript>您的瀏覽器不支援JavaScript功能</noscript>
+
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- Loading -->
+    <div class="loader-wrap js-header-fixed">
+        <div class="nsdi-loading">
+            <div class="wrapper">
+                <div class="nsdi-loading-item">
+                    <div class="img-wrap">
+                        <img src="assets/front/images/loading/loading_01.svg" alt="" data-no-retina />
+                        <img src="assets/front/images/loading/loading_02.svg" alt="" data-no-retina />
+                        <img src="assets/front/images/loading/loading_03.svg" alt="" data-no-retina />
+                        <img src="assets/front/images/loading/loading_04.svg" alt="" data-no-retina />
+                    </div>
+                    <div class="img-wrap">
+                        <img src="assets/front/images/loading/loading_03.svg" alt="" data-no-retina />
+                        <img src="assets/front/images/loading/loading_04.svg" alt="" data-no-retina />
+                        <img src="assets/front/images/loading/loading_01.svg" alt="" data-no-retina />
+                        <img src="assets/front/images/loading/loading_02.svg" alt="" data-no-retina />
+                    </div>
+                    <div class="img-wrap">
+                        <img src="assets/front/images/loading/loading_02.svg" alt="" data-no-retina />
+                        <img src="assets/front/images/loading/loading_03.svg" alt="" data-no-retina />
+                        <img src="assets/front/images/loading/loading_04.svg" alt="" data-no-retina />
+                        <img src="assets/front/images/loading/loading_01.svg" alt="" data-no-retina />
+                    </div>
+                    <div class="img-wrap">
+                        <img src="assets/front/images/loading/loading_04.svg" alt="" data-no-retina />
+                        <img src="assets/front/images/loading/loading_01.svg" alt="" data-no-retina />
+                        <img src="assets/front/images/loading/loading_02.svg" alt="" data-no-retina />
+                        <img src="assets/front/images/loading/loading_03.svg" alt="" data-no-retina />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .homepage:not(.loaded) .nsdi-loading .wrapper{ display: block; }
+        .homepage:not(.loaded) .loader-wrap{ z-index: 10000000001 }
+        .nsdi-loading{ position: relative; height: 100vh; background-color: #0a0e1a; }
+        .nsdi-loading .wrapper{ display: none; transform: translateX(-50%) translateY(-50%); position: absolute; top: 50%; left: 50%; z-index: 999; }
+        .nsdi-loading-item{ display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; width: 52px; }
+        .nsdi-loading-item .img-wrap img{ opacity: 0; transform-origin: left top; animation-name: loadingAnimation; animation-duration: 8s; animation-iteration-count: infinite; position: absolute; left: 50%; top: 50%; }
+        .nsdi-loading-item .img-wrap{ position: relative; width: 50%; padding-top: 50%; }
+        @keyframes loadingAnimation { 0% { opacity: 0; transform: scale(0) rotate(90deg) translate(-50%, -50%); } 5% { opacity: 1; transform: scale(1) rotate(0deg) translate(-50%, -50%); } 20% { opacity: 1; transform: scale(1) rotate(0deg) translate(-50%, -50%); } 25% { opacity: 0; transform: scale(0) rotate(-90deg) translate(-50%, -50%); } }
+        .nsdi-loading-item .img-wrap img:nth-child(1){ animation-delay: -8s; }
+        .nsdi-loading-item .img-wrap img:nth-child(2){ animation-delay: -6s; }
+        .nsdi-loading-item .img-wrap img:nth-child(3){ animation-delay: -4s; }
+        .nsdi-loading-item .img-wrap img:nth-child(4){ animation-delay: -2s; }
+    </style>
+
+    <!-- Top nav -->
+    <nav class="nomo-topnav">
+        <a href="#why-nsdi" class="nomo-topnav__link">About</a>
+        <a href="#services" class="nomo-topnav__link">Service</a>
+        <a href="#works" class="nomo-topnav__link">Works</a>
+        <a href="#" class="nomo-topnav__link">Blog</a>
+        <a href="#contact" class="nomo-topnav__link nomo-topnav__link--btn">Contact<span class="nomo-topnav__dot"></span></a>
+    </nav>
+
+    <!-- Header -->
+    <header class="header-el">
+        <div class="logo-wrap">
+            <div class="logo">
+                <a href="#" title="山川久也網站設計公司" aria-label="logo">山川久也網站設計公司</a>
+                <svg class="big-logo" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-44,-52)">
+                        <g class="logo-group" transform="translate(44,52)" fill-rule="nonzero">
+                            <path d="M12.4559252,18.9405047 L18.7797026,18.9405047 L18.7797026,1 C18.7797026,0.44771525 19.2274178,0 19.7797026,0 L20.8457765,0 C21.3980612,0 21.8457765,0.44771525 21.8457765,1 L21.8457765,21.032832 C21.8457765,21.5851167 21.3980612,22.032832 20.8457765,22.032832 L1,22.032832 C0.44771525,22.032832 0,21.5851167 0,21.032832 L0,1 C0,0.44771525 0.44771525,0 1,0 L2.06607389,0 C2.61835864,0 3.06607389,0.44771525 3.06607389,1 L3.06607389,18.9405047 L9.3898513,18.9405047 L9.3898513,1 C9.3898513,0.44771525 9.83756655,0 10.3898513,0 L11.4559252,0 C12.0082099,0 12.4559252,0.44771525 12.4559252,1 L12.4559252,18.9405047 Z"></path>
+                            <path d="M1,27.0424022 L2.06607389,27.0424022 C2.61835864,27.0424022 3.06607389,27.4901175 3.06607389,28.0424022 L3.06607389,48.0752342 C3.06607389,48.6275189 2.61835864,49.0752342 2.06607389,49.0752342 L1,49.0752342 C0.44771525,49.0752342 0,48.6275189 0,48.0752342 L0,28.0424022 C0,27.4901175 0.44771525,27.0424022 1,27.0424022 Z M10.3898513,27.0424022 L11.4559252,27.0424022 C12.0082099,27.0424022 12.4559252,27.4901175 12.4559252,28.0424022 L12.4559252,48.0752342 C12.4559252,48.6275189 12.0082099,49.0752342 11.4559252,49.0752342 L10.3898513,49.0752342 C9.83756655,49.0752342 9.3898513,48.6275189 9.3898513,48.0752342 L9.3898513,28.0424022 C9.3898513,27.4901175 9.83756655,27.0424022 10.3898513,27.0424022 Z M20.8457765,49.0752342 L19.7797026,49.0752342 C19.2274178,49.0752342 18.7797026,48.6275189 18.7797026,48.0752342 L18.7797026,28.0424022 C18.7797026,27.4901175 19.2274178,27.0424022 19.7797026,27.0424022 L20.8457765,27.0424022 C21.3980612,27.0424022 21.8457765,27.4901175 21.8457765,28.0424022 L21.8457765,48.0752342 C21.8457765,48.6275189 21.3980612,49.0752342 20.8457765,49.0752342 Z"></path>
+                            <path d="M40.2738152,11.016416 L48.9655581,19.7825824 C49.3520718,20.1724056 49.3520718,20.8009311 48.9655581,21.1907543 L48.2057396,21.9570788 C47.8168837,22.3492643 47.1837244,22.3519635 46.7915389,21.9631076 L46.7855101,21.9570788 L38.1057736,13.2030216 L29.426037,21.9570788 C29.0371811,22.3492643 28.4040219,22.3519635 28.0118363,21.9631076 L28.0058075,21.9570788 L27.245989,21.1907543 C26.8594753,20.8009311 26.8594753,20.1724056 27.245989,19.7825824 L43.7945463,3.0923273 L34.668043,3.0923273 L29.4514939,8.54220465 C29.0696037,8.94117622 28.4365902,8.9550234 28.0376186,8.57313319 L28.0314884,8.5672152 L27.2586217,7.81471463 C26.8653006,7.43175807 26.854232,6.80332717 27.2338234,6.4067573 L32.77565,0.617053224 C33.1529231,0.222905262 33.6748463,0 34.2204539,0 L47.1171569,0 C48.056041,0 48.8171569,0.761115925 48.8171569,1.7 C48.8171569,2.14835729 48.640034,2.57856103 48.324352,2.89694615 L40.2738152,11.016416 Z"></path>
+                            <path d="M31.1436456,29.5665144 L37.467423,29.5665144 L37.467423,27.3620902 C37.467423,26.8098055 37.9151382,26.3620902 38.467423,26.3620902 L39.5334969,26.3620902 C40.0857816,26.3620902 40.5334969,26.8098055 40.5334969,27.3620902 L40.5334969,29.5665144 L48.9211066,29.5665144 C49.4733914,29.5665144 49.9211066,30.0142296 49.9211066,30.5665144 L49.9211041,30.5687534 L49.9025866,38.8391454 C49.901352,39.3905546 49.4539997,39.8369064 48.9025891,39.8369064 L47.8374874,39.8369064 C47.2852027,39.8369064 46.8374874,39.3891911 46.8374874,38.8369064 L46.8374926,38.8337028 L46.8572743,32.6588417 L40.5334969,32.6588417 L40.5334969,38.8369064 C40.5334969,39.3891911 40.0857816,39.8369064 39.5334969,39.8369064 L38.467423,39.8369064 C37.9151382,39.8369064 37.467423,39.3891911 37.467423,38.8369064 L37.467423,32.6588417 L31.1436456,32.6588417 L31.1436456,45.3025949 L48.9233482,45.3025949 C49.4756329,45.3025949 49.9233482,45.7503101 49.9233482,46.3025949 L49.9233482,47.3949222 C49.9233482,47.9472069 49.4756329,48.3949222 48.9233482,48.3949222 L29.0775717,48.3949222 C28.5252869,48.3949222 28.0775717,47.9472069 28.0775717,47.3949222 L28.0775717,27.3620902 C28.0775717,26.8098055 28.5252869,26.3620902 29.0775717,26.3620902 L30.1436456,26.3620902 C30.6959303,26.3620902 31.1436456,26.8098055 31.1436456,27.3620902 L31.1436456,29.5665144 Z"></path>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu toggle -->
+    <div class="header-el menu-toggle-btn-wrap">
+        <div class="hidden-window-el">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1"><defs><filter id="gooey"><feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" filterUnits="userSpaceOnUse"></feGaussianBlur><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -8" result="gooey"></feColorMatrix><feComposite in="SourceGraphic" in2="gooey" operator="atop"></feComposite></filter></defs></svg>
+        </div>
+        <button class="menu-toggle-btn" aria-label="開啟選單" aria-expanded="false">
+            <div class="el-wrap">
+                <div class="el">
+                    <div class="el-bg"></div>
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="menu-icon-cursor"></div>
+            </div>
+        </button>
+    </div>
+
+    <div class="homepage-wrap">
+
+        <!-- HERO -->
+        <section class="nomo-hero" id="hero">
+            <canvas class="nomo-hero__canvas" id="heroCanvas"></canvas>
+
+            <div class="nomo-hero__blobs" aria-hidden="true">
+                <div class="nomo-blob nomo-blob--1"></div>
+                <div class="nomo-blob nomo-blob--2"></div>
+                <div class="nomo-blob nomo-blob--3"></div>
+                <div class="nomo-blob nomo-blob--4"></div>
+            </div>
+
+            <!-- Coordinate decorations -->
+            <div class="nomo-hero__coord nomo-hero__coord--tl anim-reveal" data-delay="1200" aria-hidden="true">25°02'N</div>
+            <div class="nomo-hero__coord nomo-hero__coord--tr anim-reveal" data-delay="1200" aria-hidden="true">121°31'E</div>
+
+
+            <div class="nomo-hero__content">
+                <div class="nomo-hero__label anim-reveal">NSDI DESIGN STUDIO</div>
+                <h1 class="nomo-hero__title">
+                    <span class="nomo-hero__title-accent anim-reveal" data-delay="400">UNLIMITED</span>
+                </h1>
+                <p class="nomo-hero__desc anim-reveal" data-delay="900">每一個品牌，都值得一座精心打造的數位舞台。<br class="d-none d-lg-inline">山川久也以職人精神與原生技術，為企業建構兼具美感、資安與成長性的網站——<br class="d-none d-lg-inline">讓您的品牌故事，在數位世界裡被看見。</p>
+            </div>
+
+            <div class="nomo-hero__scroll anim-reveal" data-delay="1500">
+                <span>SCROLL</span>
+                <div class="nomo-hero__scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- SLOGAN (scroll-driven, sticky) -->
+        <div class="nomo-slogan-wrap" id="slogan">
+            <div class="nomo-slogan-sticky">
+                <div class="nomo-slogan__typography">
+                    <div class="nomo-slogan__line">
+                        <span class="nomo-slogan__word" style="font-size:85px !important;">Stable at the core,</span>
+                        <span class="nomo-slogan__min-txt">
+                            <span class="min-txt-line">Hello World,</span>
+                            <span class="min-txt-line">We are "NSDI" Design Studio,</span>
+                            <span class="min-txt-line">Taipei based Web &amp; App Agency.</span>
+                        </span>
+                    </div>
+                    <div class="nomo-slogan__line">
+                        <span class="nomo-slogan__word" style="font-size:85px !important;">precise in detail,</span>
+                    </div>
+                    <div class="nomo-slogan__line nomo-slogan__line--last">
+                        <span class="nomo-slogan__word" style="font-size:85px !important;">and meaningful over time.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SERVICES -->
+        <section class="nomo-section nomo-services" id="services">
+            <div class="nomo-services__bg-glow" aria-hidden="true"></div>
+            <div class="nomo-section-header anim-reveal">
+                <span class="nomo-section-header__num">01</span>
+                <h2 class="nomo-section-header__title">Our Services</h2>
+                <p class="nomo-section-header__sub">專業服務</p>
+            </div>
+
+            <div class="nomo-service-block">
+                <div class="nomo-service-block__visual anim-reveal">
+                    <canvas class="nomo-service-tri" id="webDesignTri" style="width:100%;aspect-ratio:4/3;display:block;border-radius:8px"></canvas>
+                </div>
+                <div class="nomo-service-block__info anim-reveal" data-delay="200">
+                    <span class="nomo-service-block__tag">WEB DESIGN</span>
+                    <h3 class="nomo-service-block__title">客製化<br>網站設計</h3>
+                    <p class="nomo-service-block__desc">好的網站不只是門面，更是品牌的延伸。我們堅持原生開發、拒絕套版，用每一行程式碼守護企業資安。從品牌策略到上線維運，In-house 團隊全程陪伴，為您打造真正屬於自己的數位資產。</p>
+                    <a href="#" class="nomo-btn nomo-btn--outline"><span>詳細介紹</span><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+            </div>
+
+            <div class="nomo-service-block nomo-service-block--reverse">
+                <div class="nomo-service-block__visual anim-reveal">
+                    <canvas class="nomo-service-tri" id="appDesignTri" style="width:100%;aspect-ratio:4/3;display:block;border-radius:8px"></canvas>
+                </div>
+                <div class="nomo-service-block__info anim-reveal" data-delay="200">
+                    <span class="nomo-service-block__tag">APP DESIGN</span>
+                    <h3 class="nomo-service-block__title">客製化<br>APP 設計</h3>
+                    <p class="nomo-service-block__desc">讓您的服務住進每個人的口袋裡。iOS 與 Android 雙平台原生開發，帶來最流暢的操作體驗。無論是電商購物、IoT 智慧控制或即時互動，穩定的後端架構都能從容承載，陪品牌一起成長。</p>
+                    <a href="#" class="nomo-btn nomo-btn--outline"><span>詳細介紹</span><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORKS -->
+        <section class="nomo-section nomo-works" id="works">
+            <div class="nomo-section-header nomo-section-header--light anim-reveal">
+                <span class="nomo-section-header__num">02</span>
+                <h2 class="nomo-section-header__title">Our Works</h2>
+                <p class="nomo-section-header__sub">作品一覽</p>
+            </div>
+            <div class="nomo-works__grid">
+                <a href="#" class="nomo-work-card anim-reveal" data-delay="0">
+                    <div class="nomo-work-card__img">
+                        <img src="assets/front/images/hompage_services/img_home-server02_02.webp" alt="客製化網站設計" loading="lazy"/>
+                    </div>
+                    <div class="nomo-work-card__overlay">
+                        <h3 class="nomo-work-card__title">客製化網站設計</h3>
+                        <span class="nomo-work-card__cta">瀏覽作品 ▸</span>
+                    </div>
+                </a>
+                <a href="#" class="nomo-work-card anim-reveal" data-delay="120">
+                    <div class="nomo-work-card__img">
+                        <img src="assets/front/images/hompage_services/img_home-server02_03.webp" alt="客製化APP設計" loading="lazy"/>
+                    </div>
+                    <div class="nomo-work-card__overlay">
+                        <h3 class="nomo-work-card__title">客製化APP設計</h3>
+                        <span class="nomo-work-card__cta">瀏覽作品 ▸</span>
+                    </div>
+                </a>
+                <a href="#" class="nomo-work-card anim-reveal" data-delay="240">
+                    <div class="nomo-work-card__img">
+                        <img src="assets/front/images/hompage_services/img_home-servers01_04.webp" alt="UI/UX 設計" loading="lazy"/>
+                    </div>
+                    <div class="nomo-work-card__overlay">
+                        <h3 class="nomo-work-card__title">UI/UX 設計</h3>
+                        <span class="nomo-work-card__cta">瀏覽作品 ▸</span>
+                    </div>
+                </a>
+            </div>
+            <div class="nomo-works__cta anim-reveal">
+                <a href="#" class="nomo-btn nomo-btn--primary"><span>查看更多</span></a>
+            </div>
+        </section>
+
+        <!-- WHY NSDI -->
+        <section class="nomo-section nomo-why" id="why-nsdi">
+            <div class="nomo-why__bg-glow" aria-hidden="true"></div>
+            <div class="nomo-section-header anim-reveal">
+                <span class="nomo-section-header__num">03</span>
+                <h2 class="nomo-section-header__title">Why NSDI</h2>
+                <p class="nomo-section-header__sub">選擇山川久也</p>
+            </div>
+            <div class="nomo-why__grid">
+                <div class="nomo-feature-card anim-reveal" data-delay="0">
+                    <div class="nomo-feature-card__number">01</div>
+                    <div class="nomo-feature-card__icon"><svg width="40" height="40" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="16" r="8" stroke="currentColor" stroke-width="2"/><path d="M8 42c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+                    <h3 class="nomo-feature-card__title">PM 專案經理</h3>
+                    <p class="nomo-feature-card__desc">我們相信好作品始於好溝通。專屬 PM 深入理解您的商業目標，從需求訪談到上線驗收，全程陪伴，讓每個決策都精準到位。</p>
+                </div>
+                <div class="nomo-feature-card anim-reveal" data-delay="150">
+                    <div class="nomo-feature-card__number">02</div>
+                    <div class="nomo-feature-card__icon"><svg width="40" height="40" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="24" rx="2" stroke="currentColor" stroke-width="2"/><path d="M6 18h36" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="14" r="1.5" fill="currentColor"/><circle cx="17" cy="14" r="1.5" fill="currentColor"/><circle cx="22" cy="14" r="1.5" fill="currentColor"/><path d="M16 38h16M20 34h8v4h-8z" stroke="currentColor" stroke-width="2"/></svg></div>
+                    <h3 class="nomo-feature-card__title">UI/UX 設計</h3>
+                    <p class="nomo-feature-card__desc">設計不只是好看，更要好用。以使用者為核心的設計思維，讓每一次點擊都直覺自然，讓品牌美感融入每一個互動細節。</p>
+                </div>
+                <div class="nomo-feature-card anim-reveal" data-delay="300">
+                    <div class="nomo-feature-card__number">03</div>
+                    <div class="nomo-feature-card__icon"><svg width="40" height="40" viewBox="0 0 48 48" fill="none"><path d="M16 14l-8 10 8 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 14l8 10-8 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 8L20 40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+                    <h3 class="nomo-feature-card__title">前後端工程</h3>
+                    <p class="nomo-feature-card__desc">穩固的技術，是一切體驗的基石。客製化後台、API 串接與全方位資安防護，原生開發確保效能與安全，為品牌的數位未來打下堅實地基。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us CTA -->
+        <section class="nomo-contact-cta" id="contact">
+            <div class="nomo-contact-cta__shapes" aria-hidden="true">
+                <div class="nomo-contact-cta__tri nomo-contact-cta__tri--1"></div>
+                <div class="nomo-contact-cta__tri nomo-contact-cta__tri--2"></div>
+                <div class="nomo-contact-cta__tri nomo-contact-cta__tri--3"></div>
+            </div>
+            <div class="nomo-contact-cta__inner">
+                <div class="nomo-contact-cta__text">
+                    <h2 class="nomo-contact-cta__title">Contact Us</h2>
+                    <p class="nomo-contact-cta__sub">有想法了嗎？讓我們聊聊，把您的構想化為現實。</p>
+                </div>
+                <a href="#" class="nomo-contact-cta__btn" aria-label="聯絡我們">
+                    <svg width="22" height="22" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="section section-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-12">
+                        <p class="description"><strong>山川久也設計有限公司</strong> — 以職人精神打造 <strong>客製化網站設計</strong>、<strong>RWD 響應式網頁</strong> 與 <strong>APP 原生開發</strong>。</p>
+                        <div class="intro-wrap">
+                            <p>地址<span>236 新北市土城區廣明街90巷16號1F</span></p>
+                            <p>電話<span><a href="tel:+886289677652" style="color:inherit;text-decoration:none">(02) 8967-7652</a></span></p>
+                            <p>營業時間<span>週一至週五 09:00 - 18:00</span></p>
+                            <p>統一編號<span>29134540</span></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-12">
+                        <div class="nomo-footer-sitemap">
+                            <div class="nomo-footer-sitemap__col">
+                                <h4 class="nomo-footer-sitemap__heading">Service</h4>
+                                <ul class="nomo-footer-sitemap__list">
+                                    <li><a href="#">客製化網站設計</a></li>
+                                    <li><a href="#">客製化 APP 設計</a></li>
+                                    <li><a href="#">UI/UX 設計</a></li>
+                                    <li><a href="#">系統開發與維運</a></li>
+                                </ul>
+                            </div>
+                            <div class="nomo-footer-sitemap__col">
+                                <h4 class="nomo-footer-sitemap__heading">Company</h4>
+                                <ul class="nomo-footer-sitemap__list">
+                                    <li><a href="#why-nsdi">關於山川久也</a></li>
+                                    <li><a href="#works">作品一覽</a></li>
+                                    <li><a href="#">部落格</a></li>
+                                    <li><a href="#contact">聯絡我們</a></li>
+                                </ul>
+                            </div>
+                            <div class="nomo-footer-sitemap__col">
+                                <h4 class="nomo-footer-sitemap__heading">Follow</h4>
+                                <ul class="nomo-footer-sitemap__list">
+                                    <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+                                    <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+                                    <li><a href="#" target="_blank" rel="noopener">LINE</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="nomo-footer-bottom">
+                            <p class="copyright">Copyright &copy; 2026 山川久也設計有限公司 All rights reserved.<br><strong>Custom Web Design & APP Development Expert.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="assets/front/js/jquery/jquery-3.7.1.min.js"></script>
+    <script src="assets/front/js/jquery/jquery-ui.min.js"></script>
+    <script src="assets/front/js/bootstrap5/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/front/js/greensock/TweenMax.min.js"></script>
+    <script src="assets/front/js/main.js?20260213"></script>
+    <script>var base_url = "./";</script>
+
+    <!-- SLOGAN SCROLL-DRIVEN REVEAL -->
+    <script>
+    (function(){
+        var wrap = document.getElementById('slogan');
+        if (!wrap) return;
+
+        var inner = wrap.querySelector('.nomo-slogan-sticky');
+        var words = wrap.querySelectorAll('.nomo-slogan__word');
+        var minLines = wrap.querySelectorAll('.min-txt-line');
+        var typo = wrap.querySelector('.nomo-slogan__typography');
+        var topnav = document.querySelector('.nomo-topnav');
+
+        // Colors
+        var darkR=12,darkG=18,darkB=34;
+        var lightR=240,lightG=239,lightB=235;
+
+        function lerp(a,b,t){ return a+(b-a)*t; }
+
+        // Text reveal timeline (progress 0→1)
+        // Each line starts and finishes at different scroll positions
+        var items = [];
+        // Randomize line order each page load
+        var timingPool = [
+            { start: 0.12, end: 0.35 },
+            { start: 0.15, end: 0.43 },
+            { start: 0.18, end: 0.50 }
+        ];
+        // Fisher-Yates shuffle
+        for(var si=timingPool.length-1;si>0;si--){
+            var sj=Math.floor(Math.random()*(si+1));
+            var tmp=timingPool[si];timingPool[si]=timingPool[sj];timingPool[sj]=tmp;
+        }
+        var lineTimings = timingPool;
+        words.forEach(function(el,i){
+            items.push({ el:el, start:lineTimings[i].start, end:lineTimings[i].end });
+        });
+        // Min-txt follows line 1
+        minLines.forEach(function(el,i){
+            items.push({ el:el, start:0.14+i*0.02, end:0.38+i*0.02 });
+        });
+
+        var ticking = false;
+        function onScroll(){
+            if(!ticking){ requestAnimationFrame(update); ticking=true; }
+        }
+
+        function update(){
+            ticking = false;
+            var rect = wrap.getBoundingClientRect();
+            var wrapH = wrap.offsetHeight;
+            var vh = window.innerHeight;
+            var scrollable = wrapH - vh;
+            if(scrollable<=0) return;
+
+            // Pin logic: fixed while wrap is in scroll range
+            if(rect.top <= 0 && rect.bottom > vh){
+                // Wrap top is above viewport, wrap bottom is below viewport → pin
+                inner.classList.add('is-fixed');
+                inner.classList.remove('is-bottom');
+            } else if(rect.bottom <= vh){
+                // Wrap bottom reached viewport bottom → release to bottom
+                inner.classList.remove('is-fixed');
+                inner.classList.add('is-bottom');
+            } else {
+                // Wrap top is below viewport top → stay at top
+                inner.classList.remove('is-fixed');
+                inner.classList.remove('is-bottom');
+            }
+
+            var progress = -rect.top / scrollable;
+            progress = Math.max(0, Math.min(1, progress));
+
+            // BG: dark→light
+            var bgRaw = (vh - rect.top) / (vh * 2);
+            var bgT = Math.max(0, Math.min(1, bgRaw * 2.5));
+            bgT = bgT*bgT*(3-2*bgT);
+            var r=Math.round(lerp(darkR,lightR,bgT));
+            var g=Math.round(lerp(darkG,lightG,bgT));
+            var b=Math.round(lerp(darkB,lightB,bgT));
+            inner.style.backgroundColor = 'rgb('+r+','+g+','+b+')';
+
+            // Text color: white→dark
+            var tr=Math.round(lerp(255,26,bgT));
+            if(typo) typo.style.color = 'rgb('+tr+','+tr+','+tr+')';
+
+            // Min-txt color
+            var minAlpha = 0.45 * bgT;
+            minLines.forEach(function(el){
+                el.style.color = 'rgba('+tr+','+tr+','+tr+','+Math.max(0.3,minAlpha).toFixed(2)+')';
+            });
+
+            // Clip-path reveal + slide from right
+            var slideDistance = 60; // px to slide
+            for(var i=0;i<items.length;i++){
+                var item=items[i], p;
+                if(progress<=item.start) p=0;
+                else if(progress>=item.end) p=1;
+                else p=(progress-item.start)/(item.end-item.start);
+                p=1-Math.pow(1-p,3);
+                var tx = (1-p)*slideDistance;
+                item.el.style.clipPath='inset(0 '+(100-p*100).toFixed(1)+'% 0 0)';
+                item.el.style.transform='translateX('+tx.toFixed(1)+'px)';
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, {passive:true});
+        update();
+    })();
+
+    // Nav color: white in hero, dark outside hero
+    (function(){
+        var nav = document.querySelector('.nomo-topnav');
+        var hero = document.querySelector('.nomo-hero');
+        if(!nav || !hero) return;
+        function check(){
+            var rect = hero.getBoundingClientRect();
+            // Hero bottom above 80px from top → hero has left viewport
+            if(rect.bottom < rect.height * 0.5){
+                nav.classList.add('nomo-topnav--dark');
+            } else {
+                nav.classList.remove('nomo-topnav--dark');
+            }
+        }
+        window.addEventListener('scroll', function(){
+            requestAnimationFrame(check);
+        }, {passive:true});
+        check();
+    })();
+
+    // Header hide on scroll-down, show on scroll-up
+    (function(){
+        var lastY = window.scrollY;
+        var threshold = 60;
+        var ticking = false;
+
+        function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(function() {
+                var y = window.scrollY;
+                if (y > threshold && y > lastY + 5) {
+                    document.body.classList.add('header-hidden');
+                } else if (y < lastY - 5) {
+                    document.body.classList.remove('header-hidden');
+                }
+                lastY = y;
+                ticking = false;
+            });
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1297 @@
+@charset "UTF-8"
+@import var_mixin
+
+
+// -- scroll hint icon
+.nsdi-theme
+    .scroll-hint-wrap
+        top: 420px
+        animation: elFloat1 1.2s infinite alternate-reverse
+        position: relative
+        cursor: pointer
+        z-index: 50
+        .scroll-hint-btn
+            transform-origin: left center
+            transform: rotate(-90deg)
+            user-select: none
+            padding: 10px 0px 10px 0px
+            &:before
+                content: ''
+                position: absolute
+                top: 50%
+                width: 0
+                height: 1px
+                background: $color_home-main
+                transition: all 0.4s
+                transform: translateY(100%)
+                transition-timing-function: cubic-bezier(0.7,0,0.3,1)
+            a
+                display: block
+                +size(100%, 100%)
+            .letter-group
+                padding-left: 0px
+                animation: elFloat2 1.2s .2s infinite alternate-reverse
+
+            .letter-group span
+                font-size: 10.6px
+                +fw500
+                letter-spacing: -2px
+                vertical-align: middle
+                text-align: left
+                +d_transition
+                transition-delay: .2s
+                display: inline-block
+
+            .ic-hint-tri
+                margin-right: 5px
+                vertical-align: middle
+                +size(10px, 10px)
+                stroke: $color_home-main
+                stroke-width: 1.5px
+                fill: none
+                stroke-linejoin: round
+                +d_transition(.5s)
+
+        @media (min-width: 991px)
+            &:hover
+                animation-play-state: paused
+                .scroll-hint-btn
+                    &:before
+                        width: 80%
+                        right: 0%
+                .letter-group
+                    animation-play-state: paused
+                .letter-group span
+                    animation-play-state: paused
+                    letter-spacing: 0px
+                    opacity: 0.5
+                    &:nth-child(1)
+                        transform: translate(0, -20px) rotate(-45deg) scale(1.2)
+                    &:nth-child(2)
+                        transform: translate(0, 35px) rotate(-65deg) scale(1.2)
+                    &:nth-child(3)
+                        transform: translate(5px, -15px) rotate(-30deg) scale(1.2)
+                    &:nth-child(4)
+                        transform: translate(10px, 10px) rotate(60deg) scale(1.2)
+                    &:nth-child(5)
+                        transform: translate(5px, -35px) rotate(-45deg) scale(1.2)
+                    &:nth-child(6)
+                        transform: translate(15px, 15px) rotate(30deg) scale(1.2)
+                .ic-hint-tri
+                    margin-right: 10px
+
+
+// ----------------------------
+// $section-services-fixed-content
+// ----------------------------
+
+// 色塊、文字
+
+.fixed-content.section-block
+    position: fixed
+    top: 50%
+    width: 100%
+    min-height: 0px
+    transform: translate(0, -50%)
+.homepage
+    .fixed-content.section-block
+        z-index: 0
+
+
+.bg-rectangle-fixed
+    background-color: $color_home-light
+    width: 100%
+    padding-top: calc(100% * 628 / 1357)
+    position: absolute
+    top: 50%
+    transform: translate(0, -50%) scaleY(0)
+    +d_transition
+    transform-origin: bottom
+
+
+.bg-rectangle-fixed:nth-child(1)
+    top: 200vh
+    transform: translate(0, -50%) scaleY(2)
+    transform-origin: top
+    transition: top 1s cubic-bezier(.23,1,.32,1) , transform 1s .4s cubic-bezier(.23,1,.32,1)
+
+
+@media (max-width: 1199px)
+    .bg-rectangle-fixed
+        top: 1200%
+        right: 5%
+
+// ----------------------------
+// $內頁共用
+// ----------------------------
+
+
+.project-title
+    color: $color_home-main
+    font-size: 30px       
+    width: 100%
+    text-align: center
+    padding-top: 200px
+    letter-spacing: 5.6px
+    +cn_fontF
+@media all and (max-width: 991px)
+    .project-title      
+        width: 80%
+        margin: 0 auto
+
+@media all and (max-width: 768px)
+    .project-title
+        padding-top: 150px
+
+.title-descr
+    width: 40%
+    text-align: center
+    padding-top: 30px
+    margin: 0 auto
+    line-height: 2
+    letter-spacing: 1px 
+    +cn_fontF
+
+@media all and (max-width: 1199px)
+    .title-descr
+        width: 75%   
+
+.nsdi-theme
+    .header-bg
+        width: 100vw
+        height: 960px
+        background-image: url(../images/pages/project/img_story_bg.png)
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: cover
+        position: relative
+        .content
+            padding-top: 385px
+            .row
+                .header-title
+                    animation: fadeIn 3s ease
+                    h2
+                        +cn_fontF
+                        +fwB                    
+                        text-align: left
+                        color: #fff
+                        padding-top: 15px
+                        margin-bottom: 20px
+                        line-height: 56px
+                    p
+                        font-size: 14px
+                        letter-spacing: 4px
+                        line-height: 22px
+                        +fwB
+                        +cn_fontF 
+                        span
+                            font-size: 14px
+                            letter-spacing: 4px
+                            line-height: 22px
+                            +fwB
+                            +cn_fontF 
+                .header-bottom
+                    padding-top: 440px
+                    .w-2-4
+                        width: 50%   
+                        float: left
+                        padding-left: 15px
+                        .information-type
+                            color: #888888
+                            font-size: 14px
+                            +fwB
+                            line-height: 22px
+                            +cn_fontF
+                            letter-spacing: 2px
+                        .information-descr
+                            color: rgb(255,255,255)
+                            font-size: 14px
+                            +fwB
+                            line-height: 22px
+                            +cn_fontF
+                            letter-spacing: 2px
+                    .w-1-4
+                        width: 25%   
+                        float: left
+                        padding-left: 15px
+                        .information-type
+                            color: #888888
+                            font-size: 14px
+                            +fwB
+                            line-height: 22px
+                            +cn_fontF
+                            letter-spacing: 2px
+                        .information-descr
+                            color: rgb(255,255,255)
+                            font-size: 14px
+                            +fwB
+                            line-height: 22px
+                            +cn_fontF
+                            letter-spacing: 2px
+        .scroll-hint-wrap
+            .scroll-hint-btn
+                left: 0
+                bottom: 140px
+
+@media all and (max-width: 1200px)
+    .nsdi-theme
+        .header-title
+            width: 52%
+        .header-bottom
+            width: 48%
+            .w-2-4
+                width: 56%
+            .w-1-4
+                width: 22%
+
+@media all and (max-width: 991px)
+    .nsdi-theme
+        .header-bg
+            .content
+                padding-top: 250px
+                .row
+                    .header-title
+                        width: 100%
+                        .scroll-hint-wrap
+                            display: none
+                    .header-bottom
+                        width: 100%
+                        padding-top: 422px
+ 
+
+@media all and (max-width: 768px)
+    .nsdi-theme
+        .header-title
+            margin-left: 76px
+            .header-bottom
+                margin-left: 65px
+                padding-right: 136px
+                padding-top: 412px
+                .w-2-4
+                    width: 50%
+                .w-1-4
+                    width: 25%                   
+
+
+
+@media all and (max-width: 576px)   
+    .nsdi-theme
+        .header-bg
+            height: 667px
+            .content
+                padding-top: 142px    
+                .row    
+                    .header-title
+                        margin-left: 23px
+                        h2 
+                            font-size: 38px      
+                            +fwN  
+                            margin-bottom: 16px
+                        span
+                            display: block
+                    .header-bottom
+                        padding-top: 164px
+                        padding-left: 0 
+                        margin-left: 23px
+                        .w-2-4
+                            width: 100%   
+                            white-space: nowrap
+                            padding-bottom: 30px
+                        .w-1-4
+                            width: 50%     
+
+@media all and (max-width: 375px)   
+    .nsdi-theme  
+        .header-bg
+            .content
+                .row
+                    .header-title
+                        h2 
+                            font-size: 32px      
+                            .header-bottom
+                                padding-top: 140px
+                                .information-type
+                                    width: 200px
+                                .information-descr
+                                    width: 200px 
+
+
+.section01
+    background-color: #353535    
+    position: relative     
+    width: 100%
+    padding-bottom: 100px
+    .project-icon-group
+        text-align: center       
+        padding-top: 50px  
+        .project-icon
+            display: inline-block
+            height: 150px
+            width: 15%
+            .img-box
+                margin: 0 auto                            
+                img 
+                    height: 90px                                 
+                    display: block
+                    margin: 0 auto
+            .img-descr
+                padding-top: 20px
+                font-size: 16px
+                +fwB
+                text-align: center
+                line-heigh: 22px
+                white-space: nowrap
+                letter-spacing: 1px
+                +cn_fontF 
+            .img-descr-sm
+                color: #888888
+                font-size: 14px
+                +fwB
+                line-height: 22px
+                text-align: center
+                letter-spacing: .9px
+                +cn_fontF
+        .x 
+            display: inline-block    
+            vertical-align: center 
+            height: 80px   
+            .x-1
+                width: 25px
+                height: 3px
+                transform: rotate(45deg)
+                background-color: $color_home-white           
+                border-radius: 1.5px    
+            .x-2
+                width: 25px
+                height: 3px
+                transform: rotate(135deg)
+                background-color: $color_home-white
+                margin-top: -3px 
+                border-radius: 1.5px
+
+.project-icon-group
+    .project-icon-left
+        text-align: left
+    .project-icon-center
+        text-align: center        
+    .project-icon-right
+        text-align: right
+
+@media all and (max-width: 1600px)  
+    .section01
+        padding-bottom: 130px 
+        .project-icon-group
+            .project-icon
+                width: 20%
+
+@media all and (max-width: 768px)  
+    .section01
+        .project-title
+            padding-top: 150px 
+        .project-icon-group
+            .project-icon
+                width: 24%
+
+@media all and (max-width: 700px) 
+    .section01
+        .project-title
+            padding-top: 120px
+        .project-icon-group
+            .project-icon
+                width: 100%
+                .img-box
+                    width: 60%
+            .x
+                height: 20px
+                margin-top: 50px
+                margin-bottom: 40px
+
+@media all and (max-width: 425px) 
+    .section01
+        padding-bottom: 116px
+
+@media all and (max-width: 325px) 
+    .section01
+        .project-title
+            letter-spacing: 2px
+
+.section01-img
+    width: 100vw
+    height: 800px
+    background-image: url(../images/pages/project/img_story_01.png)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover
+    position: relative            
+
+
+@media all and (max-width: 991px) 
+    .section01-img
+        height: 600px
+
+@media all and (max-width: 576px) 
+    .section01-img
+        height: 306px
+
+@media all and (max-width: 375px) 
+    .section01-img
+        height: 248px
+
+.section02
+    background-color: #353535    
+    position: relative     
+    width: 100%
+    .project-info-group
+        width: 30%
+        margin: 0 auto
+        position: relative
+        &:after
+            cotent: ""
+            clear: both
+            height: 0
+            display: block
+        .project-info
+            float: left
+            width: 25%                                  
+            .num-group
+                padding-top: 50px
+                text-align: center
+                .num                   
+                    font-size: 84px
+                    color: $color_home-main
+                    +fwN                    
+                    +fw300
+                    +cn_fontF
+                    line-height: 1
+                span
+                    font-size: 14px
+                    line-height: 18px
+                    +fw500
+                    +cn_fontF
+            .project-info-descr
+                text-align: center
+                padding-bottom: 100px 
+                width: 105%
+                font-size: 16px
+                letter-spacing: 2px
+                +cn_fontF
+                +fw500
+    .group
+        position: relative    
+        width: 40vw
+        height: calc( 32vw + 200px)
+        margin: 0 auto
+        top: 200px
+        transform: translateX(-50%)
+        
+        .img-box  
+            width: 100%
+            position: absolute
+            left: 50%  
+            top: 0    
+            border-radius: 5px
+            overflow: hidden  
+            height: calc( 40vw * 64 /114)
+            transition: transform 1.5s 
+            img
+                position: absolute
+                +poaCenter
+                width: 100%
+                height: 100%
+                object-fit: cover
+
+        // .img-box1
+        //     z-index: 1
+        //     top: 0.5vw
+        //     animation: img1 infinite 10s ease
+        // .img-box2
+        //     z-index: 2
+        //     top: 3vw
+        //     transform: scale(1.1) 
+        //     animation: img2 infinite 10s ease
+        // .img-box3
+        //     z-index: 3
+        //     top: 6vw
+        //     transform: scale(1.2)
+        //     animation: img3 infinite 10s ease
+        // .img-box4
+        //     z-index: 4
+        //     top: 9vw
+        //     transform: scale(1.3)
+        //     animation: img4 infinite 10s ease
+        // .img-box5
+        //     z-index: 5
+        //     top: 12vw
+        //     transform: scale(1.4)
+        //     animation: img5 infinite 10s ease
+            
+
+
+@media all and (max-width: 1600px) 
+    .section02
+        .project-info-group
+            width: 50%
+
+@media all and (max-width: 991px) 
+    .section02
+        .title-descr
+            padding-bottom: 20px
+        .project-info-group
+            width: 66%
+            .project-info
+                p 
+                    width: 100%
+                .project-info-descr 
+                    padding-bottom: 0px    
+                .project-info-descr-rwd
+                    padding-bottom: 72px 
+        .img-box-2
+            padding-top: 100px
+            width: 80%
+
+
+
+@media all and (max-width: 600px) 
+    .section02
+        .project-info-group
+            .project-info  
+                width: 50%    
+        .group
+            top: 380px
+            height: calc( 32vw + 380px)
+                           
+.po-r-up
+    position: relative
+    z-index: 10
+
+.section03
+    background-color: #1f1f1f    
+    left: 0
+    z-index: 20
+    
+
+.slick
+    width: 130%
+    position: relative
+    left: -15%
+
+.item
+    width: 30%
+    padding: 25px
+    margin-top: 50px
+    img
+        width: 100%
+        box-shadow: 0 5px 20px rgba(0,0,0,50)
+        margin-bottom: 200px
+        height: 100%
+
+@media all and (max-width: 768px)        
+    .section03 
+        padding-bottom: 200px
+        .project-title-3
+            padding-top: 100px
+    .item
+        margin-top: 75px
+        img 
+            width: 85%
+            margin: 0 auto
+    .slick
+        width: 110%
+        left: -5%
+
+@media all and (max-width: 576px)               
+    .section03 
+        padding-bottom: 120px
+        .title-descr
+            margin-top: 35px
+            margin-bottom: -65px
+            img 
+                width: 100%
+@media all and (max-width: 425px)                
+    .section03 
+        .project-title
+            width: 80%  
+            margin: 0 auto         
+
+@media all and (max-width: 375px)                
+    .section03 
+        .project-title
+            letter-spacing: 2px
+
+                
+
+.slick-next
+    right: 46vw         
+    top: calc(56vw / 2 + 10px)
+    color: transparent
+    background-image: url(../images/pages/ic_forward.png)
+    height: 20px
+    width: 20px
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover
+    &:before
+        font-size: 0
+    &:hover
+        background-image: url(../images/pages/ic_forward.png)
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: cover
+    &:focus
+        background-image: url(../images/pages/ic_forward.png)
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: cover
+
+.slick-prev
+    left: 46vw         
+    top: calc(56vw / 2)
+    color: transparent
+    background-image: url(../images/pages/ic_forward.png)
+    height: 20px
+    width: 20px   
+    transform: rotate(180deg)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover
+    z-index: 10
+    &:before
+        font-size: 0
+    &:hover
+        background-image: url(../images/pages/ic_forward.png)
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: cover
+    &:focus
+        background-image: url(../images/pages/ic_forward.png)
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: cover
+
+.slick-arrow
+    color: #ffffff
+
+@media all and (max-width: 768px) 
+    .slick-next
+        right: 18vw        
+        top: calc( 56vw + 40px)
+    .slick-prev
+        left: 18vw         
+        top: calc( 56vw + 30px)
+
+@media all and (max-width: 576px) 
+    .slick-next
+        right: 25vw       
+        top: calc( 56vw + 50px)
+    .slick-prev
+        left: 25vw          
+        top: calc( 56vw + 40px)
+
+.section04
+    width: 100%
+    height: 900px
+    background-image: url(../images/pages/project/img_story_04.png)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover
+    position: relative 
+    top: -8vw
+    .project-title-experience
+        padding-top: 325px
+
+.btn-project
+    text-align: center 
+    .sub-btn-wrap 
+        width: 175px  
+        margin-top: 50px               
+        .sub-btn  
+            a    
+                padding: 0
+                span
+                    +fwN
+                    padding: 12px 37px
+                    display: inline-block
+                    font-size: 14px 
+                    text-align: center
+   
+.btn-project                    
+    .btn-visit
+        width: 180px
+        .sub-btn  
+            a                 
+                span
+                    padding: 12px 0px
+
+
+
+@media all and (max-width: 1400px)
+    .section04
+        .project-title-experience
+            padding-top: 309px
+            
+@media all and (max-width: 1400px)
+    .section04
+        .project-title-experience
+            padding-top: 309px
+
+@media all and (max-width: 600px)
+    .section04
+        height: 800px
+        .project-title-experience
+            padding-top: 200px
+
+@media all and (max-width: 425px)
+    .section04
+        height: 667px
+        .project-title-experience
+            padding-top: 132px
+
+
+@media all and (max-width: 375px)
+    .section04
+        height: 720px
+
+
+.section05
+    padding-top: 16px 
+    padding-bottom: 180px
+    .container
+        width: 1665px
+        .col-lg-7
+            width: 55.4%
+        .col-lg-5  
+            .project-title
+                text-align: left
+                width: 44.5%
+                +cn_fontF
+                +fw500
+            .vedio-descr
+                text-align: left
+                padding-bottom: 30px
+                +cn_fontF
+                +fw500
+                line-height: 2
+        
+
+.vedio 
+    color: $color_home-main
+    font-size: 30px       
+    width: 100%
+    text-align: center
+    padding-bottom: 30px 
+    padding-top: 0px    
+    letter-spacing: 5.6px   
+    +cn_fontF
+    +fw500
+.iframe-box 
+    width: 45.8vw
+    position: relative
+    padding-bottom: calc(45.8vw * 36 / 64)
+    height: 0  
+    overflow: hidden
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.5)     
+    border-radius: 5px
+    iframe
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+
+        
+
+    
+
+@media all and (max-width: 1600px)
+    .section05
+        padding-bottom: 130px
+        .container
+            width: 80%
+            .col-lg-7
+                width: 100%
+                .iframe-box
+                    width: 75vw
+                    margin: 0 auto
+                    padding-bottom: calc(75vw * 36 / 64)
+            .col-lg-5 
+                width: 100%
+                .vedio
+                    padding-top: 90px
+                    width: 75vw
+                    margin: 0 auto
+                .vedio-descr 
+                    padding-bottom: 20px
+                    width: 75vw
+                    margin: 0 auto
+ 
+@media all and (max-width: 576px)
+    .section05
+        padding-bottom: 30px
+        padding-top: 56px
+        .container
+            .col-lg-5 
+                .vedio
+                    padding-top: 40px
+ 
+
+.section06
+    width: 100%
+    height: 900px
+    background-image: url(../images/pages/project/img_story_05.png)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover
+    position: relative 
+    .project-title-host
+        padding-top: 242px
+    .project-info-group-2
+        width: 24%
+        position: relative
+        margin: 0 auto
+        overflow: auto
+        &:after
+            cotent: ""
+            clear: both
+            height: 0
+            display: block
+        .project-info-2
+            float: left
+            width: 50%                      
+            .num-2-group
+                text-align: center
+                padding-top: 20px
+                .num-2                     
+                    font-size: 84px
+                    color: $color_home-main
+                    +fwN
+                    +cn_fontF
+                    +fw300
+                    span
+                        font-size: 14px     
+                        +cn_fontF
+                        +fw500               
+            .project-info-descr-2
+                white-space: nowrap
+                text-align: center
+                width: 100%
+                +cn_fontF
+                +fw500
+
+
+@media all and (max-width: 1600px)
+    .section06
+        .project-info-group-2
+            width: 430px
+
+@media all and (max-width: 1199px)
+    .section06
+        .project-info-group-2
+            width: 50%
+
+
+@media all and (max-width: 576px)
+    .section06
+        .project-title
+            padding-top: 110px
+        .project-info-group-2
+            width: 100%
+            .project-info-2
+                width: 100%
+                .project-info-descr-2
+                    padding-bottom: 50px
+
+
+@media all and (max-width: 425px)
+    .section06
+        height: 1000px
+
+
+.section07
+    background-color: #292929
+    min-height: 700px
+    position: relative
+    .project-person-group
+        width: 40%
+        margin: 0 auto
+        position: relative        
+        &:after
+            content: ""
+            clear: both
+            height: 0
+            display: block
+        .project-person
+            float: left
+            width: 33%      
+            +cn_fontF
+            +fw500           
+    .img-box
+        margin: 0 auto
+        position: relative
+        width: 50%
+        padding-top: 50px 
+        img
+            width: 120px
+            display: block
+            margin: 0 auto
+            
+    .project-person-descr
+        text-align: center 
+        font-size: 12px
+        line-height: 50px   
+        span
+            font-size: 15px
+            display: inline-block
+            padding-left: 5px
+
+.link-icon
+    width: 248px
+    margin: 0 auto
+    margin-top: 40px
+    padding-bottom: 250px
+    li 
+        float: left
+        list-style: none
+        position: relative
+        a 
+            text-decoration: none
+            display: inline-block       
+            img
+                width: 62px
+                height: 62px
+                padding: 11px
+                &:hover
+                    transform: translateY(-3px)
+                    transition: all .3s ease-out
+                    opacity: 0.5
+
+@media all and (max-width: 1199px)
+    .section07
+        .project-person-group
+            width: 75%            
+
+
+@media all and (max-width: 576px)
+    .section07
+        .project-title-produ
+            padding-bottom: 30px
+        .project-person-group
+            .project-person
+                width: 100%   
+        .img-box
+            padding-top: 30px 
+        .link-icon
+            padding-bottom: 136px
+
+
+
+.section08
+    width: 100%
+    height: 400px
+    background-image: url(../images/pages/project/img_story_07.png)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover
+    position: relative  
+    &:before
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 400px
+        background-color: rgba(0, 0, 0, 0.8)
+    .container
+        padding-top: 96px
+        position: relative
+        z-index: 30        
+        .next-project
+            font-size: 18px
+            display: inline-block
+            color: $color_home-main
+            width: 150px
+            height: 27px
+            +cn_fontF
+            +fwB
+            letter-spacing: 3.4px
+            text-align: center
+            vertical-align: top
+        .next-project-info
+            margin-left: 80px
+            display: inline-block
+            width: 600px
+            h2
+                width: 336px
+                height: 112px
+                +cn_fontF
+                +fwB
+                line-height: 1.17
+                color: #ffffff
+                letter-spacing: normal
+            p                 
+                +cn_fontF
+                font-size: 14px
+                +fw500
+                line-height: 1.57
+                letter-spacing: 4px
+                color: #ffffff
+                padding-top: 20px
+                overflow: hidden
+                text-overflow: ellipsis
+                display: -webkit-box
+                -webkit-line-clamp: 2
+                -webkit-box-orient: vertical
+                text-align: left
+                padding-right: 10%
+
+            .more
+                opacity: 0.5
+                font-size: 16px
+                line-height: 1
+                letter-spacing: 1px
+                color: #ffffff
+                padding-top: 50px 
+                +cn_fontF
+                +fw500
+                display: inline-block
+                &:hover
+                    transform: translateX(10px)
+                    transition: all .3s ease-out
+
+                img
+                    width: 16px
+                    height: 16px                                       
+                    display: inline-block
+                    background-image: url(../images/pages/ic_forward.png)
+                    background-position: center center
+                    background-repeat: no-repeat
+                    background-size: cover
+
+
+@media all and (max-width: 991px)                
+    .section08
+        height: 408px
+        &:before
+            height: 408px
+        .container    
+            padding-top: 54px 
+            .next-project
+                margin-left: 16vw                
+            .next-project-info
+                margin-left: 16vw
+                padding-top: 60px
+
+
+@media all and (max-width: 576px)                
+    .section08
+        .container
+            padding-top: 69px 
+            .next-project-info
+                width: 80vw
+                padding-top: 40px               
+                p    
+                    padding-top: 10px
+                    span
+                        display: block
+                        padding-top: 0
+                .more
+                    padding-top: 40px
+
+@media all and (max-width: 425px)                
+    .section08
+        .container    
+            .next-project
+                margin-left: 10vw                
+            .next-project-info
+                margin-left: 10vw
+
+
+
+
+.img_move[data-position="1"] 
+  z-index: 9;
+  transform: translateY(150%) scale(0.9)
+
+.img_move[data-position="2"] 
+  z-index: 8;
+  transform: translateY(32%) scale(1.3)
+
+
+.img_move[data-position="3"] 
+  z-index: 7;
+  transform: translateY(24%) scale(1.2)
+
+
+.img_move[data-position="4"] 
+  z-index: 6;
+  transform: translateY(16%) scale(1.1)
+
+.img_move[data-position="5"] 
+  z-index: 5 !important;
+  transform: translateY(8%) scale(1)
+
+
+
+
+// @keyframes img1
+//     0% 
+//         z-index: 1
+//         top: 0.5vw
+//         transform: scale(1) 
+//     20%
+//         z-index: 2
+//         top: 3vw
+//         transform: scale(1.1)  
+//     40%
+//         z-index: 3
+//         top: 6vw
+//         transform: scale(1.2)    
+//     60%
+//         z-index: 4
+//         top: 9vw
+//         transform: scale(1.3) 
+//     80%
+//         z-index: 5
+//         top: 12vw
+//         transform: scale(1.4) 
+//     90%
+//         top: 40vw
+//         transform: scale(0.9) 
+//         z-index: 5       
+//     100% 
+//         z-index: 1
+//         top: 0.5vw
+//         transform: scale(1) 
+
+// @keyframes img2
+//     0% 
+//         z-index: 2
+//         top: 3vw
+//         transform: scale(1.1)  
+//     20%
+//         z-index: 3
+//         top: 6vw
+//         transform: scale(1.2)  
+//     40%
+//         z-index: 4
+//         top: 9vw
+//         transform: scale(1.3)    
+//     60%
+//         z-index: 5
+//         top: 12vw
+//         transform: scale(1.4)  
+//     70%
+//         top: 40vw
+//         transform: scale(0.9) 
+//         z-index: 5
+//     80%
+//         z-index: 1
+//         top: 0.5vw
+//         transform: scale(1) 
+//     100% 
+//         z-index: 2
+//         top: 3vw
+//         transform: scale(1.1) 
+
+// @keyframes img3
+//     0% 
+//         z-index: 3
+//         top: 6vw
+//         transform: scale(1.2) 
+//     20%
+//         z-index: 4
+//         top: 9vw
+//         transform: scale(1.3)  
+//     40%
+//         z-index: 5
+//         top: 12vw
+//         transform: scale(1.4)  
+//     50%   
+//         top: 40vw
+//         transform: scale(0.9) 
+//         z-index: 5
+//     60%
+//         z-index: 1
+//         top: 0.5vw
+//         transform: scale(1) 
+//     80%
+//         z-index: 2
+//         top: 3vw
+//         transform: scale(1.1) 
+//     100% 
+//         z-index: 3
+//         top: 6vw
+//         transform: scale(1.2) 
+
+// @keyframes img4
+//     0% 
+//         z-index: 4
+//         top: 9vw
+//         transform: scale(1.3) 
+//     20%
+//         z-index: 5
+//         top: 12vw
+//         transform: scale(1.4)  
+//     30%
+//         top: 40vw
+//         transform: scale(0.9) 
+//         z-index: 5
+//     40%
+//         z-index: 1
+//         top: 0.5vw
+//         transform: scale(1)    
+//     60%
+//         z-index: 2
+//         top: 3vw
+//         transform: scale(1.1) 
+//     80%
+//         z-index: 3
+//         top: 6vw
+//         transform: scale(1.2) 
+//     100% 
+//         z-index: 4
+//         top: 9vw
+//         transform: scale(1.3) 
+
+// @keyframes img5 
+//     0% 
+//         z-index: 5
+//         top: 12vw
+//         transform: scale(1.4) 
+//     10%
+//         top: 40vw
+//         transform: scale(0.9) 
+//         z-index: 5
+//     20%
+//         z-index: 1
+//         top: 0.5vw
+//         transform: scale(1)  
+//     40%
+//         z-index: 2
+//         top: 3vw
+//         transform: scale(1.1)    
+//     60%
+//         z-index: 3
+//         top: 6vw
+//         transform: scale(1.2) 
+//     80%
+//         z-index: 4
+//         top: 9vw
+//         transform: scale(1.3) 
+//     100% 
+//         z-index: 5
+//         top: 12vw
+//         transform: scale(1.4)  
+
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) 
+    .nsdi-theme
+        .header-bg
+            background-image: url(../images/pages/project/img_story_bg@2x.png)
+    .section01-img
+        background-image: url(../images/pages/project/img_story_01@2x.png)
+    .section04
+        background-image: url(../images/pages/project/img_story_04@2x.png)
+    .section06
+        background-image: url(../images/pages/project/img_story_05@2x.png)
+    .section08
+        background-image: url(../images/pages/project/img_story_07@2x.png)

@@ -1,0 +1,690 @@
+
+@charset "UTF-8"
+@import "var_mixin"
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+
+
+// --------------------------------------
+// animated
+// --------------------------------------
+
+[data-aos=ani-line][data-aos=ani-line].aos-animate 
+	&::before
+		transform: scaleX(1) !important
+		transition: .6s
+
+// --------------------------------------
+// 模組變數
+// --------------------------------------
+
+@mixin font-style($family, $size, $weight, $color, $letter, $line)
+	font-family: $family
+	font-size: $size
+	font-weight: $weight
+	color: $color
+	letter-spacing: $letter
+	line-height: $line
+
+
+// --------------------------------------
+// color
+// --------------------------------------
+
+$color-brown: #DD9B57
+$color-title: #333
+$color-content: #666
+
+
+// --------------------------------------
+// 痊癒設定
+// --------------------------------------
+
+html,body
+	background-color: #fff
+	font-family: 'Montserrat' , 'Open Sans', 'Noto Sans TC', "PingFang TC" , "微軟正黑體", "蘋果儷中黑" ,  Arial
+	+fwN
+	color: #000
+	-webkit-overflow-scrolling: touch
+	height: auto
+	word-break: break-all
+
+div,span
+	word-break: normal
+	text-align: left
+
+article
+	width: 100%
+	height: 100%
+	overflow: hidden
+
+em
+	font-style: italic
+
+
+.title
+	+font-style(inherit , 36px , 500 , $color-title , inherit , inherit)
+	display: inline-block
+
+	&::before
+		content: ""
+		display: block
+		width: 100%
+		height: 2px
+		margin-bottom: 10px
+		background-image: linear-gradient(90deg, rgba(240,203,144,0.00) 0%, #DD9B57 100%)
+		position: relative
+		left: -2px
+		transform: scaleX(0)
+		transition: .6s
+		transform-origin: 0
+
+
+.button.gold_bg
+	a
+		color: #fff
+		background-color: $color-brown
+
+		.arrow span
+			background-color: #fff
+
+
+
+.button
+	text-align: center
+
+	a
+		+font-style(inherit , 18px , normal , $color-brown , inherit , inherit)
+		border: 1px solid $color-brown
+		border-radius: 100px
+		display: inline-block
+		padding: 8px 50px 6px 20px
+		position: relative
+		
+		.arrow
+			display: inline-block
+			position: absolute
+			top: 18px
+			right: 25px
+			transition: .4s
+
+			span
+				width: 10px
+				height: 2px
+				background-color: $color-brown
+				display: block
+				border-radius: 200px
+				position: relative
+				transition: .4s
+
+			span:nth-child(1)
+				transform: rotate(45deg)
+				top: -3px
+				right: -3px
+				position: absolute
+
+			span:nth-child(2)
+				width: 0px
+
+			span:nth-child(3)
+				transform: rotate(-45deg)
+				top: 3px
+				right: -3px
+				position: absolute
+
+	a:active , a:hover
+		.arrow
+			right: 20px
+			transition: .4s
+
+			span
+				transition: .4s
+
+			span:nth-child(2)
+				width: 18px
+
+
+// --------------------------------------
+// KV
+// --------------------------------------
+
+.kv_wrap
+	width: 100%
+	height: 100vh
+	background-image: url('../images/eventweb/img_kv.png')
+	background-size: cover
+	background-position: top center
+	background-repeat: no-repeat
+
+	.container
+		max-width: 700px
+
+		.row
+			&> div
+				margin-top: 100px
+				padding-right: 15px
+				padding-left: 15px
+
+				h2
+					+font-style(inherit , 60px , 500 , $color-title , inherit , inherit)
+					margin-bottom: 20px
+					text-align: center
+
+				p
+					+font-style(inherit , 14px , normal , $color-content , inherit , 30px)
+					margin-bottom: 80px
+					text-align: center
+
+
+	@media only screen and (min-width: 992px)
+		.container
+			.row
+				&>div
+					margin-top: 180px
+
+					h2
+						font-size: 80px
+					p
+						font-size: 18px
+
+
+// --------------------------------------
+// solve
+// --------------------------------------
+
+.solve_wrap
+	padding-top: 80px
+	.title_wrap
+		.title
+			br 
+				display: none
+
+			@media only screen and (min-width: 330px)
+				&>br
+					display: inline
+
+	.solve_item
+		margin-top: 50px
+
+		.content
+			margin-left: 70px
+			position: relative
+
+			.number
+				+font-style('Montserrat' , 40px , 500 , $color-brown , inherit , inherit)
+				position: absolute
+				top: -16px
+				left: -70px
+
+			h4
+				+font-style(inherit , 20px , 500 , $color-title , inherit , inherit)
+				margin-bottom: 30px
+
+
+			ul 
+				li
+					+font-style(inherit , 14px , 500 , $color-content , inherit , inherit)
+					margin-top: 20px
+
+					&::before
+						content: ""
+						width: 10px
+						height: 1px
+						background-color: #979797
+						display: inline-block
+						margin-right: 10px
+						position: relative
+						bottom: 5px
+						transform: scaleX(0)
+						transition: .8s
+						transform-origin: 0
+
+
+	@media only screen and (min-width: 992px)
+		.solve_item
+			.content
+				margin-left: 0
+
+				.number
+					margin-bottom: 5px
+					position: relative
+					top: 0
+					left: 0
+
+
+// --------------------------------------
+// project_wrap
+// --------------------------------------
+
+.project_wrap
+	padding-top: 120px
+	overflow: hidden
+
+	.title_wrap
+		margin-bottom: 100px
+		@media only screen and (min-width: 992px)
+			&
+				margin-bottom: 150px
+
+		p
+			+font-style(inherit , 14px , normal , $color-content , inherit , 30px)
+			margin-top: 20px
+			max-width: 600px
+
+	.tab_wrap
+		text-align: center
+
+		.nav
+			width: auto
+			margin: 0 auto
+			border: none
+			border-bottom: 1px solid #dcdcdc
+			display: inline-block
+			margin-bottom: 20px
+
+			li a
+				border: none
+				+font-style(inherit , 18px , normal , $color-content , inherit , inherit)
+
+				&:hover
+					background-color: transparent
+					border-bottom: 1px solid $color-brown
+
+			li.active a
+				border-bottom: 1px solid $color-brown
+				+font-style(inherit , 18px , normal , $color-brown , inherit , inherit)
+
+		
+		.tab-content
+			.content
+				text-align: center
+				+font-style(inheirt , 14px , normal , $color-title , inherit , inherit)
+				font-family: 'Montserrat' , 'Open Sans', 'Noto Sans TC', "PingFang TC" , "微軟正黑體", "蘋果儷中黑" ,  Arial
+				margin-bottom: 40px
+
+			.case
+				.case_info
+					+font-style(inheirt , 14px , normal , #999 , inherit , inherit)
+					font-family: 'Montserrat' , 'Open Sans', 'Noto Sans TC', "PingFang TC" , "微軟正黑體", "蘋果儷中黑" ,  Arial
+					margin-bottom: 10px
+
+				.case_img
+					width: 100%
+					box-shadow: 0 5px 10px 0 rgba(0,0,0,0.30)
+
+
+
+// --------------------------------------
+// example
+// --------------------------------------
+
+.example
+	padding-top: 160px
+
+	.content_wrap
+		position: relative
+
+		.container > .row
+			position: relative
+			z-index: 1
+
+		.subtitle
+			text-transform: uppercase
+			+font-style('Montserrat' , 80px , 500 , #000 , inherit , 80px)
+			opacity: 0.03
+			-webkit-writing-mode: vertical-rl
+			writing-mode: vertical-rl
+			position: absolute
+			z-index: 0
+			right: 0
+			top: 0
+			display: none
+
+		.title
+			font-size: 28px
+			margin-bottom: 20px
+
+		p
+			+font-style(inherit , 13px , normal , $color-content , inherit , 26px)
+			margin-bottom: 40px
+
+		dl
+			margin-bottom: 80px
+
+			dt
+				+font-style(inherit , 14px , 500 , #9B9B9B , inherit , inherit)
+			
+			dd
+				+font-style(inherit , 16px , normal , $color-brown , inherit , inherit)
+
+		.button
+			text-align: left
+	
+	.image_wrap
+		margin-top: 50px
+
+		.img_box img
+			width: 100%
+			filter: drop-shadow(0px 5px 10px rgba(0,0,0,.3))
+
+
+@media only screen and (min-width: 768px)
+	.example
+		padding-top: 200px
+
+		.content_wrap .container .row
+			.subtitle
+				display: block
+
+			p
+				+font-style(inherit , 16px , normal , $color-content , 2px , 30px)
+
+			dl dd
+				+font-style(inherit , 20px , normal , $color-brown , inherit , inherit)
+
+
+@media only screen and (min-width: 992px)
+	.example
+		position: relative
+
+		.image_wrap
+			position: absolute
+			left: 50%
+			transform: translateX(-50%)
+			margin: 0
+				
+
+// bg_center------------------------------------------------------
+.example.bg_center
+	background-size: cover
+	background-position: center
+	background-repeat: no-repeat
+
+	padding-bottom: 300px
+
+	.content_wrap > .container 
+		max-width: 560px
+
+		.row > div
+			text-align: center
+
+			.button
+				text-align: center
+
+			.title , p , dt
+				color: #fff
+
+	.content_wrap .subtitle
+		opacity: .1
+		right: auto
+		left: 50%
+		top: -100px
+		transform: translateX(-50%)
+
+	@media only screen and (min-width: 768px)
+		.content_wrap .subtitle
+			writing-mode: inherit
+			top: -50px
+			white-space: nowrap
+
+
+@media only screen and (min-width: 992px)
+	.example.bg_center
+		width: 100%
+		height: 100vh
+
+
+// 品牌-----------------------------------------------------
+.layout01
+	background-image: linear-gradient(0deg, rgba(255,255,255,0.00) 4%, #F6F6F6 54%, #EFEFEF 98%);
+
+@media only screen and (min-width: 992px)
+	.layout01
+		padding-bottom: 200px
+
+		.content_wrap .container > .row .subtitle
+			-webkit-writing-mode: inherit
+			writing-mode: inherit
+			top: -80px
+			left: 8px
+
+		.image_wrap
+			top: 350px
+
+@media only screen and (min-width: 1200px)
+	.layout01
+		padding-bottom: 440px
+
+		.image_wrap
+			top: 300px
+
+
+// 新品上市--------------------------------------------------
+
+@media only screen and (min-width: 992px)
+	.layout02
+		.content_wrap .container > .row .subtitle
+			top: 20px
+			left: 380px
+			right: auto
+
+		.image_wrap
+			top: 190px
+
+@media only screen and (min-width: 1200px)
+	.layout02
+		padding-bottom: 100px
+
+		.content_wrap .container > .row .subtitle
+			top: -90px
+			left: 460px
+			right: auto
+			white-space: nowrap
+
+		.image_wrap
+			top: 120px
+
+
+// 展覽-----------------------------------------------------
+.layout03
+	overflow: hidden
+	position: relative
+
+	.image_wrap
+		.img_box
+			padding-right: 0
+
+
+@media only screen and (min-width: 992px)
+	.layout03
+		padding-bottom: 200px
+
+		.content_wrap .container > .row .subtitle
+			-webkit-writing-mode: inherit
+			writing-mode: inherit
+			top: 60px
+			right: 0
+
+		.image_wrap
+			bottom: 0
+
+
+// 表演藝術-------------------------------------------------
+.layout04
+	background-image: url('../images/eventweb/img_performance.png')
+	overflow: hidden
+
+	.content_wrap .subtitle
+		white-space: nowrap
+
+	.content_wrap > .container 
+		max-width: 560px
+
+		&> .row > div
+			text-align: center
+
+		.button
+			text-align: center
+
+
+// 運動賽事-------------------------------------------------
+@media only screen and (min-width: 992px)
+	.layout05
+		.content_wrap .container > .row .subtitle
+			-webkit-writing-mode: inherit
+			writing-mode: inherit
+			top: -220px
+			right: auto
+			left: 0
+
+		.image_wrap
+			top: -20px
+
+@media only screen and (min-width: 1200px)
+	.layout05
+		padding-bottom: 60px
+
+
+// 頒獎典禮-------------------------------------------------
+@media only screen and (min-width: 992px)
+	.layout06
+		padding-bottom: 00px
+
+		.image_wrap
+			top: 210px
+
+		.content_wrap .container > .row .subtitle
+			-webkit-writing-mode: inherit
+			writing-mode: inherit
+			top: auto
+			bottom: -60px
+			right: auto
+			left: 0
+
+@media only screen and (min-width: 1200px)
+	.layout06
+		padding-bottom: 120px
+		.image_wrap
+			top: 120px
+
+		.content_wrap .container > .row .subtitle
+			bottom: -160px
+			left: 0
+
+
+// 節慶活動-------------------------------------------------
+.layout07
+	overflow: hidden
+
+@media only screen and (min-width: 992px)
+	.layout07
+		padding-bottom: 300px
+
+		.image_wrap
+			bottom: 0
+
+		.content_wrap .container > .row .subtitle
+			-webkit-writing-mode: inherit
+			writing-mode: inherit
+			top: auto
+			bottom: -200px
+			right: auto
+			left: 8px
+
+
+// 地方特色-------------------------------------------------
+.example.bg_center.layout08
+	background-image: url('../images/eventweb/img_culture.png')
+	overflow: hidden
+
+	.content_wrap .container > .row .subtitle
+		color: #fff
+
+		br
+			display: none
+
+
+	@media only screen and (min-width: 992px)
+
+		.content_wrap > .container > .row > div
+			text-align: left
+
+			.button
+				text-align: left
+
+		.content_wrap .container > .row .subtitle
+			top: 65px
+			right: 0
+			left: auto
+			transform: translateX(0)
+
+			br
+				display: inline
+
+		.content_wrap > .container 
+			max-width: 100%
+
+			& > .row > div
+			text-align: left
+
+			.button
+				text-align: left
+
+
+// 網路活動-------------------------------------------------
+@media only screen and (min-width: 992px)
+	.layout09
+		.image_wrap
+			top: 200px
+
+		.content_wrap .container > .row .subtitle
+			top: -8px
+			left: 370px
+			right: auto
+
+@media only screen and (min-width: 1200px)
+	.layout09
+		margin-top: 100px
+		padding-bottom: 140px
+
+		.image_wrap
+			top: 140px
+
+		.content_wrap .container > .row .subtitle
+			top: -50px
+			left: 460px
+			white-space: nowrap
+
+
+// 週年慶---------------------------------------------------
+.layout10
+	padding-bottom: 70px
+
+@media only screen and (min-width: 992px)
+	.layout10
+		padding-bottom: 100px
+
+		.image_wrap
+			top: 250px
+
+		.content_wrap .container > .row .subtitle
+			top: 0px
+			left: 510px
+			right: auto
+			transform: rotate(180deg)
+			white-space: nowrap
+
+@media only screen and (min-width: 1200px)
+	.layout10
+		padding-bottom: 260px
+
+		.image_wrap
+			top: 160px
+
+		.content_wrap .container > .row .subtitle
+			top: -30px
+			left: 630px
+
+
+
+

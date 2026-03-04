@@ -1,0 +1,952 @@
+@charset "UTF-8"
+
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700")
+
+@import var_mixin
+
+=bgiCover($position: center center, $size: cover)
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+
+$color_main: #000000
+
+// ----------------------------
+// @media管理 
+// ----------------------------
+$breakpoints: (xxl: 1680px, desktop: 1200px, tablets: 992px, mobile: 768px, small-mobile: 480px)
+
+=un-xxl
+  @media screen and (min-width: map-get($breakpoints, "xxl"))
+    @content
+
+=un-desktop
+  @media screen and (min-width: map-get($breakpoints, "desktop"))
+    @content
+
+=un-tablets
+  @media screen and (min-width: map-get($breakpoints, "tablets"))
+    @content
+
+=un-mobile
+  @media screen and (min-width: map-get($breakpoints, "mobile"))
+    @content
+
+=for-tablets
+  @media screen and (max-width: map-get($breakpoints, "tablets"))
+    @content
+
+=for-mobile
+  @media screen and (max-width: map-get($breakpoints, "mobile"))
+    @content
+
+=for-xxs
+  @media screen and (max-width: map-get($breakpoints, "small-mobile"))
+    @content
+
+body,
+html
+  background-color: #FFFFFF
+  color: $color_main
+  height: auto
+
+body *::selection
+  // color: darken(#bdbcb8, 10%);
+  background-color: darken(#bdbcb8, 10%)
+
+article
+  // min-height: 800rem;
+  overflow: hidden
+
+li
+  list-style: none
+
+ul
+  padding-left: 0
+
+//主視覺
+.top_wrap
+  margin-bottom: 80px
+  position: relative
+  background-image: url("../images/shoppingweb/img_OlineStore-kv.jpg")
+
+  @media all and (-webkit-min-device-pixel-ratio: 1.5)
+    background-image: url("../images/shoppingweb/img_OlineStore-kv@2x.jpg")
+
+  +bgiCover($position: center center, $size: cover)
+
+  +un-mobile
+    height: 100vh
+    margin-bottom: 0
+
+
+  height: 90vh
+
+  .scroll
+    +en_fontF
+    font-size: 10px
+    +fw300
+    color: #000
+    letter-spacing: 15px
+    line-height: inherit
+    cursor: pointer
+    position: absolute
+    z-index: 999
+    top: 50%
+    right: -40px
+    -webkit-transform: translate(0, -50%) rotate(-90deg)
+    -ms-transform: translate(0, -50%) rotate(-90deg)
+    transform: translate(0, -50%) rotate(-90deg)
+    opacity: 1
+    -webkit-transition: 0.2s
+    -o-transition: 0.2s
+    transition: 0.2s
+
+    img
+      -webkit-transform: rotate(-90deg)
+      -ms-transform: rotate(-90deg)
+      transform: rotate(-90deg)
+      margin-bottom: 4px
+      margin-right: 20px
+
+    +for-xxs
+      display: none
+
+  .title_wrap
+    width: 100%
+    position: absolute
+    left: 0
+    bottom: 0
+
+  .title_block
+    position: relative
+    width: 100%
+    background-color: rgba(#fff, 0.7)
+
+    +un-mobile
+      width: 850px
+      background-color: #fff
+      min-height: 500px
+      padding-top: 72px
+
+
+    +un-desktop
+      width: 1280px
+
+
+    .title_box
+      position: relative
+      padding: 15px 20px
+
+      +un-mobile
+        top: -60px
+        right: 155px
+        position: absolute
+        display: inline-block
+
+
+      +un-desktop
+        top: -100px
+        right: 125px
+
+    .title_header
+      margin-bottom: 13px
+
+      .sub_title
+        color: rgba(0, 0, 0, 0.9)
+        +fw600
+        text-transform: uppercase
+        font-size: 42px
+        letter-spacing: 4px
+
+        +un-mobile
+          font-size: 72px
+          letter-spacing: 8px
+
+
+        +un-desktop
+          font-size: 120px
+          letter-spacing: 10px
+
+    .title_body
+      max-width: 408px
+      margin-bottom: 80px
+
+      +un-mobile
+        margin-bottom: 160px
+
+
+      .main_title
+        font-size: 20px
+        letter-spacing: 2px
+        text-align: left
+        margin-bottom: 16px
+
+        +un-mobile
+          letter-spacing: 13.5px
+
+      .text
+        font-size: 14px
+        color: rgba(0, 0, 0, 0.8)
+        letter-spacing: 1.7px
+        text-align: left
+        line-height: 24px
+
+    .title_footer
+      .applyto_box
+        font-size: 14px
+        letter-spacing: 1.29px
+        border: 1px solid #000
+        display: inline-block
+        padding: 3px 20px
+        letter-spacing: 5px
+        text-indent: 5px
+        margin-bottom: 17px
+
+      .applyto_content p
+        font-size: 14px
+        color: rgba(0, 0, 0, 0.8)
+        letter-spacing: 1.2px
+        text-align: left
+        line-height: 22px
+
+// Layout 框架Start
+section
+  margin-bottom: 80px
+
+  +un-mobile
+    margin-bottom: 0
+
+.sw_content
+  display: flex
+  flex-wrap: wrap
+  position: relative
+  padding: 0 20px
+
+  +un-mobile
+    padding: 0
+
+.sw_bg_00
+  background: #FFF
+
+.sw_bg_01
+  background: rgba(0, 0, 0, 0.03)
+
+.sw_bg_02
+  background: rgba(0, 0, 0, 0.06)
+
+.sw_bg_03
+  background: rgba(0, 0, 0, 0.12)
+
+.sw_bg_04
+  background: #F7F7F7
+
+.sw_bg_05
+  background: rgba(0, 0, 0, 0.09)
+
+.sw_bg_06
+  background-image: url("../images/shoppingweb/img_OlineStore-customize_01.jpg")
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+
+.sw_bg_07
+  background-image: url("../images/shoppingweb/img_OlineStore-customize_02.jpg")
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+
+// Layout 框架End
+
+.project_wrap
+  .content_box
+    display: flex
+    flex-direction: column
+
+    +un-mobile
+      padding: 60px 0 60px 50px
+      flex-direction: row
+      align-items: flex-end
+
+
+    +un-desktop
+      padding: 120px 0 120px 170px
+
+
+    .title
+      +en_fontF
+      +fwB
+      font-size: 40px
+      color: rgba(0, 0, 0, 0.8)
+      letter-spacing: 7.79px
+      line-height: 33px
+      margin-bottom: 20px
+
+      +for-xxs
+        font-size: 32px
+
+
+      +un-mobile
+        -webkit-writing-mode: vertical-lr
+        -ms-writing-mode: tb-lr
+        writing-mode: vertical-lr
+        -webkit-transform: rotate(180deg)
+        -ms-transform: rotate(180deg)
+        transform: rotate(180deg)
+
+    .content
+      position: relative
+      padding-top: 30px
+      margin-top: 30px
+
+      &::before
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        height: 1px
+        width: 33px
+        background-color: rgba(#000, 0.8)
+
+      +un-mobile
+        margin-left: 120px
+        padding-top: 0
+        margin-top: 0
+
+        &::before
+          top: -45px
+          left: -5px
+
+
+      .one_project
+        .number
+          +en_fontF
+          +fw300
+          font-size: 32px
+          color: rgba(0, 0, 0, 0.8)
+          letter-spacing: 1.6px
+          line-height: 33px
+          margin-right: 37px
+
+        .main
+          +fw300
+          font-size: 18px
+          color: #333231
+          letter-spacing: 5px
+          display: inline-block
+          min-width: 150px
+
+        .text
+          +fw300
+          font-size: 14px
+          color: rgba(0, 0, 0, 0.8)
+          letter-spacing: 1.98px
+          text-align: left
+          line-height: 23px
+          display: inline-block
+
+          &::before
+            content: "/"
+            padding-right: 10px
+
+          +for-mobile
+            margin-top: 20px
+            display: block
+
+.solve_wrap
+  +un-mobile
+    margin-bottom: 0
+
+    .sw_content
+      min-height: 750px
+      background: none
+
+
+  .content_box
+    +un-mobile
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -50%)
+
+
+    .title_wrap
+      .title
+        text-align: left
+
+        span
+          display: block
+          
+          +fwB
+          +en_fontF
+          font-size: 37px
+          color: rgba(0, 0, 0, 0.8)
+          letter-spacing: 7.79px
+          line-height: 33px
+          margin-bottom: 20px
+          text-align: left
+
+          +for-xxs
+            font-size: 32px
+
+        +fw300
+        font-size: 20.8px
+        color: #333231
+        letter-spacing: 13.5px
+
+    .solve_list
+      .content
+        position: relative
+        padding-left: 72px
+        margin-top: 70px
+
+        .icon_box
+          display: inline
+          position: absolute
+          top: 0
+          left: 0
+
+        .title
+          font-size: 16px
+          +fw300
+          color: #000
+          letter-spacing: 5px
+          margin-top: 12px
+          margin-bottom: 30px
+
+        ul
+          li
+            font-size: 14px
+            +fw300
+            color: #000
+            letter-spacing: 1.7px
+            line-height: 23px
+            margin-top: 10px
+
+            &::before
+              content: ""
+              width: 5px
+              height: 1px
+              background-color: #000
+              display: inline-block
+              margin-right: 20px
+              margin-bottom: 4px
+
+.example
+  position: relative
+
+  .content_box
+    +un-xxl
+      padding-right: 18% !important
+      padding-left: 18% !important
+
+
+    .title
+      font-size: 19px
+      color: #333231
+      letter-spacing: 5.94px
+      margin-bottom: 50px
+
+    .subtitle
+      text-transform: uppercase
+      +en_fontF
+      +fwB
+      font-size: 37px
+      color: rgba(0, 0, 0, 0.8)
+      letter-spacing: 7.79px
+      line-height: 33px
+      margin-bottom: 16px
+
+      +for-xxs
+        font-size: 32px
+        letter-spacing: 6px
+
+    .text
+      +fw300
+      font-size: 14px
+      color: rgba(0, 0, 0, 0.8)
+      letter-spacing: 1px
+      text-align: justify
+      line-height: 28px
+      margin-bottom: 50px
+
+    .bottom
+      display: flex
+      align-items: flex-end
+      justify-content: space-between
+
+    .highlight
+      ul
+        li
+          font-size: 14px
+          +fw300
+          color: #333231
+          letter-spacing: 1.17px
+          margin-top: 10px
+
+          &::before
+            content: ""
+            width: 5px
+            height: 1px
+            background-color: #000
+            display: inline-block
+            margin-right: 8px
+            margin-bottom: 4px
+
+    .button
+      a
+        span
+          +en_fontF
+          +fwN
+          font-size: 16px
+          color: rgba(0, 0, 0, 0.8)
+          letter-spacing: 4.8px
+          margin-right: 12px
+          padding-bottom: 2px
+          border-bottom: 1px solid #000
+
+        img
+          margin-top: -2px
+
+.layout01
+  .sw_content
+    +un-tablets
+      max-height: 800px
+
+  .content_box
+    padding: 85px 15px 70px
+
+    +for-xxs
+      padding: 85px 0 70px
+
+
+    +un-desktop
+      padding: 195px 12% 210px
+
+  .img_wrapper
+    position: relative
+    top: 100px
+
+    +un-mobile
+      max-width: 50%
+      position: absolute
+      left: 0
+      top: 0
+      z-index: 1
+
+
+    +un-tablets
+      max-width: 58.333333%
+
+
+    +un-desktop
+      max-width: 66.66666%
+
+.layout02
+  .sw_content
+    +for-mobile
+      flex-direction: column-reverse
+
+
+    +un-desktop
+      min-height: 750px
+
+
+    .sw_bg
+      position: relative
+      background-image: url("../images/shoppingweb/img_OlineStore-food_01.jpg")
+      background-repeat: no-repeat
+      background-position: center
+      background-size: cover
+
+    .food1
+      background-position: 10%
+
+      .img_wrapper
+        position: absolute
+        z-index: 1
+        left: -10%
+        bottom: -55px
+
+        +un-desktop
+          top: 175px
+
+    .food2
+      background-position: 60%
+
+      +for-mobile
+        background: none
+
+
+      .img_wrapper
+        position: absolute
+        z-index: 1
+        max-width: 60%
+        top: -130px
+        right: 0
+
+        +for-xxs
+          max-width: 60%
+          top: -60px
+
+
+        +un-mobile
+          top: -45px
+          max-width: 100%
+
+
+        +un-desktop
+          right: -25%
+          top: -85px
+
+    .sw_bg_00
+      +un-mobile
+        background-image: none
+
+  .content_box
+    padding: 155px 15px 70px
+
+    +for-xxs
+      padding: 140px 0 50px
+
+
+    +un-mobile
+      padding: 80px 30px 80px
+
+
+    +un-desktop
+      padding: 120px 10% 120px
+
+.layout03
+  .sw_content
+    +for-mobile
+      flex-direction: column-reverse
+
+
+    .img_wrapper
+      height: 100%
+      width: 100%
+      background-image: url("../images/shoppingweb/img_OlineStore-clothes.jpg")
+      background-repeat: no-repeat
+      background-size: cover
+
+      +for-mobile
+        height: 300px
+
+  .content_box
+    padding: 60px 15px 70px
+
+    +for-xxs
+      padding: 40px 0 50px
+
+
+    +un-mobile
+      padding: 80px 30px 80px
+
+
+    +un-desktop
+      padding: 170px 10% 150px
+
+.layout04
+  .sw_content
+    .img_wrapper
+      height: 100%
+      width: 100%
+      background-image: url("../images/shoppingweb/img_OlineStore-cosmetic.png")
+      background-repeat: no-repeat
+      background-size: cover
+
+      +for-mobile
+        height: 300px
+
+  .content_box
+    padding: 60px 15px 70px
+
+    +for-xxs
+      padding: 40px 0 50px
+
+
+    +un-mobile
+      padding: 80px 30px 80px
+
+
+    +un-desktop
+      padding: 200px 10% 200px
+
+.layout05
+  .sw_content
+    +for-mobile
+      flex-direction: column-reverse
+
+
+    .img_wrapper
+      height: 100%
+      width: 100%
+      background-image: url("../images/shoppingweb/img_OlineStore-health.jpg")
+      background-repeat: no-repeat
+      background-size: cover
+      background-position: -80px
+
+      +for-mobile
+        height: 300px
+
+  .content_box
+    padding: 60px 15px 70px
+
+    +for-xxs
+      padding: 40px 0 50px
+
+
+    +un-mobile
+      padding: 80px 30px 80px
+
+
+    +un-desktop
+      padding: 170px 10% 150px
+
+.layout06
+  .sw_content
+    +for-tablets
+      // flex-direction: row;
+
+
+    .sw_bg
+      position: relative
+      overflow: hidden
+
+    .img_wrapper
+      padding: 30px 0 0
+
+      +un-mobile
+        position: absolute
+        width: 105%
+        left: -20%
+        top: 30%
+        padding: 0
+
+    .jewelry1
+      +for-mobile
+        background: rgba(0, 0, 0, 0.03)
+
+
+      .img_wrapper
+        +un-mobile
+          top: 32%
+
+    .jewelry2
+      +for-mobile
+        background: rgba(0, 0, 0, 0.03)
+
+        .img_wrapper
+          padding-top: 100px
+
+  .content_box
+    padding: 0 15px 70px
+
+    +for-xxs
+      padding: 40px 0 50px
+
+
+    +un-mobile
+      padding: 80px 30px 80px
+
+
+    +un-tablets
+      padding: 80px 30px 80px
+
+
+    +un-desktop
+      padding: 170px 10% 200px
+
+.layout07
+  z-index: 1
+
+  .sw_content
+    +for-mobile
+      flex-direction: column-reverse
+
+
+    .img_wrapper
+      height: 100%
+      width: 100%
+      background-image: url("../images/shoppingweb/img_OlineStore-department.png")
+      background-repeat: no-repeat
+      background-size: cover
+
+      +for-mobile
+        height: 300px
+
+    .sw_bg_02
+      background-color: #f0f0f0
+
+  .content_box
+    padding: 60px 15px 70px
+
+    +for-xxs
+      padding: 40px 0 50px
+
+
+    +un-mobile
+      padding: 80px 30px 80px
+
+
+    +un-desktop
+      padding: 170px 10% 150px
+
+.layout08
+  .sw_content
+    flex-direction: column-reverse
+
+    +un-mobile
+      margin-top: -50px
+      flex-direction: row-reverse
+
+
+    +un-desktop
+      flex-direction: row
+
+
+    .img_wrapper
+      width: 100%
+      height: 100%
+      background-image: url("../images/shoppingweb/img_OlineStore-shopping.png")
+      background-repeat: no-repeat
+      background-position: center
+
+      +un-desktop
+        background-position: 50px top
+        background-size: auto
+
+
+      +un-mobile
+        background-position: -80px top
+
+
+      background-size: cover
+      position: relative
+      z-index: 5
+
+      +for-mobile
+        height: 360px
+
+  .content_box
+    padding: 60px 15px 70px
+
+    +for-xxs
+      padding: 40px 0 50px
+
+
+    +un-mobile
+      padding: 80px 30px 80px
+
+
+    +un-tablets
+      padding-top: 130px
+
+
+    +un-desktop
+      padding: 170px 10% 150px
+
+.layout09
+  .sw_content
+    +for-tablets
+      flex-direction: row-reverse
+
+
+    .sw_bg
+      position: relative
+      overflow: hidden
+
+    .sw_bg_00
+      order: 2
+
+    .customize1
+      order: 1
+
+    .customize2
+      order: 3
+
+    .img_wrapper
+      width: 100%
+      padding-top: 15px
+      max-height: 300px
+
+      +un-mobile
+        position: absolute
+        top: 20%
+        padding-top: 0
+        max-height: inherit
+
+
+      +un-tablets
+        top: 25%
+
+
+      +un-desktop
+        top: 20%
+
+
+      img
+        max-width: 100%
+        height: auto
+
+        +un-desktop
+          max-width: inherit
+
+  +for-mobile
+    .sw_bg_00
+      background: rgba(0, 0, 0, 0.03)
+
+
+  .content_box
+    padding: 60px 15px 70px
+
+    +for-xxs
+      padding: 40px 0 50px
+
+
+    +un-mobile
+      padding: 80px 30px 80px
+
+
+    +un-tablets
+      padding-top: 130px
+
+
+    +un-desktop
+      padding: 170px 10% 150px
+
+.layout10
+  .sw_content
+    +for-tablets
+      flex-direction: row-reverse
+
+
+    +for-mobile
+      flex-direction: column-reverse
+
+
+    .img_wrapper
+      width: 100%
+      height: 100%
+      background-image: url("../images/shoppingweb/img_OlineStore-Ecommerce.jpg")
+      background-repeat: no-repeat
+      background-size: cover
+      background-position: center
+
+      +for-mobile
+        height: 300px
+
+  .content_box
+    padding: 60px 15px 70px
+
+    +for-xxs
+      padding: 40px 0 50px
+
+
+    +un-mobile
+      padding: 80px 30px 80px
+
+
+    +un-desktop
+      padding: 170px 10% 150px

@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.head-logo {
+    text-align: center;
+}
+
+.head-logo img {
+    display: inline-block !important;
+}
+
+.sub-menu-box {
+    background-color: #454545;
+}
+
+.function-list {
+    display: block;
+    margin-top: 30px;
+}
+
+.function-list a{
+    border: 2px solid #CC0751;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    text-decoration: none;
+    margin: 0 20px 20px 0;
+    display: inline-block;
+}
+
+.function-list p {
+    line-height: 200px;
+}
+

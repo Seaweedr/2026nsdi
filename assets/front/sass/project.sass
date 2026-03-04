@@ -1,0 +1,284 @@
+@charset "UTF-8"
+@import var_mixin
+
+// ----------------------------
+// $section-works
+// ----------------------------
+.section-works
+    .row
+        margin-right: -7.5px
+        margin-left: -7.5px
+    .col-md-3
+        padding-right: 7.5px
+        padding-left: 7.5px
+    .main-btn-pos
+        text-align: right
+    .work-grid-wrap
+        padding: 40px 0px 25px 0px
+
+.project
+    .work-grid-item
+        margin-bottom: 30px
+        position: relative
+        overflow: hidden
+
+        .img-box
+            width: 100%
+            padding-top: calc(100% * 13 / 20)
+            position: relative
+            +d_transition
+            img
+                position: absolute
+                +poaCenter
+                +size(100%, auto)
+                +d_transition
+                max-width: 100%
+                max-height: 100%
+            
+        .work-intro
+            width: 103%
+            background-color: #1a1a1a
+            padding-top: 33px
+            padding-bottom: 33px
+            +cn_fontF
+            .work-name           
+                text-align: right
+                display: inline-block          
+                width: 16.6%         
+                vertical-align: top   
+                padding-bottom: 16px
+                span
+                    padding-top: 6px
+                    
+                    font-size: 13px
+                    line-height: 1.15
+                    letter-spacing: 1.9px
+                    color: $color_home-main
+                    position: relative                
+                    &:after
+                        content: ""
+                        width: 100%
+                        height: 2px
+                        position: absolute
+                        bottom: -3px
+                        transform: translateX(-103%)
+                        background-color: #dea56a
+            .work-intro-content
+                display: inline-block
+                padding-left: 5%
+                .work-intro-title
+                    
+                    font-size: 20px
+                    +fw500
+                    line-height: 1.1
+                    letter-spacing: 2.1px
+                    color: #ffffff
+                    padding-bottom: 10px
+                    span
+                        
+                        font-size: 20px
+                        +fw500
+                        line-height: 1.1
+                        letter-spacing: 2.1px
+                        color: #ffffff
+                        padding-bottom: 10px
+                .work-intro-descr
+                    
+                    font-size: 14px
+                    +fw500
+                    line-height: 1.57
+                    letter-spacing: 1.9px
+                    color: #ffffff
+        .work-title
+            p
+                font-size: 25px
+                +fwB
+                letter-spacing: 3.8px
+
+@media (max-width: 1199px) 
+    .project
+        .work-grid-item              
+            .work-intro
+                padding-top: 20px
+                padding-bottom: 20px
+                .work-name           
+                    margin-left: 5%
+                    width: 62px
+                .work-intro-content
+                    .work-intro-title
+                        padding-bottom: 0
+                        span
+                            display: block
+                    .work-intro-descr
+                        display: none
+
+@media (max-width: 991px) 
+    .project
+        .work-grid-item              
+            .work-intro
+                .work-name 
+                    display: block
+            .work-title
+                p
+                    display: none
+
+        .work-link
+            +poaLink
+
+        .work-title
+            padding: 0px
+            +d_transition
+
+@media (max-width: 768px) 
+    .project
+        .work-grid-item 
+            .work-intro    
+                padding-bottom: 20px         
+                .work-name 
+                    display: inline-block
+                .work-intro-content
+                    .work-intro-title
+                        display: inline-block 
+                        padding-bottom: 0                   
+                        span
+                            display: inline-block
+                    .work-intro-descr
+                        display: block   
+
+@media (max-width: 991px)
+    .project
+        .section-works
+            .main-btn
+                float: none
+            .main-btn-pos
+                text-align: left
+
+@media (max-width: 576px) 
+    .project
+        .work-grid-item 
+            .work-intro   
+                padding-bottom: 10px 
+                .work-name 
+                    display: block                
+                .work-intro-content
+                    .work-intro-descr
+                        display: none  
+
+@media (max-width: 576px) 
+    .project
+        .work-grid-item 
+            .work-intro          
+                .work-intro-content
+                    .work-intro-title  
+                        font-size: 16px                
+                        span
+                            font-size: 16px     
+@media (max-width: 375px) 
+    .project
+        .work-grid-item 
+            .work-intro          
+                .work-intro-content
+                    .work-intro-title           
+                        span 
+                            padding-top: 5px  
+                            display: block                                   
+
+// ----------------------------
+// $nsdi-works
+// ----------------------------
+
+.nsdi-theme.nsdi-works
+    .main-header
+        background-image: url('../images/real/c356277e444bba29a1b379a97576cffff_33905352_181121_0148.jpg')
+        &:after
+            background: rgba(0,0,0,.6)
+    .main-content.project
+        margin-bottom: 55px
+.nsdi-works
+    .main-btn-pos
+        text-align: center
+    .section-works
+        .work-grid-wrap
+            padding-bottom: 50px
+
+    .filter-box
+        padding: 100px 0px 15px 0px
+
+
+    .main-filter-wrap
+        ul
+            font-size: 0px
+            text-align: left
+            margin-bottom: 15px
+            li
+                display: inline-block
+                cursor: pointer
+                margin-right: 20px
+                margin-bottom: 15px
+
+                a
+                    min-width: 150px
+                    text-align: center
+                    display: block
+                    padding: 10px 40px
+                    font-size: 14px
+                    letter-spacing: 2.5px
+                    color: $color_home-main
+                    border: 1.5px solid $color_home-main
+                    transition: all .5s ease
+                    +fwN
+
+                &:hover ,&.active
+                    a
+                        color: #1a1a1a
+                        background-color: $color_home-main
+
+        
+
+
+@media all and (min-width: 991px)
+    .nsdi-works
+        .work-grid-item
+            margin-bottom: 30px
+
+@media all and (max-width: 1199px)
+    .nsdi-works
+        .main-filter-wrap
+            ul 
+                text-align: justify
+                li
+                    width: calc((100% / 3 ) - 14px)
+                    margin-right: 10px
+                    margin-left: 10px
+                    &:nth-child(3n+1)
+                        margin-left: 0px
+                    &:nth-child(3n)
+                        margin-right: 0px
+                    a
+                        min-width: 0px
+                        padding: 10px 0px
+
+
+@media (min-width: 991px)
+    .work-grid-item .work-title 
+        padding: 10px 0px
+        +d_transition
+        height: calc(447.5 * 13 / 20)
+
+
+@media (min-width: 1600px)
+    .work-grid-item .work-title 
+        height: calc(717.5px * 13 / 20)
+
+
+@media (min-width: 991px)
+    .work-grid-item:hover 
+        .img-box 
+            img   
+                transform: translate(-50%, -50%) scale(1)     
+
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) 
+    .nsdi-theme.nsdi-works
+        .main-header
+            background-image: url('../images/pages/project/img_top@2x.jpg')

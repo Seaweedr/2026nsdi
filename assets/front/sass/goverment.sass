@@ -1,0 +1,712 @@
+
+@charset "UTF-8"
+@import "var_mixin"
+@import url("https://fonts.googleapis.com/css?family=Rufina:400,700")
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i")
+
+
+// --------------------------------------
+// bootstrap 修改
+// --------------------------------------
+
+@media (min-width: 768px)
+	.container 
+	    width: 750px
+
+	.container 
+	    padding-right: 5px
+	    padding-left: 5px
+	    margin-right: auto
+	    margin-left: auto
+
+@media (min-width: 992px)
+	.container 
+	    width: 970px
+
+@media (min-width: 1200px)
+	.container 
+	    width: 1170px
+
+@media (min-width: 1500px)
+	.container 
+	    width: 1480px
+
+.row 
+	margin-right: -5px
+	margin-left: -5px
+
+	[class*="col-"]
+		position: relative
+		min-height: 1px
+		padding-right: 5px
+		padding-left: 5px
+
+
+.container-fluid 
+	padding-right: 0px
+	padding-left: 0px
+	margin-right: auto
+	margin-left: auto
+
+
+// --------------------------------------
+// 模組變數
+// --------------------------------------
+
+@mixin font_style($family, $size, $weight, $color, $letter, $line)
+	font-family: $family
+	font-size: $size
+	font-weight: $weight
+	color: $color
+	letter-spacing: $letter
+	line-height: $line
+
+
+@mixin bg_linear
+	&
+		position: relative
+
+	&::before
+		position: absolute
+		z-index: 0
+		top: 0
+		left: 0
+		content: ""
+		width: 100%
+		height: 100%
+		background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%) ,linear-gradient(to top,  rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, .2) 60%)
+
+
+@mixin square_border
+	&
+		position: relative
+
+	&::before , &::after
+		content: ""
+		border: 1px solid $color-brown
+		width: 100%
+		height: 100%
+
+	&::before
+		position: absolute
+		top: 10px
+		left: 10px
+
+	&::after
+		position: absolute
+		top: -10px
+		left: -10px
+
+
+
+
+// --------------------------------------
+// color
+// --------------------------------------
+
+$color-brown: #DEA56A
+
+
+// --------------------------------------
+// 痊癒設定
+// ---------------------------------------------------------
+
+html,body
+	background-color: #000
+	font-family: 'Open Sans', 'Noto Sans TC', "PingFang TC" , "微軟正黑體", "蘋果儷中黑" ,  Arial
+	+fwN
+	color: #fff
+	-webkit-overflow-scrolling: touch
+	height: auto
+
+div,span
+	word-break: normal
+	text-align: left
+
+article
+	width: 100%
+	height: 100%
+	overflow: hidden
+
+
+
+
+// --------------------------------------
+// kv 
+// --------------------------------------
+
+// style--------------
+
+.kv_wrap
+	width: 100vw
+	height: 100vh
+	background: url('../images/govermentweb/img_goverment_top@1x.png') no-repeat center
+
+	&::before
+		position: absolute
+		z-index: 0
+		top: 0
+		left: 0
+		content: ""
+		width: 100%
+		height: 100%
+		background-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .5) 100%) ,linear-gradient(to top,  rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0.2) 40%)
+
+	.kv_content
+		text-align: center
+
+	h1
+		+font_style(inherit , 16px , 100 , #fff , 26px , inherit)
+
+
+
+// layout--------------
+
+.kv_wrap
+	position: relative
+
+	.kv_content
+		+poaCenter
+
+		.kv_img
+			position: relative
+			margin-bottom: 90px
+
+			img:first-child
+				+poaCenter
+				z-index: 1
+
+			img:last-child
+				position: relative
+				z-index: 0
+
+
+
+// --------------------------------------
+// introduce 
+// --------------------------------------
+
+// style--------------
+
+.introduce_wrap
+	padding-top: 300px
+	padding-bottom: 200px
+	background: url('../images/govermentweb/img_goverment_cut2@1x.png') no-repeat center 
+	background-size: cover
+	+bg_linear
+
+	.container
+		.row
+			.title_wrap
+				h2
+					-webkit-writing-mode: vertical-rl
+					writing-mode: vertical-rl
+
+					span
+						+font_style(inherit , 50px , 100 , #fff , inherit , inherit)
+
+						b
+							font-weight: 100
+							color: $color-brown
+			
+			.line_wrap
+				width: 160px
+				height: 1px
+				background-color: $color-brown
+
+			.content_wrap
+				width: 100%
+				max-width: 600px
+
+				.text
+					padding: 40px 80px 80px 40px
+					+square_border
+
+					p
+						+font_style(inherit , 15px , normal , #fff , 2.1px , 2.67)
+
+						&:first-child:first-letter
+							font-size: 24px
+
+				.project
+					ul
+						-webkit-writing-mode: vertical-lr
+						writing-mode: vertical-lr
+
+						li
+							+font_style(inherit , 15px , normal , #fff , 10px , inherit)
+
+							&:first-child
+								font-size: 17px
+								+fwB
+
+								&:before
+									content: ""
+									display: inline-block
+									width: 15px
+									height: 15px
+									border: 1px solid $color-brown
+
+
+
+// layout--------------
+
+.introduce_wrap
+	position: relative
+
+	&>.container
+		position: relative
+		z-index: 1
+
+		&>.row
+			&>div
+				display: flex
+				flex-direction: row
+				justify-content: space-between
+				align-items: center
+
+			.title_wrap
+				h2
+					span
+						margin-bottom: 50px
+
+						&:last-child
+							margin-bottom: 0
+
+			.content_wrap
+				.text
+					margin-bottom: 50px
+
+					p:first-child
+						margin-bottom: 10px
+
+				.project
+					div
+						display: flex
+						flex-direction: row
+						justify-content: space-between
+						align-items: flex-start
+
+						ul
+							li
+								margin-right: 20px
+
+								&:first-child
+									&:before
+										margin-top: -8px
+										margin-bottom: 15px
+
+								&:last-child
+									margin-right: 0
+
+
+
+
+
+// --------------------------------------
+// solve 
+// --------------------------------------
+
+// style--------------
+
+.solve_wrap
+	padding-top: 100px
+	padding-bottom: 300px
+	
+	.container
+		.row
+			.title_wrap
+				h3
+					-webkit-writing-mode: vertical-lr
+					writing-mode: vertical-lr
+					+font_style(inherit , 30px , normal , #fff , 28px , 1.8)
+
+					b
+						color: $color-brown
+						+fwN
+
+					&::before
+						content: ""
+						width: 50px
+						height: 2px
+						background-color: $color-brown
+
+			.content_wrap
+				+square_border
+
+				.container
+					position: relative
+					z-index: 1
+
+					.row
+						padding: 60px 80px
+
+						.solve_item
+							.title_wrap
+								.number
+									+font_style('Montserrat' , 60px , 100 , #fff , inherit , inherit)
+
+								h4
+									+font_style(inherit , 17px , bold , #fff , 5px , 1.4)
+
+							.list_wrap
+								ul
+									-webkit-writing-mode: vertical-lr
+									writing-mode: vertical-lr
+
+									li
+										+font_style(inherit , 14px , normal , #fff , 12px , inhert)
+										border-top: 1px solid $color-brown
+										padding-top: 12px
+
+									b
+										font-weight: inherit
+										letter-spacing: 0
+										padding-bottom: 10px
+
+				.img_box
+					width: 100%
+
+
+
+// layout--------------
+
+.solve_wrap
+	
+	&>.container
+		&>.row
+			&>div
+				display: flex
+				flex-direction: row
+				justify-content: space-between
+				align-items: center
+
+				.title_wrap
+					h3
+						position: relative
+
+						&::before
+							display: inline-block
+							position: absolute
+							top: -50px
+							left: 50%
+							transform: translate(-50% , 0)
+				
+				.content_wrap
+					width: 100%
+					max-width: 1000px
+
+					.container
+						width: 100%
+
+						.row
+							.solve_item
+								display: flex
+								flex-direction: row
+								justify-content: flex-start
+								align-items: flex-start
+								margin-bottom: 40px
+
+								.title_wrap
+									margin-right: 60px
+
+									.number
+										img
+											margin-left: 10px
+											margin-top: -10px
+
+								.list_wrap
+									ul
+										li
+											margin-right: 18px
+
+					.img_box
+						position: absolute
+						bottom: -130px
+						margin-left: -15px
+
+						img:last-child
+							float: right
+							margin-right: -20px
+
+
+
+
+// --------------------------------------
+// example text
+// --------------------------------------
+
+// style--------------
+
+.example
+	.content_wrap
+		.content
+			.title
+				.number
+					+font_style('Montserrat' , 40px , normal , #fff , 1.6px , 1.2)
+					border-bottom: 4px solid $color-brown
+
+				h3
+					+font_style(inherit , 24px , bold , #fff , 13.33px , inherit)
+
+			.text
+				+font_style(inherit , 16px , 100 , #fff , 2px , 2.5)
+
+			.footer
+				.button
+					a
+						+font_style('Montserrat' , 14px , 600 , #fff , 2px , inherit)
+
+
+
+
+// layout--------------
+
+.example
+	.content_wrap
+		.content
+			.title
+				margin-bottom: 26px
+
+				.number
+					display: inline-block
+					margin-right: 30px
+
+				h3
+					display: inline-block
+
+			.text
+				margin-bottom: 40px
+
+			.footer
+				display: flex
+				flex-direction: row
+				justify-content: space-between
+				align-items: center
+
+				.button
+					a
+						img
+							margin-left: 8px
+
+
+
+// --------------------------------------
+// example fullpage
+// --------------------------------------
+
+// style--------------
+
+.layout01 , 
+.layout01 .glass
+	background: url('../images/govermentweb/img_goverment_website_cut4@1x.png')
+
+.layout03 , 
+.layout03 .glass
+	background: url('../images/govermentweb/img_travel_cut6@1x.png')
+
+.layout05 , 
+.layout05 .glass
+	background: url('../images/govermentweb/img_digital_cut8@1x.png')
+
+.layout07 , 
+.layout07 .glass
+	background: url('../images/govermentweb/img_pubic_cut10@1x.png')
+
+
+.example.fullpage
+	padding: 300px 0
+	background-position: center
+	background-repeat: no-repeat
+	background-size: cover
+	+bg_linear
+
+	.container
+		.row
+			.content_wrap
+				padding: 90px 100px
+				border: 1px solid $color-brown
+				background-color: rgba(#000000, 1)
+				overflow: hidden
+
+				.glass
+					background-position: center
+					background-repeat: no-repeat
+					background-size: 100vw auto
+
+					width: 100%
+					height: 100%
+					filter: blur(10px)
+					transform: scale(1.1,1.1)
+
+					&::after
+						content: ""
+						width: 100%
+						height: 100%
+						background-color: rgba(#000000, 0.7)
+
+
+
+
+// layout--------------
+
+.example.fullpage
+
+	.container
+		.row
+			.content_wrap
+				.content
+					position: relative
+					z-index: 1
+
+				.glass
+					position: absolute
+					z-index: 0
+					top: 0
+					left: 0
+					right: 0
+					bottom: 0
+
+					&::after
+						position: absolute
+						z-index: 1
+						top: 0
+						left: 0
+
+
+// --------------------------------------
+// example halfpage
+// --------------------------------------
+
+// style--------------
+
+.example.halfpage
+	padding: 140px 0 150px
+
+	.container-fluid
+		.row
+			> div
+				.content_wrap
+					max-width: 600px
+
+				.img_wrap
+					width: 50%
+					position: relative
+					+bg_linear
+
+					img
+						// max-width: 100%
+
+					&::after
+						content: ""
+						width: 2px
+						height: 80%
+						background-color: $color-brown
+
+
+
+// layout--------------
+
+.example.halfpage
+	.container-fluid
+		.row
+			> div
+				display: flex
+				justify-content: space-between
+				align-items: center
+				flex-direction: row
+
+				.img_wrap
+					position: relative
+
+					&::after
+						position: absolute
+						display: inline-block
+						top: 50%
+						transform: translate(0,-50%)
+
+
+				&.text-right
+					direction: rtl;
+
+					.content_wrap
+						margin-left: 100px
+						margin-right: 100px
+						direction: ltr;
+
+					.img_wrap
+						padding-right: 30px
+
+						&::after
+							right: 0
+
+						&::before
+							right: 30px
+
+
+				&.text-left
+					
+					.content_wrap
+						margin-left: 100px
+						margin-right: 100px
+
+					.img_wrap
+						padding-left: 31px
+
+						&::after
+							left: 0
+
+						&::before
+							left: 30px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// --------------------------------------
+// introduce 
+// --------------------------------------
+
+// style--------------
+
+
+
+
+
+// layout--------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

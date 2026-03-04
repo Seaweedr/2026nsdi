@@ -1,0 +1,1033 @@
+@charset "UTF-8"
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat")
+@import var_mixin
+
+=bgiCover($position: center center, $size: cover)
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+
+=font($name, $type, $size, $color, $ls, $lh)
+  font-family: $name
+  font-weight: $type
+  font-size: $size
+  color: $color
+  letter-spacing: $ls
+  line-height: $lh
+
+$color_bg: #212121
+$color_main: #FFFFFF
+$color_bd: #555555
+$color_grey: #979797
+$color_opgrey: #DD9B57
+
+$color_bus1: #E4B24F
+$color_bus2: #DCC19D
+$color_bus3: #ACC85C
+$color_bus4: #F5A623
+$color_bus5: #78B9D6
+$color_bus6: #7D7D7D
+$color_bus7: #B4D4A0
+$color_bus8: #FDCA37
+$color_bus9: #FF9797
+$color_bus10: #DDB457
+
+// html
+//   font-weight: 400
+
+// @-moz-document url-prefix()
+//   body
+//     font-weight: lighter !important
+
+body
+  background: $color_bg
+
+body *::selection
+  background: transparent
+  color: $color_grey
+
+article
+  width: 100%
+  height: 100%
+  overflow: hidden
+
+.o-zindex-top
+  position: relative
+  z-index: 1
+
+@media (min-width: 1430px)
+  .container
+    width: 100%
+    max-width: 1400px
+
+@media (max-width: 991px)
+  .top_wrap
+    height: 400px
+
+.o-barba_wrapper
+  position: absolute
+
+  .o-vertical-lines
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 50%
+    opacity: .5
+    width: 100%
+    pointer-events: none
+    transform: translateX(-50%)
+    max-width: 1400px
+
+    .container
+      height: 100%
+
+      .row
+        +size(100%, 100%)
+
+  .o-layout
+    margin: 0
+    padding: 0
+    list-style: none
+    font-size: 0
+    margin-left: 0
+
+  .o-vertical-lines_line
+    position: relative
+    height: 100%
+
+    &::after
+      content: ""
+      display: inline-block
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      border-right: 1px solid $color_bd
+
+    &:first-child::before
+      content: ""
+      display: inline-block
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      border-left: 1px solid $color_bd
+
+.o-lines-row
+  margin-right: 0px
+  margin-left: 0px
+
+  > [class*="col-"]
+    padding-right: 0px
+    padding-left: 0px
+
+@media (min-width: 1430px)
+  .o-barba_wrapper .o-vertical-lines .container
+    width: 100%
+
+.o-sidenav_wrapper
+  position: fixed
+  top: 50vh
+  right: 30px
+  -webkit-transform: translateY(-50%)
+  -ms-transform: translateY(-50%)
+  transform: translateY(-50%)
+  margin: 0
+  padding: 0
+  z-index: 100
+
+  .o-sidenav_list_item
+    position: relative
+
+    a
+      padding: 0
+      display: flex
+      align-items: center
+      justify-content: flex-end
+      transition: .2s
+      padding-top: 3px
+      padding-bottom: 3px
+
+      &::after
+        content: ""
+        width: 6px
+        height: 6px
+        border-radius: 50%
+        margin-left: 10px
+        border: 1px solid #DD9B57
+
+      &:hover,
+      &:focus
+        background: none
+
+    .nav_title
+      font-size: 12px
+      color: #999
+      transform: scale(0.9) translateX(200px)
+      transition: 0.4s
+      transform-origin: right
+
+    .nav_number
+      font-family: 'Montserrat-Medium','Open Sans', "PingFang TC" , "微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial
+      font-size: 12px
+      color: #DD9B57
+      min-width: 18px
+
+    &.active
+      a::after
+        background-color: #DD9B57
+
+      .nav_title
+        color: #FFF
+
+    &:not(.active)
+      .nav_number
+        display: none
+
+  &:hover
+    .o-sidenav_list_item
+      .nav_number
+        transform: translateX(170px)
+        display: none
+        transition: 0.5s
+
+      .nav_title
+        transform: scale(0.9) translateX(0px)
+
+      &:hover
+        .nav_title
+          font-size: 16px
+
+.kv_wrap
+  margin-top: 140px
+
+  .title_box
+    display: inline-block
+
+  h1
+    +fw500
+    font-size: 16px
+    color: $color_main
+    position: relative
+    display: block
+    text-align: left
+
+  h1::after
+    content: ''
+    position: absolute
+    top: 50%
+    background: $color_opgrey
+    width: calc(100% - 117px)
+    height: 1px
+    display: inline-block
+    margin-left: 7px
+
+  h2
+    font-size: 100px
+    color: $color_main
+    letter-spacing: 10px
+    +fwB
+    position: relative
+    z-index: 2
+
+  .main_banner
+    margin-top: -155px
+
+    .parallaxie
+      background-image: url(../images/businessweb/img_page-top_banner.png)
+      background-position: right center
+      background-size: cover
+      background-repeat: no-repeat
+      width: 120%
+      height: 100%
+      max-width: 1645px
+      min-height: 516px
+
+  p
+    font-size: 12px
+    color: $color_main
+    margin-top: 12px
+
+@media (max-width: 768px)
+  .kv_wrap
+    .title_box
+      margin-top: -70px
+
+    h2
+      font-size: 60px
+
+    .main_banner
+      margin-top: -75px
+
+      .parallaxie
+        min-height: 280px
+        background-position: 50% center
+
+.block_01
+  position: relative
+
+  .title
+    margin-bottom: 80px
+
+    .service_title
+      color: $color_main
+      line-height: 48px
+      +fw500
+      font-size: 34px
+
+  .left_box
+    margin-top: -130px
+
+    .title
+      h3
+        font-size: 16px
+        color: #DDDDDD
+        letter-spacing: 2px
+        line-height: 30px
+
+    .content
+      display: flex
+      flex-flow: wrap row
+      align-items: center
+
+      .img
+        margin-right: 16px
+
+      h4
+        +fwB
+        font-size: 18px
+        color: $color_main
+        display: inline-block
+
+      p
+        font-size: 14px
+        color: $color_main
+        line-height: 20px
+
+    .close_icon
+      margin: 20px 0
+
+  .right_box
+    .content
+      margin-bottom: 115px
+      position: relative
+
+      h4
+        font-size: 24px
+        color: $color_main
+        +fw500
+        margin-bottom: 33px
+
+      .list
+        padding: 0 10px
+
+        > li
+          font-size: 14px
+          color: $color_main
+          line-height: 20px
+          position: relative
+          display: block
+          padding-left: 20px
+          margin-bottom: 15px
+          text-align: left
+
+          &::before
+            content: ""
+            display: inline-block
+            position: absolute
+            top: 52%
+            left: 0
+            background: $color_grey
+            width: 10px
+            height: 1px
+
+      .service_img
+        position: absolute
+        left: -80px
+        top: -60px
+
+  .sub_kv
+    width: 100%
+
+    h5
+      +font(Montserrat, bold, 100px, #FFFFFF, 8px, 122px)
+
+      opacity: 0.1
+
+@media (max-width: 991px)
+  .block_01
+    .title
+      margin-bottom: 30px
+
+    .left_box
+      margin-bottom: 50px
+
+    .right_box
+      .content
+        margin-bottom: 48px
+
+    .sub_kv
+      top: initial
+      bottom: 0
+      display: inline-block
+
+      h5
+        font-size: 88px
+
+@media (max-width: 768px)
+  .block_01
+    .title
+      .service_title
+        font-size: 30px
+
+    .left_box
+      margin-bottom: 10px
+
+    .right_box
+      .content
+        h4
+          font-size: 22px
+
+@media (max-width: 480px)
+  .block_01
+    .left_box
+      margin-bottom: 100px
+
+.bus_item
+  .bus_content
+    position: relative
+
+  .bus_header
+    margin-top: -80px
+    padding-top: 80px
+    width: 100%
+    height: 100%
+    position: absolute
+    left: 0px
+    top: -24px
+    z-index: 5
+
+    .content
+      .number
+        font-family: 'Montserrat-Medium','Open Sans', "PingFang TC" , "微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial
+        font-size: 34px
+        display: inline-block
+        position: relative
+
+        &::before
+          content: ""
+          position: absolute
+          left: -10px
+          top: -10px
+          display: inline-block
+          width: 70px
+          height: 70px
+          border-style: solid
+          border-width: 1px
+          border-top-color: transparent !important
+          border-radius: 50%
+          transform: rotate(-90deg)
+
+      .title
+        position: relative
+
+        .main_title
+          +fw500
+          color: $color_main
+          position: absolute
+          left: 0
+          z-index: 1
+          font-size: 34px
+          bottom: 37px
+
+        .sub_title
+          font-family: 'Montserrat-Medium','Open Sans', "PingFang TC" , "微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial
+          opacity: 0.27
+          font-size: 80px
+          line-height: 97px
+          text-transform: uppercase
+
+        .highlight
+          +fw500
+          font-size: 14px
+          margin-bottom: 40px
+
+      .text
+        font-size: 16px
+        color: $color_main
+        letter-spacing: 2px
+        line-height: 30px
+        margin-bottom: 76px
+
+      .button a
+        display: inline-flex
+        align-items: center
+        font-size: 20px
+        color: $color_main
+
+        svg
+          margin-left: 5px
+
+  .bus_image_wrapper
+    &.-reverse
+      direction: rtl
+
+    .container .row
+      margin-right: 0px
+      margin-left: 0px
+
+    .img_box
+      width: 120%
+      height: 100%
+      position: relative
+      padding: 0px
+      z-index: 2
+
+@media (max-width: 768px)
+  .bus_item
+    .bus_header
+      .content
+        .title
+          .main_title
+            font-size: 30px
+
+          .sub_title
+            font-size: 72px
+
+        .text
+          font-size: 14px
+          line-height: 24px
+
+        .button a
+          font-size: 18px
+
+.bus_item.bus_item_01
+  .bus_header
+    .number
+      color: $color_bus1
+
+      &::before
+        border-color: $color_bus1
+
+    .title
+      .sub_title
+        color: $color_bus1
+
+      .highlight
+        color: $color_bus1
+
+    .button > a > svg g
+      fill: $color_bus1
+
+  .bus_image_wrapper
+    margin-left: -2px
+
+    .img_box
+      height: 520px
+      max-width: 1635px
+
+      .parallaxie
+        position: relative
+        background-image: url("../images/businessweb/img_business.png")
+
+        +bgiCover($position: center center, $size: cover)
+
+        &::before
+          display: none
+          content: ""
+          width: 100%
+          height: 100%
+          position: absolute
+          z-index: 1
+          left: 0
+          top: 0
+          background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.7) 98%)
+          background-image: -o-linear-gradient(rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.7) 98%)
+          background-image: linear-gradient(rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.7) 98%)
+
+@media (max-width: 991px)
+  .bus_item.bus_item_01
+    .bus_header
+      .content
+        padding-right: 15px
+
+.bus_item.bus_item_02
+  .bus_header
+    top: 62%
+
+    .number
+      color: $color_bus2
+
+      &::before
+        border-color: $color_bus2
+
+    .title
+      .sub_title
+        color: $color_bus2
+
+      .highlight
+        color: $color_bus2
+
+    .button > a > svg g
+      fill: $color_bus2
+
+  .bus_image_wrapper
+    position: relative
+
+    .img_box
+      width: 100%
+      margin-top: -60px
+
+    .img_box img
+      max-width: 1287px
+
+@media (max-width: 1200px)
+  .bus_item.bus_item_02
+    .bus_header
+      top: 75%
+
+@media (max-width: 991px)
+  .bus_item.bus_item_02
+    .bus_header
+      top: -50px
+      position: relative
+
+@media (max-width: 768px)
+  .bus_item.bus_item_02
+    margin-bottom: 0px
+
+    .bus_image_wrapper
+      .img_box img
+        max-width: 1000px
+
+.bus_item.bus_item_03
+  margin-top: 350px
+
+  .bus_header
+    position: absolute
+    top: 50px
+
+    .content
+      position: relative
+      max-width: 88%
+
+    .number
+      color: $color_bus3
+
+      &::before
+        border-color: $color_bus3
+
+    .title
+      .sub_title
+        color: $color_bus3
+
+      .highlight
+        color: $color_bus3
+
+    .button > a > svg g
+      fill: $color_bus3
+
+@media (max-width: 991px)
+  .bus_item.bus_item_03
+    margin-top: 0px
+
+@media (max-width: 767px)
+  .bus_item.bus_item_03
+    .bus_header
+      position: relative
+      top: 70px
+
+      .content
+        max-width: 100%
+
+.bus_item.bus_item_04
+  margin-top: 200px
+
+  .bus_content
+    // display: flex;
+    // align-items: flex-end;
+
+  .bus_header
+    top: inherit
+    bottom: 42px
+    height: auto
+
+    .content
+      position: relative
+      max-width: 88%
+
+    .number
+      color: $color_bus4
+
+      &::before
+        border-color: $color_bus4
+
+    .title
+      .sub_title
+        color: $color_bus4
+
+      .highlight
+        color: $color_bus4
+
+    .button > a > svg g
+      fill: $color_bus4
+
+  .bus_image_wrapper
+    // margin-left: -2px;
+    position: relative
+    left: 0
+    bottom: 0
+    height: 100%
+    width: 100%
+
+    .img_box
+      width: 100%
+
+      .parallaxie
+        height: 100%
+        width: 100%
+        min-height: 940px
+        position: relative
+        background-image: url("../images/businessweb/img_factory.png")
+        background-repeat: no-repeat
+        background-size: 100% auto
+        background-position: center
+
+@media (max-width: 768px)
+  .bus_item.bus_item_04
+    margin-top: 100px
+
+    .bus_header
+      bottom: 95px
+
+    .bus_image_wrapper
+      .img_box
+        .parallaxie
+          background-size: cover
+          min-height: 500px
+
+.bus_item.bus_item_05
+  margin-top: 180px
+
+  .bus_header
+    position: absolute
+    top: inherit
+    bottom: 50px
+    height: auto
+
+    .content
+      position: relative
+      max-width: 88%
+
+    .number
+      color: $color_bus5
+
+      &::before
+        border-color: $color_bus5
+
+    .title
+      .sub_title
+        color: $color_bus5
+
+      .highlight
+        color: $color_bus5
+
+    .button > a > svg g
+      fill: $color_bus5
+
+  .bus_image_wrapper
+    .img_box
+      width: 100%
+
+      img
+        width: 100%
+
+@media (max-width: 768px)
+  .bus_item.bus_item_05
+    margin-top: 60px
+
+    .bus_header
+      position: relative
+      bottom: -60px
+
+      .content
+        max-width: 100%
+
+    .bus_image_wrapper
+      margin-top: 20px
+
+.bus_item.bus_item_06
+  .bus_header
+    top: inherit
+    bottom: 20%
+    height: auto
+
+    .content
+      position: relative
+      max-width: 88%
+
+    .number
+      color: $color_bus6
+
+      &::before
+        border-color: $color_bus6
+
+    .title
+      .sub_title
+        color: $color_bus6
+
+      .highlight
+        color: $color_bus6
+
+    .button > a > svg g
+      fill: $color_bus6
+
+  .bus_image_wrapper
+    margin-top: -24%
+    margin-left: -15%
+
+    .img_box
+      width: 100%
+
+@media (max-width: 1200px)
+  .bus_item.bus_item_06
+    .bus_image_wrapper
+      margin-top: -30%
+      margin-left: -60%
+
+@media (max-width: 768px)
+  .bus_item.bus_item_06
+    .bus_header
+      top: 60px
+
+    .bus_image_wrapper
+      margin-top: 0
+      margin-left: 0
+
+      .img_box
+        img
+          max-width: 200%
+
+.bus_item.bus_item_07
+  .bus_header
+    position: absolute
+    top: inherit
+    bottom: -30%
+    height: auto
+
+    .content
+      position: relative
+      max-width: 88%
+
+    .number
+      color: $color_bus7
+
+      &::before
+        border-color: $color_bus7
+
+    .title
+      .sub_title
+        color: $color_bus7
+
+      .highlight
+        color: $color_bus7
+
+    .button > a > svg g
+      fill: $color_bus7
+
+  .bus_image_wrapper
+    margin-top: -5%
+
+    .img_box
+      width: 100%
+
+@media (max-width: 1200px)
+  .bus_item.bus_item_07
+    .bus_header
+      top: 38%
+
+      .content
+        max-width: 100%
+
+@media (max-width: 768px)
+  .bus_item.bus_item_07
+    .bus_content
+      display: flex
+      flex-direction: column-reverse
+
+    .bus_header
+      position: relative
+      margin-top: -50px
+
+    .bus_image_wrapper
+      margin-top: 0
+
+.bus_item.bus_item_08
+  margin-top: 180px
+
+  .bus_header
+    top: 72%
+
+    .number
+      color: $color_bus8
+
+      &::before
+        border-color: $color_bus8
+
+    .title
+      .sub_title
+        color: $color_bus8
+
+      .highlight
+        color: $color_bus8
+
+    .text
+      max-width: 75%
+
+    .button > a > svg g
+      fill: $color_bus8
+
+  .bus_image_wrapper
+    position: relative
+
+    .img_box
+      width: 100%
+
+    .img_box img
+      width: 100%
+
+@media (max-width: 991px)
+  .bus_item.bus_item_08
+    .bus_header
+      position: relative
+      top: 0
+
+@media (max-width: 991px)
+  .bus_item.bus_item_08
+    margin-top: 50px
+
+    .bus_header
+      .content
+        position: relative
+        bottom: initial
+        margin-top: -100px
+
+      .text
+        max-width: 100%
+
+.bus_item.bus_item_09
+  margin-top: 280px
+
+  .bus_header
+    position: relative
+
+    .content
+      position: absolute
+
+    .number
+      color: $color_bus9
+
+      &::before
+        border-color: $color_bus9
+
+    .title
+      .sub_title
+        color: $color_bus9
+
+      .highlight
+        color: $color_bus9
+
+    .text
+      max-width: 88%
+
+    .button > a > svg g
+      fill: $color_bus9
+
+  .bus_image_wrapper
+    position: relative
+    top: 80px
+
+    .img_box
+      width: 100%
+
+@media (max-width: 991px)
+  .bus_item.bus_item_09
+    margin-top: 200px
+
+@media (max-width: 768px)
+  .bus_item.bus_item_09
+    .bus_header
+      .content
+        position: relative
+
+      .text
+        max-width: 100%
+
+    .bus_image_wrapper
+      top: 0
+      margin-top: -80px
+
+.bus_item.bus_item_10
+  margin-top: 300px
+
+  .bus_header
+    top: -15px
+
+    .number
+      color: $color_bus10
+
+      &::before
+        border-color: $color_bus10
+
+    .title
+      .sub_title
+        color: $color_bus10
+
+      .highlight
+        color: $color_bus10
+
+    .button > a > svg g
+      fill: $color_bus10
+
+  .bus_image_wrapper
+    margin-left: -2px
+
+    .img_box
+      height: 520px
+      max-width: 1635px
+
+      .parallaxie
+        position: relative
+        background-image: url("../images/businessweb/img_hotel.png")
+
+        +bgiCover($position: center center, $size: cover)
+        height: 100%
+        width: 100%
+
+@media (max-width: 768px)
+  .bus_item.bus_item_10
+    margin-top: 250px
+
+    .bus_header
+      top: -80px
+
+@media (max-width: 480px)
+  .bus_item.bus_item_10
+    margin-top: 0px
+
+    .bus_header
+      position: relative
+      top: 80px
+
+    .bus_image_wrapper
+      .img_box
+        height: 100%
+
+        .parallaxie
+          height: 100%
+          width: 100%
+          min-height: 150px
+          position: relative
+          background-size: 100% auto

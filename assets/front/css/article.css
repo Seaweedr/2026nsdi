@@ -1,0 +1,46 @@
+.nsdi-article-system {
+  position: relative; }
+
+.nas-wrapper, .nas-image-wrapper, .nas-article-wrapper {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; }
+
+.nsdi-article-system:not(:last-child) {
+  margin-bottom: 30px; }
+
+.nsdi-article-system .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  .nsdi-article-system .row:before, .nsdi-article-system .row:after {
+    display: none; }
+
+.nas-image-wrapper img, .nas-article img {
+  max-width: 100%;
+  height: auto !important; }
+
+.nas-article-wrapper, .nas-image-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.nas-article {
+  padding: 20px; }
+
+@media screen and (max-width: 767px) {
+  .nas-mobile-reverse {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse; } }

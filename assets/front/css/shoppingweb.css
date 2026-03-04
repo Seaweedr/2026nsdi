@@ -1,0 +1,835 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700");
+body,
+html {
+  background-color: #FFFFFF;
+  color: #000000;
+  height: auto; }
+
+body *::-moz-selection {
+  background-color: #a4a39e; }
+
+body *::selection {
+  background-color: #a4a39e; }
+
+article {
+  overflow: hidden; }
+
+li {
+  list-style: none; }
+
+ul {
+  padding-left: 0; }
+
+.top_wrap {
+  margin-bottom: 80px;
+  position: relative;
+  background-image: url("../images/shoppingweb/img_OlineStore-kv.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5) {
+    .top_wrap {
+      background-image: url("../images/shoppingweb/img_OlineStore-kv@2x.jpg"); } }
+  @media screen and (min-width: 768px) {
+    .top_wrap {
+      height: 100vh;
+      margin-bottom: 0; } }
+  .top_wrap .scroll {
+    font-family: 'Lato', 'Noto Sans TC', "PingFang TC" ,"微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial;
+    font-size: 10px;
+    font-weight: 300;
+    color: #000;
+    letter-spacing: 15px;
+    line-height: inherit;
+    cursor: pointer;
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    right: -40px;
+    -webkit-transform: translate(0, -50%) rotate(-90deg);
+    -ms-transform: translate(0, -50%) rotate(-90deg);
+    transform: translate(0, -50%) rotate(-90deg);
+    opacity: 1;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s; }
+    .top_wrap .scroll img {
+      -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+      margin-bottom: 4px;
+      margin-right: 20px; }
+    @media screen and (max-width: 480px) {
+      .top_wrap .scroll {
+        display: none; } }
+  .top_wrap .title_wrap {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0; }
+  .top_wrap .title_block {
+    position: relative;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7); }
+    @media screen and (min-width: 768px) {
+      .top_wrap .title_block {
+        width: 850px;
+        background-color: #fff;
+        min-height: 500px;
+        padding-top: 72px; } }
+    @media screen and (min-width: 1200px) {
+      .top_wrap .title_block {
+        width: 1280px; } }
+    .top_wrap .title_block .title_box {
+      position: relative;
+      padding: 15px 20px; }
+      @media screen and (min-width: 768px) {
+        .top_wrap .title_block .title_box {
+          top: -60px;
+          right: 155px;
+          position: absolute;
+          display: inline-block; } }
+      @media screen and (min-width: 1200px) {
+        .top_wrap .title_block .title_box {
+          top: -100px;
+          right: 125px; } }
+    .top_wrap .title_block .title_header {
+      margin-bottom: 13px; }
+      .top_wrap .title_block .title_header .sub_title {
+        color: rgba(0, 0, 0, 0.9);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 42px;
+        letter-spacing: 4px; }
+        @media screen and (min-width: 768px) {
+          .top_wrap .title_block .title_header .sub_title {
+            font-size: 72px;
+            letter-spacing: 8px; } }
+        @media screen and (min-width: 1200px) {
+          .top_wrap .title_block .title_header .sub_title {
+            font-size: 120px;
+            letter-spacing: 10px; } }
+    .top_wrap .title_block .title_body {
+      max-width: 408px;
+      margin-bottom: 80px; }
+      @media screen and (min-width: 768px) {
+        .top_wrap .title_block .title_body {
+          margin-bottom: 160px; } }
+      .top_wrap .title_block .title_body .main_title {
+        font-size: 20px;
+        letter-spacing: 2px;
+        text-align: left;
+        margin-bottom: 16px; }
+        @media screen and (min-width: 768px) {
+          .top_wrap .title_block .title_body .main_title {
+            letter-spacing: 13.5px; } }
+      .top_wrap .title_block .title_body .text {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.8);
+        letter-spacing: 1.7px;
+        text-align: left;
+        line-height: 24px; }
+    .top_wrap .title_block .title_footer .applyto_box {
+      font-size: 14px;
+      letter-spacing: 1.29px;
+      border: 1px solid #000;
+      display: inline-block;
+      padding: 3px 20px;
+      letter-spacing: 5px;
+      text-indent: 5px;
+      margin-bottom: 17px; }
+    .top_wrap .title_block .title_footer .applyto_content p {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.8);
+      letter-spacing: 1.2px;
+      text-align: left;
+      line-height: 22px; }
+
+section {
+  margin-bottom: 80px; }
+  @media screen and (min-width: 768px) {
+    section {
+      margin-bottom: 0; } }
+
+.sw_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  position: relative;
+  padding: 0 20px; }
+  @media screen and (min-width: 768px) {
+    .sw_content {
+      padding: 0; } }
+
+.sw_bg_00 {
+  background: #FFF; }
+
+.sw_bg_01 {
+  background: rgba(0, 0, 0, 0.03); }
+
+.sw_bg_02 {
+  background: rgba(0, 0, 0, 0.06); }
+
+.sw_bg_03 {
+  background: rgba(0, 0, 0, 0.12); }
+
+.sw_bg_04 {
+  background: #F7F7F7; }
+
+.sw_bg_05 {
+  background: rgba(0, 0, 0, 0.09); }
+
+.sw_bg_06 {
+  background-image: url("../images/shoppingweb/img_OlineStore-customize_01.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; }
+
+.sw_bg_07 {
+  background-image: url("../images/shoppingweb/img_OlineStore-customize_02.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; }
+
+.project_wrap .content_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  @media screen and (min-width: 768px) {
+    .project_wrap .content_box {
+      padding: 60px 0 60px 50px;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-align: end;
+      -ms-flex-align: end;
+      align-items: flex-end; } }
+  @media screen and (min-width: 1200px) {
+    .project_wrap .content_box {
+      padding: 120px 0 120px 170px; } }
+  .project_wrap .content_box .title {
+    font-family: 'Lato', 'Noto Sans TC', "PingFang TC" ,"微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial;
+    font-weight: bold;
+    font-size: 40px;
+    color: rgba(0, 0, 0, 0.8);
+    letter-spacing: 7.79px;
+    line-height: 33px;
+    margin-bottom: 20px; }
+    @media screen and (max-width: 480px) {
+      .project_wrap .content_box .title {
+        font-size: 32px; } }
+    @media screen and (min-width: 768px) {
+      .project_wrap .content_box .title {
+        -webkit-writing-mode: vertical-lr;
+        -ms-writing-mode: tb-lr;
+        writing-mode: vertical-lr;
+        -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg); } }
+  .project_wrap .content_box .content {
+    position: relative;
+    padding-top: 30px;
+    margin-top: 30px; }
+    .project_wrap .content_box .content::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 1px;
+      width: 33px;
+      background-color: rgba(0, 0, 0, 0.8); }
+    @media screen and (min-width: 768px) {
+      .project_wrap .content_box .content {
+        margin-left: 120px;
+        padding-top: 0;
+        margin-top: 0; }
+        .project_wrap .content_box .content::before {
+          top: -45px;
+          left: -5px; } }
+    .project_wrap .content_box .content .one_project .number {
+      font-family: 'Lato', 'Noto Sans TC', "PingFang TC" ,"微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial;
+      font-weight: 300;
+      font-size: 32px;
+      color: rgba(0, 0, 0, 0.8);
+      letter-spacing: 1.6px;
+      line-height: 33px;
+      margin-right: 37px; }
+    .project_wrap .content_box .content .one_project .main {
+      font-weight: 300;
+      font-size: 18px;
+      color: #333231;
+      letter-spacing: 5px;
+      display: inline-block;
+      min-width: 150px; }
+    .project_wrap .content_box .content .one_project .text {
+      font-weight: 300;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.8);
+      letter-spacing: 1.98px;
+      text-align: left;
+      line-height: 23px;
+      display: inline-block; }
+      .project_wrap .content_box .content .one_project .text::before {
+        content: "/";
+        padding-right: 10px; }
+      @media screen and (max-width: 768px) {
+        .project_wrap .content_box .content .one_project .text {
+          margin-top: 20px;
+          display: block; } }
+
+@media screen and (min-width: 768px) {
+  .solve_wrap {
+    margin-bottom: 0; }
+    .solve_wrap .sw_content {
+      min-height: 750px;
+      background: none; } }
+
+@media screen and (min-width: 768px) {
+  .solve_wrap .content_box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); } }
+
+.solve_wrap .content_box .title_wrap .title {
+  text-align: left;
+  font-weight: 300;
+  font-size: 20.8px;
+  color: #333231;
+  letter-spacing: 13.5px; }
+  .solve_wrap .content_box .title_wrap .title span {
+    display: block;
+    font-weight: bold;
+    font-family: 'Lato', 'Noto Sans TC', "PingFang TC" ,"微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial;
+    font-size: 37px;
+    color: rgba(0, 0, 0, 0.8);
+    letter-spacing: 7.79px;
+    line-height: 33px;
+    margin-bottom: 20px;
+    text-align: left; }
+    @media screen and (max-width: 480px) {
+      .solve_wrap .content_box .title_wrap .title span {
+        font-size: 32px; } }
+
+.solve_wrap .content_box .solve_list .content {
+  position: relative;
+  padding-left: 72px;
+  margin-top: 70px; }
+  .solve_wrap .content_box .solve_list .content .icon_box {
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: 0; }
+  .solve_wrap .content_box .solve_list .content .title {
+    font-size: 16px;
+    font-weight: 300;
+    color: #000;
+    letter-spacing: 5px;
+    margin-top: 12px;
+    margin-bottom: 30px; }
+  .solve_wrap .content_box .solve_list .content ul li {
+    font-size: 14px;
+    font-weight: 300;
+    color: #000;
+    letter-spacing: 1.7px;
+    line-height: 23px;
+    margin-top: 10px; }
+    .solve_wrap .content_box .solve_list .content ul li::before {
+      content: "";
+      width: 5px;
+      height: 1px;
+      background-color: #000;
+      display: inline-block;
+      margin-right: 20px;
+      margin-bottom: 4px; }
+
+.example {
+  position: relative; }
+  @media screen and (min-width: 1680px) {
+    .example .content_box {
+      padding-right: 18% !important;
+      padding-left: 18% !important; } }
+  .example .content_box .title {
+    font-size: 19px;
+    color: #333231;
+    letter-spacing: 5.94px;
+    margin-bottom: 50px; }
+  .example .content_box .subtitle {
+    text-transform: uppercase;
+    font-family: 'Lato', 'Noto Sans TC', "PingFang TC" ,"微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial;
+    font-weight: bold;
+    font-size: 37px;
+    color: rgba(0, 0, 0, 0.8);
+    letter-spacing: 7.79px;
+    line-height: 33px;
+    margin-bottom: 16px; }
+    @media screen and (max-width: 480px) {
+      .example .content_box .subtitle {
+        font-size: 32px;
+        letter-spacing: 6px; } }
+  .example .content_box .text {
+    font-weight: 300;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
+    text-align: justify;
+    line-height: 28px;
+    margin-bottom: 50px; }
+  .example .content_box .bottom {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  .example .content_box .highlight ul li {
+    font-size: 14px;
+    font-weight: 300;
+    color: #333231;
+    letter-spacing: 1.17px;
+    margin-top: 10px; }
+    .example .content_box .highlight ul li::before {
+      content: "";
+      width: 5px;
+      height: 1px;
+      background-color: #000;
+      display: inline-block;
+      margin-right: 8px;
+      margin-bottom: 4px; }
+  .example .content_box .button a span {
+    font-family: 'Lato', 'Noto Sans TC', "PingFang TC" ,"微軟正黑體",   "蘋果儷中黑",'sans-serif' , Arial;
+    font-weight: normal;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.8);
+    letter-spacing: 4.8px;
+    margin-right: 12px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #000; }
+  .example .content_box .button a img {
+    margin-top: -2px; }
+
+@media screen and (min-width: 992px) {
+  .layout01 .sw_content {
+    max-height: 800px; } }
+
+.layout01 .content_box {
+  padding: 85px 15px 70px; }
+  @media screen and (max-width: 480px) {
+    .layout01 .content_box {
+      padding: 85px 0 70px; } }
+  @media screen and (min-width: 1200px) {
+    .layout01 .content_box {
+      padding: 195px 12% 210px; } }
+
+.layout01 .img_wrapper {
+  position: relative;
+  top: 100px; }
+  @media screen and (min-width: 768px) {
+    .layout01 .img_wrapper {
+      max-width: 50%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1; } }
+  @media screen and (min-width: 992px) {
+    .layout01 .img_wrapper {
+      max-width: 58.333333%; } }
+  @media screen and (min-width: 1200px) {
+    .layout01 .img_wrapper {
+      max-width: 66.66666%; } }
+
+@media screen and (max-width: 768px) {
+  .layout02 .sw_content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse; } }
+
+@media screen and (min-width: 1200px) {
+  .layout02 .sw_content {
+    min-height: 750px; } }
+
+.layout02 .sw_content .sw_bg {
+  position: relative;
+  background-image: url("../images/shoppingweb/img_OlineStore-food_01.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; }
+
+.layout02 .sw_content .food1 {
+  background-position: 10%; }
+  .layout02 .sw_content .food1 .img_wrapper {
+    position: absolute;
+    z-index: 1;
+    left: -10%;
+    bottom: -55px; }
+    @media screen and (min-width: 1200px) {
+      .layout02 .sw_content .food1 .img_wrapper {
+        top: 175px; } }
+
+.layout02 .sw_content .food2 {
+  background-position: 60%; }
+  @media screen and (max-width: 768px) {
+    .layout02 .sw_content .food2 {
+      background: none; } }
+  .layout02 .sw_content .food2 .img_wrapper {
+    position: absolute;
+    z-index: 1;
+    max-width: 60%;
+    top: -130px;
+    right: 0; }
+    @media screen and (max-width: 480px) {
+      .layout02 .sw_content .food2 .img_wrapper {
+        max-width: 60%;
+        top: -60px; } }
+    @media screen and (min-width: 768px) {
+      .layout02 .sw_content .food2 .img_wrapper {
+        top: -45px;
+        max-width: 100%; } }
+    @media screen and (min-width: 1200px) {
+      .layout02 .sw_content .food2 .img_wrapper {
+        right: -25%;
+        top: -85px; } }
+
+@media screen and (min-width: 768px) {
+  .layout02 .sw_content .sw_bg_00 {
+    background-image: none; } }
+
+.layout02 .content_box {
+  padding: 155px 15px 70px; }
+  @media screen and (max-width: 480px) {
+    .layout02 .content_box {
+      padding: 140px 0 50px; } }
+  @media screen and (min-width: 768px) {
+    .layout02 .content_box {
+      padding: 80px 30px 80px; } }
+  @media screen and (min-width: 1200px) {
+    .layout02 .content_box {
+      padding: 120px 10% 120px; } }
+
+@media screen and (max-width: 768px) {
+  .layout03 .sw_content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse; } }
+
+.layout03 .sw_content .img_wrapper {
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/shoppingweb/img_OlineStore-clothes.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
+  @media screen and (max-width: 768px) {
+    .layout03 .sw_content .img_wrapper {
+      height: 300px; } }
+
+.layout03 .content_box {
+  padding: 60px 15px 70px; }
+  @media screen and (max-width: 480px) {
+    .layout03 .content_box {
+      padding: 40px 0 50px; } }
+  @media screen and (min-width: 768px) {
+    .layout03 .content_box {
+      padding: 80px 30px 80px; } }
+  @media screen and (min-width: 1200px) {
+    .layout03 .content_box {
+      padding: 170px 10% 150px; } }
+
+.layout04 .sw_content .img_wrapper {
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/shoppingweb/img_OlineStore-cosmetic.png");
+  background-repeat: no-repeat;
+  background-size: cover; }
+  @media screen and (max-width: 768px) {
+    .layout04 .sw_content .img_wrapper {
+      height: 300px; } }
+
+.layout04 .content_box {
+  padding: 60px 15px 70px; }
+  @media screen and (max-width: 480px) {
+    .layout04 .content_box {
+      padding: 40px 0 50px; } }
+  @media screen and (min-width: 768px) {
+    .layout04 .content_box {
+      padding: 80px 30px 80px; } }
+  @media screen and (min-width: 1200px) {
+    .layout04 .content_box {
+      padding: 200px 10% 200px; } }
+
+@media screen and (max-width: 768px) {
+  .layout05 .sw_content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse; } }
+
+.layout05 .sw_content .img_wrapper {
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/shoppingweb/img_OlineStore-health.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: -80px; }
+  @media screen and (max-width: 768px) {
+    .layout05 .sw_content .img_wrapper {
+      height: 300px; } }
+
+.layout05 .content_box {
+  padding: 60px 15px 70px; }
+  @media screen and (max-width: 480px) {
+    .layout05 .content_box {
+      padding: 40px 0 50px; } }
+  @media screen and (min-width: 768px) {
+    .layout05 .content_box {
+      padding: 80px 30px 80px; } }
+  @media screen and (min-width: 1200px) {
+    .layout05 .content_box {
+      padding: 170px 10% 150px; } }
+
+.layout06 .sw_content .sw_bg {
+  position: relative;
+  overflow: hidden; }
+
+.layout06 .sw_content .img_wrapper {
+  padding: 30px 0 0; }
+  @media screen and (min-width: 768px) {
+    .layout06 .sw_content .img_wrapper {
+      position: absolute;
+      width: 105%;
+      left: -20%;
+      top: 30%;
+      padding: 0; } }
+
+@media screen and (max-width: 768px) {
+  .layout06 .sw_content .jewelry1 {
+    background: rgba(0, 0, 0, 0.03); } }
+
+@media screen and (min-width: 768px) {
+  .layout06 .sw_content .jewelry1 .img_wrapper {
+    top: 32%; } }
+
+@media screen and (max-width: 768px) {
+  .layout06 .sw_content .jewelry2 {
+    background: rgba(0, 0, 0, 0.03); }
+    .layout06 .sw_content .jewelry2 .img_wrapper {
+      padding-top: 100px; } }
+
+.layout06 .content_box {
+  padding: 0 15px 70px; }
+  @media screen and (max-width: 480px) {
+    .layout06 .content_box {
+      padding: 40px 0 50px; } }
+  @media screen and (min-width: 768px) {
+    .layout06 .content_box {
+      padding: 80px 30px 80px; } }
+  @media screen and (min-width: 992px) {
+    .layout06 .content_box {
+      padding: 80px 30px 80px; } }
+  @media screen and (min-width: 1200px) {
+    .layout06 .content_box {
+      padding: 170px 10% 200px; } }
+
+.layout07 {
+  z-index: 1; }
+  @media screen and (max-width: 768px) {
+    .layout07 .sw_content {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+      flex-direction: column-reverse; } }
+  .layout07 .sw_content .img_wrapper {
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/shoppingweb/img_OlineStore-department.png");
+    background-repeat: no-repeat;
+    background-size: cover; }
+    @media screen and (max-width: 768px) {
+      .layout07 .sw_content .img_wrapper {
+        height: 300px; } }
+  .layout07 .sw_content .sw_bg_02 {
+    background-color: #f0f0f0; }
+  .layout07 .content_box {
+    padding: 60px 15px 70px; }
+    @media screen and (max-width: 480px) {
+      .layout07 .content_box {
+        padding: 40px 0 50px; } }
+    @media screen and (min-width: 768px) {
+      .layout07 .content_box {
+        padding: 80px 30px 80px; } }
+    @media screen and (min-width: 1200px) {
+      .layout07 .content_box {
+        padding: 170px 10% 150px; } }
+
+.layout08 .sw_content {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse; }
+  @media screen and (min-width: 768px) {
+    .layout08 .sw_content {
+      margin-top: -50px;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+      flex-direction: row-reverse; } }
+  @media screen and (min-width: 1200px) {
+    .layout08 .sw_content {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row; } }
+  .layout08 .sw_content .img_wrapper {
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/shoppingweb/img_OlineStore-shopping.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 5; }
+    @media screen and (min-width: 1200px) {
+      .layout08 .sw_content .img_wrapper {
+        background-position: 50px top;
+        background-size: auto; } }
+    @media screen and (min-width: 768px) {
+      .layout08 .sw_content .img_wrapper {
+        background-position: -80px top; } }
+    @media screen and (max-width: 768px) {
+      .layout08 .sw_content .img_wrapper {
+        height: 360px; } }
+
+.layout08 .content_box {
+  padding: 60px 15px 70px; }
+  @media screen and (max-width: 480px) {
+    .layout08 .content_box {
+      padding: 40px 0 50px; } }
+  @media screen and (min-width: 768px) {
+    .layout08 .content_box {
+      padding: 80px 30px 80px; } }
+  @media screen and (min-width: 992px) {
+    .layout08 .content_box {
+      padding-top: 130px; } }
+  @media screen and (min-width: 1200px) {
+    .layout08 .content_box {
+      padding: 170px 10% 150px; } }
+
+@media screen and (max-width: 992px) {
+  .layout09 .sw_content {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse; } }
+
+.layout09 .sw_content .sw_bg {
+  position: relative;
+  overflow: hidden; }
+
+.layout09 .sw_content .sw_bg_00 {
+  -webkit-box-ordinal-group: 3;
+  -ms-flex-order: 2;
+  order: 2; }
+
+.layout09 .sw_content .customize1 {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1; }
+
+.layout09 .sw_content .customize2 {
+  -webkit-box-ordinal-group: 4;
+  -ms-flex-order: 3;
+  order: 3; }
+
+.layout09 .sw_content .img_wrapper {
+  width: 100%;
+  padding-top: 15px;
+  max-height: 300px; }
+  @media screen and (min-width: 768px) {
+    .layout09 .sw_content .img_wrapper {
+      position: absolute;
+      top: 20%;
+      padding-top: 0;
+      max-height: inherit; } }
+  @media screen and (min-width: 992px) {
+    .layout09 .sw_content .img_wrapper {
+      top: 25%; } }
+  @media screen and (min-width: 1200px) {
+    .layout09 .sw_content .img_wrapper {
+      top: 20%; } }
+  .layout09 .sw_content .img_wrapper img {
+    max-width: 100%;
+    height: auto; }
+    @media screen and (min-width: 1200px) {
+      .layout09 .sw_content .img_wrapper img {
+        max-width: inherit; } }
+
+@media screen and (max-width: 768px) {
+  .layout09 .sw_bg_00 {
+    background: rgba(0, 0, 0, 0.03); } }
+
+.layout09 .content_box {
+  padding: 60px 15px 70px; }
+  @media screen and (max-width: 480px) {
+    .layout09 .content_box {
+      padding: 40px 0 50px; } }
+  @media screen and (min-width: 768px) {
+    .layout09 .content_box {
+      padding: 80px 30px 80px; } }
+  @media screen and (min-width: 992px) {
+    .layout09 .content_box {
+      padding-top: 130px; } }
+  @media screen and (min-width: 1200px) {
+    .layout09 .content_box {
+      padding: 170px 10% 150px; } }
+
+@media screen and (max-width: 992px) {
+  .layout10 .sw_content {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse; } }
+
+@media screen and (max-width: 768px) {
+  .layout10 .sw_content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse; } }
+
+.layout10 .sw_content .img_wrapper {
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/shoppingweb/img_OlineStore-Ecommerce.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; }
+  @media screen and (max-width: 768px) {
+    .layout10 .sw_content .img_wrapper {
+      height: 300px; } }
+
+.layout10 .content_box {
+  padding: 60px 15px 70px; }
+  @media screen and (max-width: 480px) {
+    .layout10 .content_box {
+      padding: 40px 0 50px; } }
+  @media screen and (min-width: 768px) {
+    .layout10 .content_box {
+      padding: 80px 30px 80px; } }
+  @media screen and (min-width: 1200px) {
+    .layout10 .content_box {
+      padding: 170px 10% 150px; } }

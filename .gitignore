@@ -1,0 +1,33 @@
+# Agent knowledge base (local only)
+.agent/
+
+# Database dumps
+*.sql
+
+# Large data folders
+dw/
+datas/
+
+# Session files
+datas/temp/sess/
+
+# Captcha temp
+datas/temp/captcha/
+
+# Sensitive config
+application/config/database.php
+application/config/client_secrets.p12
+
+# CI logs
+application/logs/*.php
+application/logs/*.log
+
+# CI cache
+application/cache/*.php
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
