@@ -70,10 +70,8 @@ header {
     padding: 25px 0px 0px 20px;
   }
   .logo-wrap .big-logo {
-    display: none;
-  }
-  .logo-wrap .small-logo {
-    display: block;
+    width: 40px;
+    height: 40px;
   }
 }
 nav ul {
@@ -403,7 +401,7 @@ nav ul {
 }
 @media all and (max-width: 768px) {
   .main-nav-wrap ul.main-menu-list {
-    padding: 80px 0 60px;
+    padding: 80px 24px 60px;
     width: 100%;
   }
   .main-nav-wrap li.main-menu-item {
