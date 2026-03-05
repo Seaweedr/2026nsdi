@@ -2756,17 +2756,23 @@ body.homepage {
     padding: 120px 0 140px;
   }
   .nomo-works__grid {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
     gap: 16px;
     padding: 0 5vw;
+    scrollbar-width: none;
+  }
+  .nomo-works__grid::-webkit-scrollbar {
+    display: none;
+  }
+  .nomo-work-card {
+    flex: 0 0 70vw;
+    scroll-snap-align: start;
   }
   .nomo-work-card__title {
     font-size: 17px;
-  }
-}
-@media (max-width: 480px) {
-  .nomo-works__grid {
-    grid-template-columns: 1fr;
   }
 }
 /* ============================================================
