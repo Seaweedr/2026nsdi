@@ -1983,6 +1983,19 @@ body.homepage {
   letter-spacing: 0.06em;
   clip-path: inset(0 0 0 0);
 }
+@media (max-width: 768px) {
+  .nomo-section-header__title.letter-rise-wrap {
+    font-size: clamp(28px, 7vw, 40px) !important;
+  }
+  .nomo-work-card__title.letter-rise-wrap {
+    font-size: 17px !important;
+  }
+}
+@media (max-width: 480px) {
+  .nomo-section-header__title.letter-rise-wrap {
+    font-size: clamp(24px, 6.5vw, 32px) !important;
+  }
+}
 /* Trigger letter-rise when section or card becomes visible */
 .nomo-section--visible .letter-rise,
 .anim-reveal.is-visible .letter-rise {
