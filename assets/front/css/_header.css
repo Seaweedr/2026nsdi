@@ -401,20 +401,21 @@ nav ul {
     margin-top: 30px;
   }
 }
-@media all and (max-width: 576px) {
+@media all and (max-width: 768px) {
   .main-nav-wrap ul.main-menu-list {
     padding: 80px 0 60px;
+    width: 100%;
   }
   .main-nav-wrap li.main-menu-item {
-    padding: 24px 0;
+    padding: 20px 0;
   }
   .main-nav-wrap ul.main-menu-list li.main-menu-item span.title span.en {
-    font-size: 22px;
+    font-size: 24px;
     letter-spacing: 2px;
     display: block;
   }
   .main-nav-wrap ul.main-menu-list li.main-menu-item span.title span.cn {
-    font-size: 11px;
+    font-size: 12px;
     margin-left: 0;
     margin-top: 6px;
     display: block;
