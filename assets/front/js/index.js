@@ -1613,6 +1613,40 @@
     }
 
     // ========================================
+    // 6b. Work card title letter-rise
+    // ========================================
+    function initWorkCardLetterRise() {
+        var titles = document.querySelectorAll('.nomo-work-card__title');
+        if (!titles.length) return;
+
+        titles.forEach(function(el) {
+            var text = el.textContent;
+            el.textContent = '';
+            el.classList.add('letter-rise-wrap');
+            for (var i = 0; i < text.length; i++) {
+                var letter = document.createElement('span');
+                letter.className = 'letter-rise';
+                letter.textContent = text[i];
+                letter.style.transitionDelay = (i * 0.04) + 's';
+                el.appendChild(letter);
+            }
+        });
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('card-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.nomo-work-card').forEach(function(card) {
+            observer.observe(card);
+        });
+    }
+
+    // ========================================
     // 7. Work card tilt
     // ========================================
     function initWorkTilt() {
@@ -1703,6 +1737,7 @@
 
         initSectionTransitions();
         splitTextToLetters();
+        initWorkCardLetterRise();
         initScrollReveal();
         if (!prefersReducedMotion) {
             initLenisScroll();
