@@ -1972,6 +1972,16 @@ body.homepage {
   transform: translateY(0);
 }
 
+/* Work card title letter-rise */
+.nomo-work-card__title.letter-rise-wrap {
+  font-size: 20px !important;
+  letter-spacing: 0.06em;
+  clip-path: inset(0 0 0 0);
+}
+.card-revealed .nomo-work-card__title .letter-rise {
+  transform: translateY(0);
+}
+
 .nomo-hero__desc {
   font-size: 14px;
   line-height: 2;
