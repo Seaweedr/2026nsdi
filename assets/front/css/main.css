@@ -1983,7 +1983,8 @@ body.homepage {
   letter-spacing: 0.06em;
   clip-path: inset(0 0 0 0);
 }
-/* Trigger letter-rise when parent anim-reveal gets is-visible */
+/* Trigger letter-rise: section titles via own observer, card titles via parent */
+.letter-rise-wrap.letters-visible .letter-rise,
 .anim-reveal.is-visible .letter-rise {
   transform: translateY(0);
 }
