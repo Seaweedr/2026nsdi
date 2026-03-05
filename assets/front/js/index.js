@@ -1616,7 +1616,6 @@
     // 6b. Section title & card title letter-rise
     // ========================================
     function initLetterRise() {
-        // All elements that need letter-rise: section headers + work card titles
         var els = document.querySelectorAll('.nomo-section-header__title, .nomo-work-card__title');
         if (!els.length) return;
 
@@ -1628,21 +1627,12 @@
                 var letter = document.createElement('span');
                 letter.className = 'letter-rise';
                 letter.textContent = text[i] === ' ' ? '\u00A0' : text[i];
-                letter.style.transitionDelay = (i * 0.045) + 's';
+                // 0.35s base delay so parent anim-reveal has started fading in
+                letter.style.transitionDelay = (0.35 + i * 0.045) + 's';
                 el.appendChild(letter);
             }
         });
-
-        var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('letters-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-        els.forEach(function(el) { observer.observe(el); });
+        // No separate observer — triggered by parent .anim-reveal.is-visible via CSS
     }
 
     // ========================================
