@@ -1620,6 +1620,7 @@
         if (!els.length) return;
 
         els.forEach(function(el) {
+            var isSection = el.classList.contains('nomo-section-header__title');
             var text = el.textContent.trim();
             el.textContent = '';
             el.classList.add('letter-rise-wrap');
@@ -1627,12 +1628,25 @@
                 var letter = document.createElement('span');
                 letter.className = 'letter-rise';
                 letter.textContent = text[i] === ' ' ? '\u00A0' : text[i];
-                // 0.35s base delay so parent anim-reveal has started fading in
-                letter.style.transitionDelay = (0.35 + i * 0.045) + 's';
+                letter.style.transitionDelay = (isSection ? 0.4 : 0.35) + i * 0.05 + 's';
                 el.appendChild(letter);
             }
         });
-        // No separate observer — triggered by parent .anim-reveal.is-visible via CSS
+
+        // Section titles: own IntersectionObserver (no parent anim-reveal)
+        var sectionTitles = document.querySelectorAll('.nomo-section-header__title.letter-rise-wrap');
+        if (sectionTitles.length) {
+            var obs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('letters-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            sectionTitles.forEach(function(el) { obs.observe(el); });
+        }
+        // Card titles: triggered by parent .anim-reveal.is-visible via CSS
     }
 
     // ========================================
