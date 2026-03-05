@@ -1613,21 +1613,22 @@
     }
 
     // ========================================
-    // 6b. Work card title letter-rise
+    // 6b. Section title & card title letter-rise
     // ========================================
-    function initWorkCardLetterRise() {
-        var titles = document.querySelectorAll('.nomo-work-card__title');
-        if (!titles.length) return;
+    function initLetterRise() {
+        // All elements that need letter-rise: section headers + work card titles
+        var els = document.querySelectorAll('.nomo-section-header__title, .nomo-work-card__title');
+        if (!els.length) return;
 
-        titles.forEach(function(el) {
-            var text = el.textContent;
+        els.forEach(function(el) {
+            var text = el.textContent.trim();
             el.textContent = '';
             el.classList.add('letter-rise-wrap');
             for (var i = 0; i < text.length; i++) {
                 var letter = document.createElement('span');
                 letter.className = 'letter-rise';
-                letter.textContent = text[i];
-                letter.style.transitionDelay = (i * 0.04) + 's';
+                letter.textContent = text[i] === ' ' ? '\u00A0' : text[i];
+                letter.style.transitionDelay = (i * 0.045) + 's';
                 el.appendChild(letter);
             }
         });
@@ -1635,15 +1636,13 @@
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('card-revealed');
+                    entry.target.classList.add('letters-visible');
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.nomo-work-card').forEach(function(card) {
-            observer.observe(card);
-        });
+        els.forEach(function(el) { observer.observe(el); });
     }
 
     // ========================================
@@ -1737,7 +1736,7 @@
 
         initSectionTransitions();
         splitTextToLetters();
-        initWorkCardLetterRise();
+        initLetterRise();
         initScrollReveal();
         if (!prefersReducedMotion) {
             initLenisScroll();
