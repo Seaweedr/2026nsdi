@@ -403,7 +403,21 @@ nav ul {
 }
 @media all and (max-width: 576px) {
   .main-nav-wrap ul.main-menu-list {
-    padding: 90px 0 80px;
+    padding: 80px 0 60px;
+  }
+  .main-nav-wrap li.main-menu-item {
+    padding: 24px 0;
+  }
+  .main-nav-wrap ul.main-menu-list li.main-menu-item span.title span.en {
+    font-size: 22px;
+    letter-spacing: 2px;
+    display: block;
+  }
+  .main-nav-wrap ul.main-menu-list li.main-menu-item span.title span.cn {
+    font-size: 11px;
+    margin-left: 0;
+    margin-top: 6px;
+    display: block;
   }
   .lang-toggle-wrap {
     right: 85px;
