@@ -401,11 +401,14 @@ nav ul {
 }
 @media all and (max-width: 768px) {
   .main-nav-wrap ul.main-menu-list {
-    padding: 80px 24px 60px;
+    padding: 60px 24px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .main-nav-wrap li.main-menu-item {
-    padding: 12px 0;
+    padding: 14px 0;
   }
   .main-nav-wrap ul.main-menu-list li.main-menu-item span.title span.en {
     font-size: 24px;
