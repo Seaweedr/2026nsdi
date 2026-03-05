@@ -1632,21 +1632,7 @@
                 el.appendChild(letter);
             }
         });
-
-        // Section titles: own IntersectionObserver (no parent anim-reveal)
-        var sectionTitles = document.querySelectorAll('.nomo-section-header__title.letter-rise-wrap');
-        if (sectionTitles.length) {
-            var obs = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('letters-visible');
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-            sectionTitles.forEach(function(el) { obs.observe(el); });
-        }
-        // Card titles: triggered by parent .anim-reveal.is-visible via CSS
+        // Triggered via CSS when parent .nomo-section--visible or .anim-reveal.is-visible
     }
 
     // ========================================
