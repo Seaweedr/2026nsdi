@@ -1983,8 +1983,8 @@ body.homepage {
   letter-spacing: 0.06em;
   clip-path: inset(0 0 0 0);
 }
-.letters-visible .letter-rise,
-.letter-rise-wrap.letters-visible .letter-rise {
+/* Trigger letter-rise when parent anim-reveal gets is-visible */
+.anim-reveal.is-visible .letter-rise {
   transform: translateY(0);
 }
 
